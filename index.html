@@ -11,18 +11,23 @@
     :root{
       --bg0:#070712;
       --bg1:#0a0a16;
-      --card: rgba(255,255,255,.07);
+
+      --card: rgba(255,255,255,.06);
       --card2: rgba(255,255,255,.04);
-      --stroke: rgba(255,255,255,.12);
-      --text: rgba(255,255,255,.94);
-      --muted: rgba(255,255,255,.72);
+      --stroke: rgba(255,255,255,.10);
+
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
       --muted2: rgba(255,255,255,.52);
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --glow: 0 0 0 1px rgba(255,255,255,.12), 0 22px 90px rgba(145, 95, 255, .22);
+
+      --shadow: 0 16px 50px rgba(0,0,0,.55);
+      --glow: 0 0 0 1px rgba(255,255,255,.12), 0 20px 80px rgba(145, 95, 255, .22);
+
       --pink: #ff4fd8;
       --purple: #8f6bff;
       --cyan: #3fe7ff;
-      --radius: 30px;
+
+      --radius: 28px;
       --radius2: 18px;
     }
 
@@ -30,17 +35,20 @@
     html,body{
       margin:0; padding:0;
       background:
-        radial-gradient(1200px 900px at 20% 10%, rgba(143,107,255,.20), transparent 55%),
-        radial-gradient(900px 650px at 80% 20%, rgba(255,79,216,.14), transparent 55%),
+        radial-gradient(1200px 900px at 20% 10%, rgba(143,107,255,.18), transparent 55%),
+        radial-gradient(900px 650px at 80% 20%, rgba(255,79,216,.12), transparent 55%),
         radial-gradient(700px 600px at 55% 90%, rgba(63,231,255,.10), transparent 60%),
         linear-gradient(180deg, var(--bg0), var(--bg1));
       color: var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      scroll-behavior:smooth;
 
-      /* ✅ BIGGER BASE TEXT */
-      font-size: 17px;
+      /* ✅ BIGGER BASE FONT FOR ENTIRE SITE */
+      font-size: 18px;
       line-height: 1.55;
+
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior:smooth;
     }
 
     a{ color:inherit; text-decoration:none; }
@@ -53,13 +61,13 @@
       z-index: 20;
       backdrop-filter: blur(16px);
       background: rgba(5,5,12,.55);
-      border-bottom: 1px solid rgba(255,255,255,.07);
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
     .nav-inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding: 14px 0;
+      padding: 16px 0;
       gap: 16px;
     }
 
@@ -68,13 +76,13 @@
       display:flex;
       align-items:center;
       gap: 12px;
-      font-weight: 800;
+      font-weight: 750;
       letter-spacing: .2px;
       white-space:nowrap;
     }
     .brand img{
-      width: 54px; height: 54px;
-      border-radius: 14px;
+      width: 58px; height: 58px;
+      border-radius: 16px;
       box-shadow: 0 0 0 1px rgba(255,255,255,.10);
       object-fit: cover;
     }
@@ -88,23 +96,23 @@
       align-items:center;
       justify-content:center;
       flex:1;
-      color: var(--muted2);
-      font-size: 15px;
+      color: var(--muted);
+      font-size: 16px;
     }
     .links a{
-      padding: 9px 12px;
-      border-radius: 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
       transition: .15s ease;
     }
     .links a:hover{
       background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.90);
+      color: rgba(255,255,255,.92);
     }
 
     .nav-cta{
       display:flex;
       align-items:center;
-      gap:10px;
+      gap:12px;
       white-space:nowrap;
     }
 
@@ -113,13 +121,13 @@
       align-items:center;
       justify-content:center;
       gap:8px;
-      padding: 11px 15px;
-      border-radius: 16px;
+      padding: 12px 16px;
+      border-radius: 14px;
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.05);
       color: rgba(255,255,255,.92);
-      font-weight: 700;
-      font-size: 15px;
+      font-weight: 650;
+      font-size: 16px;
       cursor:pointer;
       transition: .15s ease;
     }
@@ -128,9 +136,9 @@
       background: rgba(255,255,255,.08);
     }
     .btn-primary{
-      border: 1px solid rgba(255,255,255,.16);
-      background: linear-gradient(135deg, rgba(143,107,255,.98), rgba(255,79,216,.86));
-      box-shadow: 0 16px 46px rgba(143,107,255,.25);
+      border: 1px solid rgba(255,255,255,.18);
+      background: linear-gradient(135deg, rgba(143,107,255,.98), rgba(255,79,216,.88));
+      box-shadow: 0 14px 40px rgba(143,107,255,.25);
       color:white;
     }
 
@@ -145,21 +153,22 @@
     }
 
     .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
       position: relative;
     }
+
     .panel::before{
       content:"";
       position:absolute;
       inset:0;
       background:
-        radial-gradient(900px 500px at 20% 0%, rgba(143,107,255,.20), transparent 55%),
-        radial-gradient(600px 380px at 85% 30%, rgba(255,79,216,.13), transparent 58%),
-        radial-gradient(400px 300px at 70% 105%, rgba(63,231,255,.10), transparent 60%);
+        radial-gradient(900px 500px at 20% 0%, rgba(143,107,255,.18), transparent 55%),
+        radial-gradient(600px 380px at 85% 30%, rgba(255,79,216,.12), transparent 58%),
+        radial-gradient(400px 300px at 70% 105%, rgba(63,231,255,.09), transparent 60%);
       pointer-events:none;
       opacity: .95;
     }
@@ -179,19 +188,19 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding: 9px 13px;
+      padding: 10px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.13);
-      background: rgba(255,255,255,.05);
-      color: rgba(255,255,255,.80);
-      font-size: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.78);
+      font-size: 15px;
       white-space:nowrap;
     }
     .dot{
       width:9px; height:9px;
       border-radius:50%;
       background: linear-gradient(180deg, var(--pink), var(--purple));
-      box-shadow: 0 0 18px rgba(255,79,216,.65);
+      box-shadow: 0 0 18px rgba(255,79,216,.6);
     }
 
     h1{
@@ -199,7 +208,7 @@
       font-weight: 800;
       letter-spacing: -.6px;
       margin: 0 0 14px;
-      font-size: clamp(46px, 5.3vw, 68px);
+      font-size: clamp(46px, 5.2vw, 72px);
       line-height: 1.02;
     }
     .lead{
@@ -215,7 +224,7 @@
       gap: 12px;
       flex-wrap:wrap;
       align-items:center;
-      margin-top: 14px;
+      margin-top: 16px;
     }
 
     .industry-tags{
@@ -225,114 +234,114 @@
       margin-top: 16px;
     }
     .pill{
-      padding: 9px 13px;
+      padding: 10px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
-      color: rgba(255,255,255,.70);
-      font-size: 14px;
+      color: rgba(255,255,255,.68);
+      font-size: 15px;
     }
 
     .fineprint{
       margin-top: 14px;
       color: rgba(255,255,255,.52);
-      font-size: 13.5px;
-      line-height: 1.45;
+      font-size: 14px;
+      line-height: 1.5;
     }
-    .fineprint b{ color: rgba(255,255,255,.72); font-weight:700; }
+    .fineprint b{ color: rgba(255,255,255,.72); font-weight:650; }
 
-    /* HERO RIGHT VISUAL */
+    /* ✅ HERO RIGHT VISUAL (fixed) */
     .hero-visual{
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.10);
       box-shadow: var(--glow);
       overflow:hidden;
       position: relative;
-      min-height: 540px;
+      min-height: 560px;
       background:
-        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.38)),
-        url("./assets/hero.jpeg") center/cover no-repeat;
+        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.38)),
+        url("./assets/hero.jpeg?v=4") center/cover no-repeat;
     }
 
     .img-toplabel{
       position:absolute;
-      top: 16px;
-      left: 16px;
+      top: 18px;
+      left: 18px;
       display:inline-flex;
       align-items:center;
       gap: 10px;
-      padding: 10px 14px;
+      padding: 12px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.26);
       backdrop-filter: blur(12px);
-      color: rgba(255,255,255,.90);
-      font-weight: 800;
-      font-size: 15px;
+      color: rgba(255,255,255,.92);
+      font-weight: 700;
+      font-size: 16px;
     }
 
     .outcome{
       position:absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 14px;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
     }
     .outcome-inner{
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.30);
       backdrop-filter: blur(14px);
       padding: 16px;
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 14px;
     }
     .outcome-title{
       grid-column: 1 / -1;
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
-      gap: 10px;
+      gap: 12px;
     }
     .outcome-title h4{
       margin:0;
-      font-size: 15px;
+      font-size: 18px;
       color: rgba(255,255,255,.92);
       font-weight: 800;
     }
     .outcome-title span{
-      color: rgba(255,255,255,.60);
-      font-size: 13.5px;
+      color: rgba(255,255,255,.72);
+      font-size: 15px;
       white-space:nowrap;
-      font-weight: 700;
+      font-weight: 650;
     }
     .outcome p{
-      margin: 7px 0 0;
+      margin: 8px 0 0;
       color: rgba(255,255,255,.72);
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.45;
     }
 
     .mini{
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.05);
-      border-radius: 16px;
-      padding: 13px;
+      border-radius: 18px;
+      padding: 14px;
     }
     .mini strong{
       display:block;
-      font-size: 14px;
-      color: rgba(255,255,255,.92);
+      font-size: 16px;
+      color: rgba(255,255,255,.94);
       margin-bottom: 4px;
       font-weight: 800;
     }
     .mini span{
-      color: rgba(255,255,255,.70);
-      font-size: 13.5px;
+      color: rgba(255,255,255,.72);
+      font-size: 15px;
     }
 
     /* Sections */
-    section{ padding: 52px 0; }
+    section{ padding: 44px 0; }
 
     .section-title{
       display:flex;
@@ -341,91 +350,196 @@
       gap: 16px;
       margin-bottom: 18px;
     }
-    h2{
-      margin:0;
-      font-size: 24px;
-      letter-spacing: .2px;
-      font-weight: 850;
-    }
+    h2{ margin:0; font-size: 28px; letter-spacing: .2px; font-weight: 850; }
     .section-title p{
       margin:0;
       color: var(--muted);
-      font-size: 16px;
+      font-size: 17px;
       max-width: 70ch;
       line-height:1.55;
     }
 
-    /* BENEFITS IMAGE GRID */
-    .benefit-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 14px;
-      align-items: stretch;
-    }
-    .benefit-big, .benefit-side{
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
-      overflow:hidden;
-      box-shadow: var(--glow);
-      position: relative;
-      min-height: 340px;
-    }
-    .benefit-big img, .benefit-side img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display:block;
-      opacity: .96;
-    }
-    .benefit-overlay{
-      position:absolute;
-      inset:auto 14px 14px 14px;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.13);
-      background: rgba(0,0,0,.35);
-      backdrop-filter: blur(14px);
-      padding: 14px;
-    }
-    .benefit-overlay h3{
-      margin:0 0 6px;
-      font-size: 18px;
-      font-weight: 900;
-      color: rgba(255,255,255,.96);
-    }
-    .benefit-overlay ul{
-      margin:0;
-      padding-left: 18px;
-      color: rgba(255,255,255,.78);
-      font-size: 14.5px;
-      line-height: 1.5;
-    }
-    .benefit-overlay li{ margin: 4px 0; }
-
-    /* cards */
     .cards{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
     .card{
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.10);
       border-radius: 22px;
       padding: 18px;
-      box-shadow: 0 14px 50px rgba(0,0,0,.35);
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
     }
     .card h3{
-      margin: 0 0 10px;
-      font-size: 17px;
+      margin: 0 0 8px;
+      font-size: 18px;
       color: rgba(255,255,255,.94);
-      font-weight: 900;
+      font-weight: 800;
     }
     .card p{
       margin:0;
       color: rgba(255,255,255,.72);
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.55;
+    }
+
+    /* ✅ INDUSTRIES IMAGE SECTION */
+    .industry-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .industry-big, .industry-side{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+      box-shadow: var(--glow);
+      position: relative;
+      min-height: 340px;
+    }
+    .industry-side{ min-height: 340px; }
+    .industry-big img, .industry-side img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      opacity: .96;
+      filter: saturate(1.05);
+    }
+    .img-caption{
+      position:absolute;
+      left: 16px;
+      bottom: 16px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.32);
+      backdrop-filter: blur(12px);
+      color: rgba(255,255,255,.92);
+      font-weight: 850;
+      font-size: 16px;
+    }
+
+    /* ✅ BENEFITS BLOCK (real business outcomes) */
+    .benefits{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .benefit{
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 18px;
+    }
+    .benefit .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      color: rgba(255,255,255,.82);
+      font-weight: 850;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .benefit p{
+      margin:0;
+      color: rgba(255,255,255,.72);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    /* ✅ PACKAGES */
+    .packages{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      align-items: stretch;
+      margin-top: 14px;
+    }
+    .pkg{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 22px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.40);
+      position: relative;
+      overflow:hidden;
+    }
+    .pkg::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(800px 380px at 30% 0%, rgba(143,107,255,.18), transparent 55%),
+        radial-gradient(600px 360px at 85% 40%, rgba(255,79,216,.12), transparent 58%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .pkg > *{ position:relative; }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.88);
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    .pkg h3{
+      margin: 0 0 8px;
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .price{
+      display:flex;
+      align-items:baseline;
+      gap: 10px;
+      margin: 8px 0 12px;
+    }
+    .price strong{
+      font-size: 48px;
+      font-weight: 950;
+      letter-spacing: -1px;
+    }
+    .price span{
+      color: rgba(255,255,255,.70);
+      font-weight: 650;
+      font-size: 16px;
+    }
+    .pkg p{
+      margin: 0 0 14px;
+      color: rgba(255,255,255,.72);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    .list{
+      margin: 0 0 18px;
+      padding-left: 18px;
+      color: rgba(255,255,255,.80);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    .list li{ margin: 6px 0; }
+
+    .pkg-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .mutednote{
+      margin-top: 10px;
+      color: rgba(255,255,255,.52);
+      font-size: 14px;
     }
 
     /* How */
@@ -443,8 +557,8 @@
       display:flex;
       gap: 12px;
       border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
       padding: 16px;
     }
     .num{
@@ -454,31 +568,31 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      font-weight: 900;
-      background: linear-gradient(135deg, rgba(143,107,255,.98), rgba(255,79,216,.86));
+      font-weight: 950;
+      font-size: 16px;
+      background: linear-gradient(135deg, rgba(143,107,255,.98), rgba(255,79,216,.88));
       color:white;
       flex: 0 0 auto;
-      font-size: 15px;
     }
     .step strong{
       display:block;
       margin-bottom: 6px;
-      font-size: 16px;
+      font-size: 17px;
       color: rgba(255,255,255,.94);
       font-weight: 900;
     }
     .step span{
       color: rgba(255,255,255,.74);
-      font-size: 15px;
+      font-size: 16px;
       line-height: 1.5;
     }
 
     .sideimg{
       border-radius: var(--radius);
       overflow:hidden;
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
-      min-height: 300px;
+      min-height: 320px;
       box-shadow: var(--glow);
     }
     .sideimg img{
@@ -489,77 +603,6 @@
       opacity: .96;
     }
 
-    /* Pricing */
-    .pricing-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .price-card{
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding: 18px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow:hidden;
-    }
-    .price-card.featured{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      box-shadow: var(--glow);
-      border: 1px solid rgba(255,255,255,.16);
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.22);
-      font-weight: 900;
-      font-size: 13px;
-      color: rgba(255,255,255,.92);
-      margin-bottom: 12px;
-    }
-    .price-card h3{
-      margin: 0 0 6px;
-      font-size: 18px;
-      font-weight: 950;
-    }
-    .price{
-      font-size: 34px;
-      font-weight: 950;
-      letter-spacing: -0.5px;
-      margin: 10px 0 6px;
-    }
-    .per{
-      color: rgba(255,255,255,.65);
-      font-size: 14px;
-      font-weight: 700;
-    }
-    .price-sub{
-      margin: 10px 0 14px;
-      color: rgba(255,255,255,.72);
-      font-size: 15px;
-      line-height: 1.5;
-    }
-    .list{
-      margin: 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,.78);
-      font-size: 14.5px;
-      line-height: 1.55;
-    }
-    .list li{ margin: 6px 0; }
-
-    .price-actions{
-      display:flex;
-      gap:10px;
-      margin-top: 14px;
-      flex-wrap:wrap;
-    }
-
     /* Proof */
     .proof{
       display:grid;
@@ -568,15 +611,15 @@
     }
     .quote{
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 20px;
     }
     .quote p{
       margin:0;
       color: rgba(255,255,255,.78);
       line-height:1.55;
-      font-size: 15px;
+      font-size: 16px;
     }
     .quote .who{
       margin-top: 12px;
@@ -584,13 +627,13 @@
       align-items:center;
       gap: 10px;
       color: rgba(255,255,255,.60);
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 650;
     }
     .avatar{
       width:34px;height:34px;border-radius:50%;
       background: radial-gradient(circle at 30% 30%, rgba(255,79,216,.95), rgba(143,107,255,.6));
-      border: 1px solid rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.12);
       box-shadow: 0 10px 30px rgba(143,107,255,.22);
     }
 
@@ -603,26 +646,26 @@
     }
     .form{
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      padding: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 20px;
     }
     label{
       display:block;
       font-size: 14px;
-      color: rgba(255,255,255,.75);
-      margin: 10px 0 6px;
-      font-weight: 750;
+      color: rgba(255,255,255,.72);
+      margin: 12px 0 8px;
+      font-weight: 650;
     }
     input, textarea{
       width:100%;
-      padding: 12px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.14);
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
       background: rgba(0,0,0,.25);
-      color: rgba(255,255,255,.94);
+      color: rgba(255,255,255,.92);
       outline:none;
-      font-size: 15px;
+      font-size: 16px;
     }
     textarea{ min-height: 120px; resize: vertical; }
     input::placeholder, textarea::placeholder{ color: rgba(255,255,255,.40); }
@@ -635,45 +678,45 @@
 
     .callout{
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      padding: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      padding: 20px;
       position: relative;
       overflow:hidden;
     }
-    .callout h3{ margin: 0 0 10px; font-size: 18px; font-weight: 950; }
+    .callout h3{ margin: 0 0 10px; font-size: 20px; font-weight: 900; }
     .callout p{
       margin:0;
-      color: rgba(255,255,255,.74);
+      color: rgba(255,255,255,.72);
       line-height:1.55;
-      font-size: 15px;
+      font-size: 16px;
     }
 
     footer{
       padding: 28px 0 44px;
-      color: rgba(255,255,255,.60);
+      color: rgba(255,255,255,.56);
       font-size: 14px;
-      border-top: 1px solid rgba(255,255,255,.08);
+      border-top: 1px solid rgba(255,255,255,.06);
     }
     footer a{
-      color: rgba(255,255,255,.86);
+      color: rgba(255,255,255,.76);
       text-decoration: underline;
       text-underline-offset: 3px;
-      font-weight: 750;
     }
 
     /* Responsive */
     @media (max-width: 980px){
+      body{ font-size: 17px; }
       .grid{ grid-template-columns: 1fr; }
       .cards{ grid-template-columns: 1fr; }
       .how{ grid-template-columns: 1fr; }
       .proof{ grid-template-columns: 1fr; }
       .demo{ grid-template-columns: 1fr; }
-      .benefit-grid{ grid-template-columns: 1fr; }
-      .pricing-grid{ grid-template-columns: 1fr; }
+      .industry-grid{ grid-template-columns: 1fr; }
+      .benefits{ grid-template-columns: 1fr; }
+      .packages{ grid-template-columns: 1fr; }
       .links{ display:none; }
-      .hero-visual{ min-height: 420px; }
-      body{ font-size: 16px; }
+      .hero-visual{ min-height: 460px; }
     }
   </style>
 </head>
@@ -684,15 +727,16 @@
   <div class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top">
-        <img src="./assets/logo.png?v=6" alt="Simona AI logo" />
+        <img src="./assets/logo.png?v=4" alt="Simona AI logo" />
         <span>Simona AI</span>
       </a>
 
       <div class="links">
-        <a href="#benefits">Benefits</a>
         <a href="#features">Features</a>
-        <a href="#pricing">Packages</a>
+        <a href="#industries">Benefits</a>
+        <a href="#packages">Packages</a>
         <a href="#how-it-works">How it works</a>
+        <a href="#proof">Proof</a>
         <a href="#demo">Demo</a>
       </div>
 
@@ -720,13 +764,13 @@
             <h1>Sound professional.<br/>Even when you’re busy.</h1>
 
             <p class="lead">
-              Simona answers inbound calls, captures the details that matter, and follows up via opt-in SMS
-              so customers don’t fall through the cracks — even after hours.
+              Simona answers inbound calls, captures what customers need, and follows up via opt-in SMS —
+              so you don’t lose appointments to missed calls, after-hours requests, or slow responses.
             </p>
 
             <div class="hero-actions">
               <a class="btn btn-primary" href="#demo">Request a demo</a>
-              <a class="btn" href="#pricing">See packages</a>
+              <a class="btn" href="#packages">See packages</a>
             </div>
 
             <div class="industry-tags">
@@ -745,7 +789,7 @@
 
         <!-- Right visual -->
         <div class="hero-visual">
-          <div class="img-toplabel">🌿 Front desk, without payroll</div>
+          <div class="img-toplabel">🌿 Front desk + customer support</div>
 
           <div class="outcome">
             <div class="outcome-inner">
@@ -773,39 +817,40 @@
     </div><!-- wrap -->
   </div><!-- hero -->
 
-  <!-- BENEFITS (images now explain value) -->
-  <section id="benefits">
+  <!-- BENEFITS + IMAGES (replaces “Industries info”) -->
+  <section id="industries">
     <div class="wrap">
       <div class="section-title">
         <div>
-          <h2>Why businesses choose Simona</h2>
-          <p>Not “AI for the sake of AI.” Simona replaces the repetitive front desk work that blocks your team from doing real revenue work.</p>
+          <h2>Why businesses use Simona</h2>
+          <p>Because you shouldn’t be stuck answering calls, guiding customers, or booking appointments all day — and hiring staff is expensive.</p>
         </div>
       </div>
 
-      <div class="benefit-grid">
-        <div class="benefit-big">
-          <img src="./assets/industry1.png" alt="Appointment-based business" loading="lazy" />
-          <div class="benefit-overlay">
-            <h3>Stop losing leads to missed calls</h3>
-            <ul>
-              <li>Answers when you’re busy or closed</li>
-              <li>Captures name + reason + preferred time</li>
-              <li>Instantly sends the summary to your team</li>
-            </ul>
-          </div>
+      <div class="industry-grid">
+        <div class="industry-big">
+          <img src="./assets/industry1.png?v=4" alt="Appointment-based businesses" loading="lazy" />
+          <div class="img-caption">Appointments handled automatically</div>
         </div>
 
-        <div class="benefit-side">
-          <img src="./assets/industry2.png" alt="Front desk workflow" loading="lazy" />
-          <div class="benefit-overlay">
-            <h3>No payroll receptionist required</h3>
-            <ul>
-              <li>No hiring, training, or turnover</li>
-              <li>No “hold please” or voicemail backlog</li>
-              <li>Cheaper than a full-time employee</li>
-            </ul>
-          </div>
+        <div class="industry-side">
+          <img src="./assets/industry2.png?v=4" alt="Phone + scheduling workflows" loading="lazy" />
+          <div class="img-caption">No missed calls + faster follow-up</div>
+        </div>
+      </div>
+
+      <div class="benefits">
+        <div class="benefit">
+          <div class="kicker">✅ Stop doing receptionist work</div>
+          <p>Simona answers questions, guides the customer, captures details, and confirms next steps — so you can focus on delivering the service.</p>
+        </div>
+        <div class="benefit">
+          <div class="kicker">💰 Cheaper than hiring staff</div>
+          <p>A receptionist can easily cost <b>$2,500–$4,500/month</b> with payroll + training. Simona starts at a fraction of that.</p>
+        </div>
+        <div class="benefit">
+          <div class="kicker">📈 More bookings, fewer no-shows</div>
+          <p>Instant replies + opt-in reminders reduce drop-off and help you convert more “maybe” calls into confirmed appointments.</p>
         </div>
       </div>
     </div>
@@ -816,43 +861,43 @@
     <div class="wrap">
       <div class="section-title">
         <div>
-          <h2>What Simona handles for you</h2>
-          <p>Your team shouldn’t be stuck “recommending services,” guiding every caller, or chasing follow-ups all day.</p>
+          <h2>Features</h2>
+          <p>Everything you want a receptionist to do — without missed calls, voicemails, or slow follow-ups.</p>
         </div>
       </div>
 
       <div class="cards">
         <div class="card">
-          <h3>Answers inbound calls (busy + after-hours)</h3>
-          <p>Every call gets answered with a calm, professional voice — even when your team is slammed.</p>
+          <h3>Answers calls (busy hours + after-hours)</h3>
+          <p>Simona responds instantly when you’re on another call or closed for the day.</p>
         </div>
         <div class="card">
-          <h3>Captures lead details automatically</h3>
-          <p>Name, phone number, reason, preferred time — so you can book faster without playing detective.</p>
+          <h3>Captures lead details</h3>
+          <p>Collects name, phone, reason, and preferred time — then sends a clean summary to your team.</p>
         </div>
         <div class="card">
-          <h3>Instant opt-in SMS follow-up</h3>
-          <p>Confirmations and reminders that prevent leads from going cold and reduce no-shows.</p>
+          <h3>Appointment-ready follow-up</h3>
+          <p>Handles booking requests, confirmations, reminders, and reschedule prompts via opt-in SMS.</p>
         </div>
 
         <div class="card">
-          <h3>Handles common questions</h3>
-          <p>Hours, location, policies, price ranges, prep instructions — without interrupting your staff.</p>
+          <h3>Answers common questions</h3>
+          <p>Hours, location, pricing ranges, and policies — in a natural, professional voice.</p>
+        </div>
+        <div class="card">
+          <h3>Instant SMS follow-up</h3>
+          <p>Stops lead drop-off by following up immediately after calls (opt-in only).</p>
         </div>
         <div class="card">
           <h3>Routes urgent requests</h3>
-          <p>If a situation needs a human now, Simona escalates it to your team instantly.</p>
-        </div>
-        <div class="card">
-          <h3>Clean staff summaries</h3>
-          <p>No voicemails. No messy notes. Just the key information to book the appointment.</p>
+          <p>Escalates urgent situations to staff so customers don’t feel ignored.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PACKAGES -->
-  <section id="pricing">
+  <section id="packages">
     <div class="wrap">
       <div class="section-title">
         <div>
@@ -861,29 +906,33 @@
         </div>
       </div>
 
-      <div class="pricing-grid">
-        <div class="price-card">
+      <div class="packages">
+        <div class="pkg">
           <div class="badge">Starter</div>
           <h3>Capture Every Lead</h3>
-          <div class="price">$299 <span class="per">/ month</span></div>
-          <div class="price-sub">Best if you want to stop missed calls + get clean summaries fast.</div>
+          <div class="price">
+            <strong>$299</strong><span>/month</span>
+          </div>
+          <p>Best if you want to stop missed calls and get clean summaries fast.</p>
           <ul class="list">
             <li>Voice answering (busy + after-hours)</li>
             <li>Lead capture (name / reason / preferred time)</li>
             <li>Instant staff summary (SMS/email)</li>
             <li>FAQ handling (hours, location, policies)</li>
           </ul>
-          <div class="price-actions">
+          <div class="pkg-actions">
             <a class="btn btn-primary" href="#demo">Request demo</a>
             <a class="btn" href="#demo">Ask questions</a>
           </div>
         </div>
 
-        <div class="price-card featured">
+        <div class="pkg">
           <div class="badge">Most Popular</div>
           <h3>Bookings + Follow-Ups</h3>
-          <div class="price">$499 <span class="per">/ month</span></div>
-          <div class="price-sub">Built for appointment businesses that need faster conversion + fewer no-shows.</div>
+          <div class="price">
+            <strong>$499</strong><span>/month</span>
+          </div>
+          <p>Built for appointment businesses that need faster conversion and fewer no-shows.</p>
           <ul class="list">
             <li>Everything in Starter</li>
             <li>Opt-in SMS confirmations + reminders</li>
@@ -891,17 +940,19 @@
             <li>Routing for urgent requests</li>
             <li>Custom scripts per business</li>
           </ul>
-          <div class="price-actions">
+          <div class="pkg-actions">
             <a class="btn btn-primary" href="#demo">Request demo</a>
             <a class="btn" href="#demo">Get a quote</a>
           </div>
         </div>
 
-        <div class="price-card">
+        <div class="pkg">
           <div class="badge">Scale</div>
           <h3>Multi-Location + Integrations</h3>
-          <div class="price">$799 <span class="per">/ month</span></div>
-          <div class="price-sub">For teams that want deeper workflows, integrations, and advanced routing.</div>
+          <div class="price">
+            <strong>$799</strong><span>/month</span>
+          </div>
+          <p>For teams that want deeper workflows, integrations, and advanced routing.</p>
           <ul class="list">
             <li>Everything in Pro</li>
             <li>Multi-location setup</li>
@@ -909,17 +960,16 @@
             <li>Advanced reporting</li>
             <li>Priority support</li>
           </ul>
-          <div class="price-actions">
+          <div class="pkg-actions">
             <a class="btn btn-primary" href="#demo">Request demo</a>
             <a class="btn" href="#demo">Talk to us</a>
           </div>
         </div>
       </div>
 
-      <p class="fineprint" style="margin-top:14px;">
-        Packages shown as examples. Final pricing may vary based on call volume + required workflows.
-        SMS is opt-in only.
-      </p>
+      <div class="mutednote">
+        Packages shown as examples. Final pricing may vary based on call volume + required workflows. SMS is opt-in only.
+      </div>
     </div>
   </section>
 
@@ -929,7 +979,7 @@
       <div class="section-title">
         <div>
           <h2>How it works</h2>
-          <p>Simple setup. Clear outcomes. Your team reminders + lead capture become automatic.</p>
+          <p>Simple setup. Clear outcomes. Your team stays focused while Simona handles the front line.</p>
         </div>
       </div>
 
@@ -938,30 +988,28 @@
           <div class="step">
             <div class="num">1</div>
             <div>
-              <strong>A customer calls your business</strong>
-              <span>Simona answers like a real receptionist with a natural, professional voice.</span>
+              <strong>Customer calls your business</strong>
+              <span>Simona answers like a real receptionist, with a calm, professional voice.</span>
             </div>
           </div>
-
           <div class="step">
             <div class="num">2</div>
             <div>
               <strong>Simona collects the key details</strong>
-              <span>Name, phone number, reason, and preferred time — in seconds.</span>
+              <span>Name, phone, reason for calling, and preferred time — in under 30 seconds.</span>
             </div>
           </div>
-
           <div class="step">
             <div class="num">3</div>
             <div>
-              <strong>Instant summary + SMS follow-up</strong>
-              <span>Your team gets clean information to book. Customers get opt-in confirmations/reminders.</span>
+              <strong>Instant opt-in SMS follow-up</strong>
+              <span>Customers get confirmations/reminders, and your team gets a summary for fast action.</span>
             </div>
           </div>
         </div>
 
         <div class="sideimg">
-          <img src="./assets/dashboard.png" alt="Example call summary dashboard" loading="lazy" />
+          <img src="./assets/dashboard.png?v=4" alt="Example call summary dashboard" loading="lazy" />
         </div>
       </div>
     </div>
@@ -973,13 +1021,13 @@
       <div class="section-title">
         <div>
           <h2>Proof</h2>
-          <p>Owners want fewer missed calls, faster follow-ups, and more booked appointments.</p>
+          <p>What owners want most: fewer missed calls, faster follow-ups, and more appointments.</p>
         </div>
       </div>
 
       <div class="proof">
         <div class="quote">
-          <p>“We were losing leads after-hours. With Simona, people get a response immediately — we book them the next morning.”</p>
+          <p>“We were losing leads after-hours. With Simona, customers get a response immediately and we can follow up the next morning.”</p>
           <div class="who">
             <span class="avatar"></span>
             <span>Clinic Owner • US</span>
@@ -987,7 +1035,7 @@
         </div>
 
         <div class="quote">
-          <p>“The summaries are the best part. No voicemails, no guessing — just what we need to confirm the appointment.”</p>
+          <p>“The best part is the summaries. No guessing, no digging through voicemails—just the details we need to book.”</p>
           <div class="who">
             <span class="avatar"></span>
             <span>Dental Office • Front Desk Lead</span>
@@ -1035,23 +1083,23 @@
             <label>What should Simona handle?</label>
             <textarea name="message" placeholder="Answer missed calls, capture appointment requests, send confirmations & reminders..."></textarea>
 
-            <div style="height:12px;"></div>
+            <div style="height:14px;"></div>
             <button class="btn btn-primary" type="submit">Send request</button>
 
-            <p class="fineprint" style="margin-top:10px;">
+            <p class="fineprint" style="margin-top:12px;">
               Opt-in SMS only. Reply STOP to opt out, HELP for help.
             </p>
           </form>
         </div>
 
         <div class="callout">
-          <h3>Fast ROI</h3>
+          <h3>What you get</h3>
           <p>
-            A full-time receptionist can cost thousands per month. Simona covers the repetitive front desk work for a fraction — and never “misses” a call.
+            A voice receptionist that answers calls, captures details, and follows up via SMS — so you never lose a lead to missed calls.
           </p>
-          <div style="height:12px;"></div>
+          <div style="height:14px;"></div>
           <p class="fineprint">
-            Best for appointment-based businesses: dental, med spa, salons, clinics, home services.
+            Best for appointment-based businesses (dental, med spa, salons, clinics, home services).
           </p>
         </div>
       </div>
