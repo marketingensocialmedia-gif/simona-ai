@@ -27,12 +27,16 @@
     }
 
     *{ box-sizing:border-box; }
-    html,body{ margin:0; padding:0; background: radial-gradient(1200px 900px at 20% 10%, rgba(143,107,255,.18), transparent 55%),
-                                         radial-gradient(900px 650px at 80% 20%, rgba(255,79,216,.12), transparent 55%),
-                                         radial-gradient(700px 600px at 55% 90%, rgba(63,231,255,.10), transparent 60%),
-                                         linear-gradient(180deg, var(--bg0), var(--bg1));
-              color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-              scroll-behavior:smooth;
+    html,body{
+      margin:0; padding:0;
+      background:
+        radial-gradient(1200px 900px at 20% 10%, rgba(143,107,255,.18), transparent 55%),
+        radial-gradient(900px 650px at 80% 20%, rgba(255,79,216,.12), transparent 55%),
+        radial-gradient(700px 600px at 55% 90%, rgba(63,231,255,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      scroll-behavior:smooth;
     }
 
     a{ color:inherit; text-decoration:none; }
@@ -54,18 +58,24 @@
       padding: 14px 0;
       gap: 16px;
     }
+
+    /* ✅ BIGGER LOGO */
     .brand{
       display:flex;
       align-items:center;
-      gap: 10px;
-      font-weight: 650;
+      gap: 12px;
+      font-weight: 700;
       letter-spacing: .2px;
       white-space:nowrap;
     }
     .brand img{
-      width: 28px; height: 28px;
-      border-radius: 8px;
+      width: 44px; height: 44px;     /* 👈 changed */
+      border-radius: 12px;
       box-shadow: 0 0 0 1px rgba(255,255,255,.10);
+      object-fit: cover;
+    }
+    .brand span{
+      font-size: 16px;
     }
 
     .links{
@@ -119,15 +129,10 @@
       box-shadow: 0 14px 40px rgba(143,107,255,.25);
       color:white;
     }
-    .btn-primary:hover{
-      transform: translateY(-1px);
-      filter: brightness(1.04);
-    }
 
     /* HERO */
-    .hero{
-      padding: 48px 0 26px;
-    }
+    .hero{ padding: 48px 0 18px; }
+
     .grid{
       display:grid;
       grid-template-columns: 1.05fr .95fr;
@@ -233,24 +238,19 @@
     }
     .fineprint b{ color: rgba(255,255,255,.60); font-weight:600; }
 
-    /* Right hero image panel */
-    .media{
-      display:flex;
-      flex-direction:column;
-      gap: 14px;
-      height:100%;
-    }
-    .img-card{
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.10);
+    /* ✅ HERO RIGHT VISUAL FIX (background-image instead of <img>) */
+    .hero-visual{
       border-radius: var(--radius);
-      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
       box-shadow: var(--glow);
+      overflow:hidden;
       position: relative;
-      min-height: 360px;
-      display:flex;
-      flex-direction:column;
+      min-height: 520px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.35)),
+        url("./assets/hero.jpeg") center/cover no-repeat; /* 👈 THIS is the image */
     }
+
     .img-toplabel{
       position:absolute;
       top: 16px;
@@ -268,23 +268,16 @@
       font-size: 14px;
     }
 
-    .img-card img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      opacity: .95;
-      display:block;
-    }
-
     .outcome{
-      margin-top:auto;
-      padding: 14px;
-      position: relative;
+      position:absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
     }
     .outcome-inner{
       border-radius: 22px;
       border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.24);
+      background: rgba(0,0,0,.28);
       backdrop-filter: blur(14px);
       padding: 14px;
       display:grid;
@@ -297,7 +290,6 @@
       align-items:flex-start;
       justify-content:space-between;
       gap: 10px;
-      margin-bottom: 2px;
     }
     .outcome-title h4{
       margin:0;
@@ -308,10 +300,11 @@
     .outcome-title span{
       color: rgba(255,255,255,.55);
       font-size: 12.5px;
+      white-space:nowrap;
     }
     .outcome p{
       margin: 6px 0 0;
-      color: rgba(255,255,255,.58);
+      color: rgba(255,255,255,.60);
       font-size: 13px;
       line-height: 1.4;
     }
@@ -334,9 +327,8 @@
     }
 
     /* Sections */
-    section{
-      padding: 34px 0;
-    }
+    section{ padding: 34px 0; }
+
     .section-title{
       display:flex;
       align-items:flex-end;
@@ -344,11 +336,7 @@
       gap: 16px;
       margin-bottom: 16px;
     }
-    h2{
-      margin:0;
-      font-size: 20px;
-      letter-spacing: .2px;
-    }
+    h2{ margin:0; font-size: 20px; letter-spacing: .2px; }
     .section-title p{
       margin:0;
       color: var(--muted);
@@ -381,6 +369,45 @@
       line-height: 1.5;
     }
 
+    /* ✅ INDUSTRY IMAGE SECTION */
+    .industry-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .industry-big, .industry-side{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+      box-shadow: var(--glow);
+      position: relative;
+      min-height: 320px;
+    }
+    .industry-side{ min-height: 320px; }
+    .industry-big img, .industry-side img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      opacity: .96;
+    }
+    .img-caption{
+      position:absolute;
+      left: 14px;
+      bottom: 14px;
+      padding: 10px 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.26);
+      backdrop-filter: blur(12px);
+      color: rgba(255,255,255,.85);
+      font-weight: 650;
+      font-size: 13.5px;
+    }
+
+    /* How */
     .how{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -439,6 +466,7 @@
       opacity: .96;
     }
 
+    /* Proof */
     .proof{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -471,6 +499,7 @@
       box-shadow: 0 10px 30px rgba(143,107,255,.22);
     }
 
+    /* Demo */
     .demo{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -516,10 +545,7 @@
       position: relative;
       overflow:hidden;
     }
-    .callout h3{
-      margin: 0 0 10px;
-      font-size: 16px;
-    }
+    .callout h3{ margin: 0 0 10px; font-size: 16px; }
     .callout p{
       margin:0;
       color: rgba(255,255,255,.60);
@@ -546,6 +572,7 @@
       .how{ grid-template-columns: 1fr; }
       .proof{ grid-template-columns: 1fr; }
       .demo{ grid-template-columns: 1fr; }
+      .industry-grid{ grid-template-columns: 1fr; }
       .links{ display:none; }
     }
   </style>
@@ -557,13 +584,14 @@
   <div class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top">
-        <!-- cache buster so your logo updates instantly -->
-        <img src="./assets/logo.png?v=2" alt="Simona AI logo" />
+        <!-- ✅ bigger + cache buster -->
+        <img src="./assets/logo.png?v=3" alt="Simona AI logo" />
         <span>Simona AI</span>
       </a>
 
       <div class="links">
         <a href="#features">Features</a>
+        <a href="#industries">Industries</a>
         <a href="#how-it-works">How it works</a>
         <a href="#proof">Proof</a>
         <a href="#demo">Demo</a>
@@ -616,32 +644,27 @@
           </div>
         </div>
 
-        <!-- Right panel -->
-        <div class="media">
-          <div class="img-card">
-            <div class="img-toplabel">🌿 Front desk and customer support</div>
+        <!-- ✅ Right visual (fixed) -->
+        <div class="hero-visual">
+          <div class="img-toplabel">🌿 Front desk and customer support</div>
 
-            <!-- IMPORTANT: this must match your real file name -->
-            <img src="./assets/hero.jpeg" alt="Front desk and customer support" loading="lazy" />
+          <div class="outcome">
+            <div class="outcome-inner">
+              <div class="outcome-title">
+                <div>
+                  <h4>Example outcome</h4>
+                  <p>“Hi, I’d like to book an appointment.” → Simona collects name + reason + preferred time.</p>
+                </div>
+                <span>Instant staff summary</span>
+              </div>
 
-            <div class="outcome">
-              <div class="outcome-inner">
-                <div class="outcome-title">
-                  <div>
-                    <h4>Example outcome</h4>
-                    <p>“Hi, I’d like to book an appointment.” → Simona collects name + reason + preferred time.</p>
-                  </div>
-                  <span>Instant staff summary</span>
-                </div>
-
-                <div class="mini">
-                  <strong>Voice</strong>
-                  <span>Answers calls after-hours</span>
-                </div>
-                <div class="mini">
-                  <strong>SMS</strong>
-                  <span>Sends opt-in reminders</span>
-                </div>
+              <div class="mini">
+                <strong>Voice</strong>
+                <span>Answers calls after-hours</span>
+              </div>
+              <div class="mini">
+                <strong>SMS</strong>
+                <span>Sends opt-in reminders</span>
               </div>
             </div>
           </div>
@@ -650,6 +673,30 @@
       </div><!-- grid -->
     </div><!-- wrap -->
   </div><!-- hero -->
+
+  <!-- ✅ INDUSTRIES (now your images have a place) -->
+  <section id="industries">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Industries</h2>
+          <p>Simona works best for appointment-based businesses that depend on fast follow-up.</p>
+        </div>
+      </div>
+
+      <div class="industry-grid">
+        <div class="industry-big">
+          <img src="./assets/industry1.png" alt="Industry example 1" loading="lazy" />
+          <div class="img-caption">Dental • Med Spa • Clinics</div>
+        </div>
+
+        <div class="industry-side">
+          <img src="./assets/industry2.png" alt="Industry example 2" loading="lazy" />
+          <div class="img-caption">Salons • Home Services</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FEATURES -->
   <section id="features">
@@ -745,9 +792,7 @@
 
       <div class="proof">
         <div class="quote">
-          <p>
-            “We were losing leads after-hours. With Simona, customers get a response immediately and we can follow up the next morning.”
-          </p>
+          <p>“We were losing leads after-hours. With Simona, customers get a response immediately and we can follow up the next morning.”</p>
           <div class="who">
             <span class="avatar"></span>
             <span>Clinic Owner • US</span>
@@ -755,30 +800,11 @@
         </div>
 
         <div class="quote">
-          <p>
-            “The best part is the summaries. No guessing, no digging through voicemails—just the details we need to book.”
-          </p>
+          <p>“The best part is the summaries. No guessing, no digging through voicemails—just the details we need to book.”</p>
           <div class="who">
             <span class="avatar"></span>
             <span>Dental Office • Front Desk Lead</span>
           </div>
-        </div>
-      </div>
-
-      <div style="height:14px;"></div>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Industry fit</h3>
-          <p>Perfect for appointments + inbound questions (dental, med spa, salons, home services).</p>
-        </div>
-        <div class="card">
-          <h3>Works during peak hours</h3>
-          <p>When your staff is overloaded, Simona keeps customers moving forward instead of waiting.</p>
-        </div>
-        <div class="card">
-          <h3>Compliance-aware SMS</h3>
-          <p>Opt-in messaging language can be included to keep your campaigns clean and safe.</p>
         </div>
       </div>
     </div>
@@ -826,30 +852,19 @@
             <button class="btn btn-primary" type="submit">Send request</button>
 
             <p class="fineprint" style="margin-top:10px;">
-              Tip: If you don’t want a form, you can replace this with a “mailto:” link.
+              Opt-in SMS only. Reply STOP to opt out, HELP for help.
             </p>
           </form>
         </div>
 
         <div class="callout">
-          <h3>Want it to feel more “human-made”?</h3>
+          <h3>What you get</h3>
           <p>
-            Use real photos and a real “call outcome” screenshot. People trust what they can see.
-            Your images are already wired in — just replace the files in <b>/assets</b> anytime.
+            A voice receptionist that answers calls, captures details, and follows up via SMS — so you never lose a lead to missed calls.
           </p>
-          <div style="height:14px;"></div>
-
-          <div class="cards" style="grid-template-columns:1fr 1fr; gap:12px;">
-            <div class="sideimg" style="min-height: 180px; border-radius: 22px;">
-              <img src="./assets/industry1.png" alt="Industry example 1" loading="lazy" />
-            </div>
-            <div class="sideimg" style="min-height: 180px; border-radius: 22px;">
-              <img src="./assets/industry2.png" alt="Industry example 2" loading="lazy" />
-            </div>
-          </div>
-
-          <p class="fineprint" style="margin-top:12px;">
-            Opt-in SMS only. Include STOP/HELP language in follow-ups to stay compliant.
+          <div style="height:12px;"></div>
+          <p class="fineprint">
+            Best for appointment-based businesses (dental, med spa, salons, clinics, home services).
           </p>
         </div>
       </div>
