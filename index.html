@@ -1,789 +1,876 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Simona AI — Voice + SMS Receptionist for US Businesses</title>
-
-  <meta name="description" content="Simona answers calls, collects customer details, and sends opt-in SMS updates so your business never misses an appointment or a customer."/>
-  <meta name="robots" content="index,follow"/>
-
-  <!-- Social preview -->
-  <meta property="og:title" content="Simona AI — Voice + SMS Receptionist" />
-  <meta property="og:description" content="Answer every call. Collect details. Confirm appointments with opt-in SMS." />
-  <meta property="og:type" content="website" />
-
-  <!-- Fonts (safe, standard, looks more premium) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Simona AI answers inbound calls, captures lead details, and follows up via opt-in SMS—so your business never misses a customer." />
 
   <style>
     :root{
-      --bg:#0d1020;
-      --card:rgba(255,255,255,.06);
-      --card2:rgba(255,255,255,.08);
-      --border:rgba(255,255,255,.12);
-      --text:#f2f3fb;
-      --muted:rgba(242,243,251,.72);
-      --muted2:rgba(242,243,251,.60);
-      --shadow: 0 18px 70px rgba(0,0,0,.45);
-      --radius:20px;
-
-      --accent:#7c5cff;
-      --accent2:#ff5aa5;
-      --max:1120px;
+      --bg0:#070712;
+      --bg1:#0a0a16;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.04);
+      --stroke: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.62);
+      --muted2: rgba(255,255,255,.45);
+      --shadow: 0 16px 50px rgba(0,0,0,.55);
+      --glow: 0 0 0 1px rgba(255,255,255,.12), 0 20px 80px rgba(145, 95, 255, .20);
+      --pink: #ff4fd8;
+      --purple: #8f6bff;
+      --cyan: #3fe7ff;
+      --radius: 28px;
+      --radius2: 18px;
     }
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
-      background:
-        radial-gradient(900px 600px at 15% 10%, rgba(124,92,255,.22), transparent 55%),
-        radial-gradient(900px 700px at 85% 30%, rgba(255,90,165,.16), transparent 55%),
-        linear-gradient(160deg, #070817, #1a0f2f 60%, #0b1022);
-      min-height:100vh;
-      overflow-x:hidden;
+    *{ box-sizing:border-box; }
+    html,body{ margin:0; padding:0; background: radial-gradient(1200px 900px at 20% 10%, rgba(143,107,255,.18), transparent 55%),
+                                         radial-gradient(900px 650px at 80% 20%, rgba(255,79,216,.12), transparent 55%),
+                                         radial-gradient(700px 600px at 55% 90%, rgba(63,231,255,.10), transparent 60%),
+                                         linear-gradient(180deg, var(--bg0), var(--bg1));
+              color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+              scroll-behavior:smooth;
     }
 
-    a{color:inherit; text-decoration:none}
-    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ width:min(1200px, calc(100% - 32px)); margin:0 auto; }
 
-    /* NAV */
+    /* Top nav */
     .nav{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(8,10,18,.55);
-      border-bottom:1px solid rgba(255,255,255,.08);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(5,5,12,.55);
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
     .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 16px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 650;
+      letter-spacing: .2px;
+      white-space:nowrap;
     }
     .brand img{
-      width:34px; height:34px;
-      border-radius:12px;
-      object-fit:cover;
-      border:1px solid rgba(255,255,255,.14);
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.10);
     }
-    .nav-links{
-      display:flex; gap:10px; flex-wrap:wrap;
-      font-size:14px; color:var(--muted);
+
+    .links{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+      justify-content:center;
+      flex:1;
+      color: var(--muted);
+      font-size: 14px;
     }
-    .nav-links a{
-      padding:8px 10px; border-radius:999px;
-      border:1px solid transparent;
+    .links a{
+      padding: 8px 10px;
+      border-radius: 12px;
+      transition: .15s ease;
     }
-    .nav-links a:hover{
+    .links a:hover{
       background: rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.08);
-      color:var(--text);
+      color: rgba(255,255,255,.86);
     }
-    .cta{display:flex; gap:10px; align-items:center}
+
+    .nav-cta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
+    }
+
     .btn{
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
-      font-weight:700;
-      font-size:14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.88);
+      font-weight: 600;
+      font-size: 14px;
       cursor:pointer;
-      transition:.18s ease;
+      transition: .15s ease;
     }
-    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.09)}
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+    }
     .btn-primary{
-      border:none;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 18px 55px rgba(124,92,255,.18);
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(143,107,255,.95), rgba(255,79,216,.85));
+      box-shadow: 0 14px 40px rgba(143,107,255,.25);
+      color:white;
     }
-    .btn-primary:hover{filter:saturate(1.1)}
+    .btn-primary:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
 
     /* HERO */
-    header{padding:62px 0 28px}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:16px;
-      align-items:stretch;
+    .hero{
+      padding: 48px 0 26px;
     }
-    @media (max-width: 950px){
-      .hero-grid{grid-template-columns:1fr}
-      .nav-links{display:none}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 22px;
+      align-items: stretch;
     }
 
-    .card{
-      background: var(--card);
-      border:1px solid rgba(255,255,255,.10);
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
       border-radius: var(--radius);
-      padding:20px;
       box-shadow: var(--shadow);
+      overflow:hidden;
+      position: relative;
+    }
+
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(143,107,255,.18), transparent 55%),
+        radial-gradient(600px 380px at 85% 30%, rgba(255,79,216,.12), transparent 58%),
+        radial-gradient(400px 300px at 70% 105%, rgba(63,231,255,.09), transparent 60%);
+      pointer-events:none;
+      opacity: .95;
+    }
+
+    .panel-inner{
+      position:relative;
+      padding: 28px;
     }
 
     .chips{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-bottom:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom: 18px;
     }
     .chip{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      font-size:13px;
-      color:var(--muted);
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.74);
+      font-size: 13px;
+      white-space:nowrap;
     }
     .dot{
-      width:8px; height:8px; border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      width:8px; height:8px;
+      border-radius:50%;
+      background: linear-gradient(180deg, var(--pink), var(--purple));
+      box-shadow: 0 0 18px rgba(255,79,216,.6);
     }
 
     h1{
-      font-family: Fraunces, serif;
-      font-weight:700;
-      font-size: clamp(36px, 4.5vw, 58px);
-      letter-spacing: -.6px;
-      line-height: 1.05;
-      margin:0 0 10px;
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      margin: 0 0 14px;
+      font-size: clamp(40px, 5vw, 60px);
+      line-height: 1.03;
     }
-    .sub{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:17px;
-      line-height:1.6;
-      max-width:70ch;
+    .lead{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.55;
+      max-width: 58ch;
     }
+
     .hero-actions{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin:12px 0 8px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 14px;
+    }
+
+    .industry-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 14px;
+    }
+    .pill{
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.60);
+      font-size: 13px;
     }
 
     .fineprint{
-      margin-top:10px;
-      color:var(--muted2);
-      font-size:12.5px;
-      line-height:1.4;
+      margin-top: 12px;
+      color: rgba(255,255,255,.40);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .fineprint b{ color: rgba(255,255,255,.60); font-weight:600; }
+
+    /* Right hero image panel */
+    .media{
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+      height:100%;
+    }
+    .img-card{
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--glow);
+      position: relative;
+      min-height: 360px;
+      display:flex;
+      flex-direction:column;
+    }
+    .img-toplabel{
+      position:absolute;
+      top: 16px;
+      left: 16px;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(12px);
+      color: rgba(255,255,255,.85);
+      font-weight: 600;
+      font-size: 14px;
     }
 
-    /* Hero image */
-    .hero-media{
-      position:relative;
-      overflow:hidden;
-      padding:0;
-    }
-    .hero-media img{
+    .img-card img{
       width:100%;
       height:100%;
-      min-height:360px;
-      object-fit:cover;
-      border-radius: var(--radius);
+      object-fit: cover;
+      opacity: .95;
       display:block;
-      filter: contrast(1.05) saturate(1.05);
     }
-    .overlay-card{
-      position:absolute;
-      bottom:16px;
-      left:16px;
-      right:16px;
-      background: rgba(10,12,22,.72);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius: 18px;
-      padding:14px;
-      backdrop-filter: blur(10px);
+
+    .outcome{
+      margin-top:auto;
+      padding: 14px;
+      position: relative;
     }
-    .overlay-title{
-      display:flex; justify-content:space-between; align-items:center;
-      gap:10px;
-      font-weight:800;
-      font-size:14px;
-      margin-bottom:6px;
-    }
-    .overlay-title span{color:rgba(242,243,251,.78); font-weight:600}
-    .mini{
+    .outcome-inner{
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.24);
+      backdrop-filter: blur(14px);
+      padding: 14px;
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-      margin-top:8px;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
-    .mini .box{
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
+    .outcome-title{
+      grid-column: 1 / -1;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 2px;
+    }
+    .outcome-title h4{
+      margin:0;
+      font-size: 14px;
+      color: rgba(255,255,255,.88);
+      font-weight: 650;
+    }
+    .outcome-title span{
+      color: rgba(255,255,255,.55);
+      font-size: 12.5px;
+    }
+    .outcome p{
+      margin: 6px 0 0;
+      color: rgba(255,255,255,.58);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .mini{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
       border-radius: 16px;
-      padding:10px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.35;
+      padding: 12px;
     }
-    .mini .box b{color:var(--text); display:block; margin-bottom:2px}
+    .mini strong{
+      display:block;
+      font-size: 13px;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 4px;
+    }
+    .mini span{
+      color: rgba(255,255,255,.55);
+      font-size: 12.5px;
+    }
 
     /* Sections */
-    section{padding:44px 0}
-    .section-head{
+    section{
+      padding: 34px 0;
+    }
+    .section-title{
       display:flex;
       align-items:flex-end;
       justify-content:space-between;
-      gap:14px;
-      margin-bottom:16px;
+      gap: 16px;
+      margin-bottom: 16px;
     }
-    .section-title{
-      font-family: Fraunces, serif;
+    h2{
       margin:0;
-      font-size:30px;
-      letter-spacing:-.3px;
+      font-size: 20px;
+      letter-spacing: .2px;
     }
-    .section-sub{
-      margin:6px 0 0;
-      color:var(--muted);
-      line-height:1.55;
-      max-width:70ch;
-      font-size:15.5px;
-    }
-
-    /* Trust row */
-    .trust-row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:12px;
-      color:var(--muted2);
-      font-size:13px;
-    }
-    .trust-pill{
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
+    .section-title p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 62ch;
+      line-height:1.5;
     }
 
-    /* Feature grid */
-    .grid-3{
+    .cards{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:14px;
+      gap: 14px;
     }
-    @media(max-width: 950px){
-      .grid-3{grid-template-columns:1fr}
+    .card{
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
     }
-    .icon{
-      width:38px; height:38px;
-      border-radius:14px;
-      display:grid; place-items:center;
-      background: rgba(124,92,255,.16);
-      border:1px solid rgba(124,92,255,.28);
-      margin-bottom:10px;
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: rgba(255,255,255,.90);
     }
-    .icon svg{width:18px; height:18px; opacity:.92}
-
-    .feature h3{
-      margin:0 0 6px;
-      font-size:16px;
-      letter-spacing:-.1px;
-    }
-    .feature p{
+    .card p{
       margin:0;
-      color:var(--muted);
-      line-height:1.55;
-      font-size:14px;
+      color: rgba(255,255,255,.58);
+      font-size: 13.5px;
+      line-height: 1.5;
     }
 
-    /* Screenshot section */
-    .two-col{
+    .how{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:stretch;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
     }
-    @media(max-width: 950px){
-      .two-col{grid-template-columns:1fr}
-    }
-    .shot{
-      padding:0;
-      overflow:hidden;
-    }
-    .shot img{
-      width:100%;
-      height:100%;
-      min-height:320px;
-      object-fit:cover;
-      display:block;
-      border-radius: var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-    }
-
-    ul.clean{list-style:none; padding:0; margin:10px 0 0}
-    ul.clean li{
-      padding:10px 0;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      color:var(--muted);
-    }
-    ul.clean li:last-child{border-bottom:none}
-
-    /* Testimonials */
-    .testimonials{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-      margin-top:14px;
-    }
-    @media(max-width: 950px){
-      .testimonials{grid-template-columns:1fr}
-    }
-    .quote{
+    .steps{
       display:flex;
       flex-direction:column;
-      gap:12px;
+      gap: 12px;
+    }
+    .step{
+      display:flex;
+      gap: 12px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 14px;
+    }
+    .num{
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 800;
+      background: linear-gradient(135deg, rgba(143,107,255,.95), rgba(255,79,216,.85));
+      color:white;
+      flex: 0 0 auto;
+    }
+    .step strong{
+      display:block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: rgba(255,255,255,.90);
+    }
+    .step span{
+      color: rgba(255,255,255,.58);
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+
+    .sideimg{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      min-height: 280px;
+      box-shadow: var(--glow);
+    }
+    .sideimg img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      opacity: .96;
+    }
+
+    .proof{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .quote{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 18px;
     }
     .quote p{
       margin:0;
-      color:var(--muted);
-      line-height:1.55;
-      font-size:14px;
+      color: rgba(255,255,255,.70);
+      line-height:1.5;
+      font-size: 14px;
     }
-    .person{
+    .quote .who{
+      margin-top: 10px;
       display:flex;
       align-items:center;
-      gap:10px;
-      margin-top:auto;
+      gap: 10px;
+      color: rgba(255,255,255,.50);
+      font-size: 13px;
     }
-    .person img{
-      width:42px; height:42px;
-      border-radius:999px;
-      object-fit:cover;
-      border:1px solid rgba(255,255,255,.12);
+    .avatar{
+      width:32px;height:32px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,79,216,.95), rgba(143,107,255,.6));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 30px rgba(143,107,255,.22);
     }
-    .person b{display:block}
-    .person span{display:block; color:var(--muted2); font-size:12.5px; margin-top:2px}
 
-    /* Contact */
-    .contact-grid{
+    .demo{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap:14px;
+      gap: 14px;
       align-items:stretch;
     }
-    @media(max-width: 950px){
-      .contact-grid{grid-template-columns:1fr}
+    .form{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 18px;
     }
     label{
       display:block;
-      font-size:13px;
-      color:var(--muted);
-      margin:10px 0 6px;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.65);
+      margin: 10px 0 6px;
     }
     input, textarea{
       width:100%;
-      padding:12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color:var(--text);
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+      color: rgba(255,255,255,.88);
       outline:none;
-      font-size:14px;
+      font-size: 14px;
     }
-    textarea{min-height:120px; resize:vertical}
-    .consent{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      margin-top:12px;
-      color:var(--muted2);
-      font-size:13px;
-      line-height:1.35;
+    textarea{ min-height: 110px; resize: vertical; }
+    input::placeholder, textarea::placeholder{ color: rgba(255,255,255,.35); }
+
+    .form-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
-    .consent input{width:auto; margin-top:3px}
+
+    .callout{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      padding: 18px;
+      position: relative;
+      overflow:hidden;
+    }
+    .callout h3{
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+    .callout p{
+      margin:0;
+      color: rgba(255,255,255,.60);
+      line-height:1.5;
+      font-size: 13.5px;
+    }
 
     footer{
-      padding:26px 0 40px;
-      border-top:1px solid rgba(255,255,255,.08);
-      color:var(--muted2);
-      font-size:13px;
+      padding: 26px 0 40px;
+      color: rgba(255,255,255,.45);
+      font-size: 12.5px;
+      border-top: 1px solid rgba(255,255,255,.06);
     }
-    .footer-inner{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
+    footer a{
+      color: rgba(255,255,255,.70);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
-    .footer-inner a{color:var(--text); opacity:.9}
-    .footer-inner a:hover{text-decoration:underline}
 
-    /* Small helper badge */
-    .badge{
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      color:rgba(242,243,251,.75);
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
+    /* Responsive */
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .cards{ grid-template-columns: 1fr; }
+      .how{ grid-template-columns: 1fr; }
+      .proof{ grid-template-columns: 1fr; }
+      .demo{ grid-template-columns: 1fr; }
+      .links{ display:none; }
     }
   </style>
 </head>
 
 <body>
+
   <!-- NAV -->
   <div class="nav">
-    <div class="container">
-      <div class="nav-inner">
-        <div class="brand">
-          <!-- Optional logo: put your logo in assets/logo.png -->
-          <img src="assets/logo.png" alt="Simona logo" onerror="this.style.display='none'">
-          <div>Simona AI</div>
-        </div>
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <!-- cache buster so your logo updates instantly -->
+        <img src="./assets/logo.png?v=2" alt="Simona AI logo" />
+        <span>Simona AI</span>
+      </a>
 
-        <div class="nav-links">
-          <a href="#features">Features</a>
-          <a href="#how">How it works</a>
-          <a href="#proof">Proof</a>
-          <a href="#contact">Demo</a>
-        </div>
+      <div class="links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#proof">Proof</a>
+        <a href="#demo">Demo</a>
+      </div>
 
-        <div class="cta">
-          <a class="btn" href="privacy.html" target="_blank" rel="noopener">Privacy</a>
-          <a class="btn btn-primary" href="#contact">Request a demo</a>
-        </div>
+      <div class="nav-cta">
+        <a class="btn" href="./privacy.html">Privacy</a>
+        <a class="btn btn-primary" href="#demo">Request a demo</a>
       </div>
     </div>
   </div>
 
   <!-- HERO -->
-  <header>
-    <div class="container">
-      <div class="hero-grid">
-        <div class="card">
-          <div class="chips">
-            <div class="chip"><span class="dot"></span> Voice + SMS receptionist</div>
-            <div class="chip"><span class="dot"></span> Opt-in messaging</div>
-            <div class="chip"><span class="dot"></span> Built for appointments</div>
-          </div>
+  <div id="top" class="hero">
+    <div class="wrap">
+      <div class="grid">
 
-          <h1>Sound professional.<br/>Even when you’re busy.</h1>
-          <p class="sub">
-            Simona answers inbound calls, collects the important details, and sends <b>opt-in</b> SMS updates
-            for confirmations, reminders, and customer support — so your business never misses a customer.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Request a demo</a>
-            <a class="btn" href="#features">See features</a>
-          </div>
-
-          <div class="trust-row">
-            <span class="trust-pill">Dental</span>
-            <span class="trust-pill">Med Spa</span>
-            <span class="trust-pill">Clinics</span>
-            <span class="trust-pill">Salons</span>
-            <span class="trust-pill">Home Services</span>
-          </div>
-
-          <div class="fineprint">
-            <span class="badge">Compliance friendly</span><br/>
-            SMS is opt-in only. Message & data rates may apply. Reply <b>STOP</b> to opt out, <b>HELP</b> for help.
-          </div>
-        </div>
-
-        <div class="card hero-media">
-          <!-- Upload your own image to assets/hero.jpg -->
-          <img src="assets/hero.jpg" alt="Front desk and customer support" />
-
-          <div class="overlay-card">
-            <div class="overlay-title">
-              <div>Example outcome</div>
-              <span>Instant staff summary</span>
+        <!-- Left panel -->
+        <div class="panel">
+          <div class="panel-inner">
+            <div class="chips">
+              <span class="chip"><span class="dot"></span> Voice + SMS receptionist</span>
+              <span class="chip"><span class="dot"></span> Opt-in messaging</span>
+              <span class="chip"><span class="dot"></span> Built for appointments</span>
             </div>
-            <div style="color: rgba(242,243,251,.72); font-size:13px; line-height:1.35;">
-              “Hi, I’d like to book an appointment.” → Simona collects name + reason + preferred time.
+
+            <h1>Sound professional.<br/>Even when you’re busy.</h1>
+
+            <p class="lead">
+              Simona answers inbound calls, collects the important details, and sends opt-in SMS updates for
+              confirmations, reminders, and customer support — so your business never misses a customer.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#demo">Request a demo</a>
+              <a class="btn" href="#features">See features</a>
             </div>
-            <div class="mini">
-              <div class="box"><b>Voice</b> Answers calls after-hours</div>
-              <div class="box"><b>SMS</b> Sends opt-in reminders</div>
+
+            <div class="industry-tags">
+              <span class="pill">Dental</span>
+              <span class="pill">Med Spa</span>
+              <span class="pill">Clinics</span>
+              <span class="pill">Salons</span>
+              <span class="pill">Home Services</span>
+            </div>
+
+            <div class="fineprint">
+              <b>Compliance-friendly:</b> SMS is opt-in only. Message & data rates may apply. Reply <b>STOP</b> to opt out, <b>HELP</b> for help.
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </header>
+
+        <!-- Right panel -->
+        <div class="media">
+          <div class="img-card">
+            <div class="img-toplabel">🌿 Front desk and customer support</div>
+
+            <!-- IMPORTANT: this must match your real file name -->
+            <img src="./assets/hero.jpeg" alt="Front desk and customer support" loading="lazy" />
+
+            <div class="outcome">
+              <div class="outcome-inner">
+                <div class="outcome-title">
+                  <div>
+                    <h4>Example outcome</h4>
+                    <p>“Hi, I’d like to book an appointment.” → Simona collects name + reason + preferred time.</p>
+                  </div>
+                  <span>Instant staff summary</span>
+                </div>
+
+                <div class="mini">
+                  <strong>Voice</strong>
+                  <span>Answers calls after-hours</span>
+                </div>
+                <div class="mini">
+                  <strong>SMS</strong>
+                  <span>Sends opt-in reminders</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- grid -->
+    </div><!-- wrap -->
+  </div><!-- hero -->
 
   <!-- FEATURES -->
   <section id="features">
-    <div class="container">
-      <div class="section-head">
+    <div class="wrap">
+      <div class="section-title">
         <div>
-          <h2 class="section-title">What Simona handles</h2>
-          <p class="section-sub">Practical, real front-desk work — not generic chatbot stuff.</p>
+          <h2>Features</h2>
+          <p>Everything you want a receptionist to do — without missed calls, voicemails, or slow follow-ups.</p>
         </div>
       </div>
 
-      <div class="grid-3">
-        <div class="card feature">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 4h3l2 6-2 1c1 2.2 2.8 4 5 5l1-2 6 2v3c0 1.1-.9 2-2 2-8.3 0-15-6.7-15-15 0-1.1.9-2 2-2Z" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Answers calls (voice)</h3>
-          <p>Simona picks up during busy hours and after-hours so customers don’t hit voicemail.</p>
-        </div>
-
-        <div class="card feature">
-          <div class="icon" style="background:rgba(255,90,165,.14); border-color:rgba(255,90,165,.28);">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 6h16v12H4V6Z" stroke="white" stroke-width="1.6" />
-              <path d="m4 7 8 6 8-6" stroke="white" stroke-width="1.6" stroke-linecap="round" />
-            </svg>
-          </div>
-          <h3>Opt-in SMS updates</h3>
-          <p>Confirmations, reminders, and support messages with STOP/HELP language.</p>
-        </div>
-
-        <div class="card feature">
-          <div class="icon" style="background:rgba(124,92,255,.14); border-color:rgba(124,92,255,.26);">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 8h10M7 12h6M7 16h8" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-              <path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8l-3 3V6a2 2 0 0 1 2-2Z" stroke="white" stroke-width="1.6"/>
-            </svg>
-          </div>
-          <h3>Clean staff summaries</h3>
-          <p>Your team receives name, phone, reason, preferred time — ready to follow up fast.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW -->
-  <section id="how">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">How it works</h2>
-          <p class="section-sub">Simple flow. No complicated software for your team.</p>
-        </div>
-      </div>
-
-      <div class="two-col">
+      <div class="cards">
         <div class="card">
-          <span class="badge">Step 1</span>
-          <h3 style="margin:10px 0 6px;">Customer calls</h3>
-          <p style="margin:0; color:var(--muted); line-height:1.55;">
-            Simona answers and handles common questions (hours, services, pricing range, policies).
-          </p>
-
-          <div style="height:14px"></div>
-
-          <span class="badge">Step 2</span>
-          <h3 style="margin:10px 0 6px;">Collect details</h3>
-          <p style="margin:0; color:var(--muted); line-height:1.55;">
-            Name + phone + reason + preferred time — captured in one clean flow.
-          </p>
-
-          <div style="height:14px"></div>
-
-          <span class="badge">Step 3</span>
-          <h3 style="margin:10px 0 6px;">Opt-in SMS + summary</h3>
-          <p style="margin:0; color:var(--muted); line-height:1.55;">
-            Customer gets the next step via SMS, and your team gets the summary instantly.
-          </p>
-
-          <ul class="clean">
-            <li>✅ Busy hours + after-hours coverage</li>
-            <li>✅ Reduce missed calls & no-shows</li>
-            <li>✅ More consistent follow-up</li>
-          </ul>
+          <h3>Answers calls (busy hours + after-hours)</h3>
+          <p>Simona responds instantly when you’re on another call or closed for the day.</p>
+        </div>
+        <div class="card">
+          <h3>Captures lead details</h3>
+          <p>Collects name, phone, reason, and preferred time — then sends a clean summary to your team.</p>
+        </div>
+        <div class="card">
+          <h3>Built for appointments</h3>
+          <p>Handles booking requests, confirmations, reminders, and reschedule prompts via opt-in SMS.</p>
         </div>
 
-        <div class="card shot">
-          <!-- Upload a real screenshot to assets/dashboard.png -->
-          <img src="assets/dashboard.png" alt="Example staff summary and booking follow-up screen" />
+        <div class="card">
+          <h3>Answers common questions</h3>
+          <p>Hours, location, services, pricing range, policies — with a natural voice experience.</p>
+        </div>
+        <div class="card">
+          <h3>Instant follow-up texts</h3>
+          <p>Stops lead drop-off by following up immediately after calls (opt-in only).</p>
+        </div>
+        <div class="card">
+          <h3>Routes urgent requests</h3>
+          <p>Escalates urgent situations to staff so customers don’t feel ignored.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROOF / TESTIMONIALS -->
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>How it works</h2>
+          <p>Simple setup. Clear outcomes. Your team stays focused while Simona handles the front line.</p>
+        </div>
+      </div>
+
+      <div class="how">
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <div>
+              <strong>Customer calls your business</strong>
+              <span>Simona answers like a real receptionist, with a calm, professional voice.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <strong>Simona collects the key details</strong>
+              <span>Name, phone number, reason for calling, and preferred time — in under 30 seconds.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <strong>Instant opt-in SMS follow-up</strong>
+              <span>Customers get confirmations/reminders, and your team gets a summary for fast action.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sideimg">
+          <img src="./assets/dashboard.png" alt="Example call summary dashboard" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
   <section id="proof">
-    <div class="container">
-      <div class="section-head">
+    <div class="wrap">
+      <div class="section-title">
         <div>
-          <h2 class="section-title">Feels like a real front desk</h2>
-          <p class="section-sub">Add real testimonials later — for now, use these as placeholders.</p>
+          <h2>Proof</h2>
+          <p>What owners want most: fewer missed calls, faster follow-ups, and more appointments.</p>
         </div>
       </div>
 
-      <div class="testimonials">
-        <div class="card quote">
-          <p>“We stopped missing calls during our busiest hours. Customers get a quick response and we follow up faster.”</p>
-          <div class="person">
-            <img src="assets/testimonial1.jpg" alt="Customer photo"/>
-            <div>
-              <b>Operations Manager</b>
-              <span>Dental Clinic (TX)</span>
-            </div>
+      <div class="proof">
+        <div class="quote">
+          <p>
+            “We were losing leads after-hours. With Simona, customers get a response immediately and we can follow up the next morning.”
+          </p>
+          <div class="who">
+            <span class="avatar"></span>
+            <span>Clinic Owner • US</span>
           </div>
         </div>
 
-        <div class="card quote">
-          <p>“After-hours calls used to disappear. Now we wake up with the details and can book people the next morning.”</p>
-          <div class="person">
-            <img src="assets/testimonial2.jpg" alt="Customer photo"/>
-            <div>
-              <b>Owner</b>
-              <span>Med Spa</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card quote">
-          <p>“Reminders + confirmations helped reduce no-shows. It just feels organized.”</p>
-          <div class="person">
-            <img src="assets/testimonial3.jpg" alt="Customer photo"/>
-            <div>
-              <b>Front Desk Lead</b>
-              <span>Clinic / Wellness</span>
-            </div>
+        <div class="quote">
+          <p>
+            “The best part is the summaries. No guessing, no digging through voicemails—just the details we need to book.”
+          </p>
+          <div class="who">
+            <span class="avatar"></span>
+            <span>Dental Office • Front Desk Lead</span>
           </div>
         </div>
       </div>
 
-      <p style="margin-top:14px; color:var(--muted2); font-size:13px; line-height:1.45;">
-        Tip: When you get your first real client, replace the text + photos with real testimonials.
-        That alone makes the site instantly “human.”
-      </p>
+      <div style="height:14px;"></div>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Industry fit</h3>
+          <p>Perfect for appointments + inbound questions (dental, med spa, salons, home services).</p>
+        </div>
+        <div class="card">
+          <h3>Works during peak hours</h3>
+          <p>When your staff is overloaded, Simona keeps customers moving forward instead of waiting.</p>
+        </div>
+        <div class="card">
+          <h3>Compliance-aware SMS</h3>
+          <p>Opt-in messaging language can be included to keep your campaigns clean and safe.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-head">
+  <!-- DEMO -->
+  <section id="demo">
+    <div class="wrap">
+      <div class="section-title">
         <div>
-          <h2 class="section-title">Request a demo</h2>
-          <p class="section-sub">Tell us what your business needs. We’ll respond within 24 hours.</p>
+          <h2>Request a demo</h2>
+          <p>Tell us your business type and what you want Simona to handle. We’ll reply with next steps.</p>
         </div>
       </div>
 
-      <div class="contact-grid">
-        <div class="card">
-          <h3 style="margin:0 0 8px;">Contact</h3>
-          <p style="margin:0; color:var(--muted); line-height:1.55;">
-            Prefer email? That’s fine. We’ll reply quickly.
-          </p>
-
-          <div style="height:12px"></div>
-
-          <p style="margin:0; color:var(--muted); line-height:1.7;">
-            📩 <b>Email:</b> <a href="mailto:marketingensocialmedia@gmail.com"><u>marketingensocialmedia@gmail.com</u></a><br/>
-            🇺🇸 Serving businesses across the USA
-          </p>
-
-          <div style="height:14px"></div>
-
-          <p class="fineprint">
-            SMS is opt-in only. Message & data rates may apply. Reply <b>STOP</b> to opt out, <b>HELP</b> for help.
-          </p>
-
-          <div style="height:12px"></div>
-          <a class="btn btn-primary" href="privacy.html" target="_blank" rel="noopener">View Privacy Policy</a>
-        </div>
-
-        <div class="card">
-          <h3 style="margin:0 0 8px;">Demo request form</h3>
-          <p style="margin:0; color:var(--muted); line-height:1.55;">
-            This opens your email client and pre-fills the message.
-          </p>
-
-          <form id="demoForm">
-            <label>Full name</label>
-            <input type="text" id="name" required placeholder="Your name"/>
-
-            <label>Business name</label>
-            <input type="text" id="business" required placeholder="Business name"/>
-
-            <label>Phone number</label>
-            <input type="tel" id="phone" required placeholder="+1 (___) ___-____"/>
-
-            <label>Email</label>
-            <input type="email" id="email" required placeholder="you@company.com"/>
-
-            <label>Message (optional)</label>
-            <textarea id="message" placeholder="What should Simona handle for you?"></textarea>
-
-            <div class="consent">
-              <input type="checkbox" id="smsConsent" required />
+      <div class="demo">
+        <div class="form">
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="form-row">
               <div>
-                <b>SMS Consent</b><br/>
-                I agree to receive SMS messages from <b>Simona</b> regarding appointment updates and customer support.
-                Message & data rates may apply. Reply <b>STOP</b> to opt out, <b>HELP</b> for help.
-                Consent is not a condition of purchase.
+                <label>Your name</label>
+                <input name="name" placeholder="Alex" required />
+              </div>
+              <div>
+                <label>Business type</label>
+                <input name="business" placeholder="Dental / Med Spa / Salon" required />
               </div>
             </div>
 
-            <button class="btn btn-primary" type="submit" style="margin-top:12px; width:100%;">
-              Submit demo request
-            </button>
+            <div class="form-row">
+              <div>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="you@email.com" required />
+              </div>
+              <div>
+                <label>Phone (optional)</label>
+                <input name="phone" placeholder="+1 (555) 123-4567" />
+              </div>
+            </div>
+
+            <label>What should Simona handle?</label>
+            <textarea name="message" placeholder="Answer missed calls, capture appointment requests, send confirmations & reminders..."></textarea>
+
+            <div style="height:12px;"></div>
+            <button class="btn btn-primary" type="submit">Send request</button>
+
+            <p class="fineprint" style="margin-top:10px;">
+              Tip: If you don’t want a form, you can replace this with a “mailto:” link.
+            </p>
           </form>
+        </div>
+
+        <div class="callout">
+          <h3>Want it to feel more “human-made”?</h3>
+          <p>
+            Use real photos and a real “call outcome” screenshot. People trust what they can see.
+            Your images are already wired in — just replace the files in <b>/assets</b> anytime.
+          </p>
+          <div style="height:14px;"></div>
+
+          <div class="cards" style="grid-template-columns:1fr 1fr; gap:12px;">
+            <div class="sideimg" style="min-height: 180px; border-radius: 22px;">
+              <img src="./assets/industry1.png" alt="Industry example 1" loading="lazy" />
+            </div>
+            <div class="sideimg" style="min-height: 180px; border-radius: 22px;">
+              <img src="./assets/industry2.png" alt="Industry example 2" loading="lazy" />
+            </div>
+          </div>
+
+          <p class="fineprint" style="margin-top:12px;">
+            Opt-in SMS only. Include STOP/HELP language in follow-ups to stay compliant.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div>© <span id="year"></span> Simona AI</div>
+    <div class="wrap">
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>© <span id="yr"></span> Simona AI</div>
         <div>
-          <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
-          <span style="opacity:.45;"> • </span>
-          <a href="#contact">Contact</a>
+          <a href="./privacy.html">Privacy Policy</a>
+          &nbsp;•&nbsp;
+          <a href="#demo">Request a demo</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const form = document.getElementById("demoForm");
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value.trim();
-      const business = document.getElementById("business").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
-      const consent = document.getElementById("smsConsent").checked;
-
-      if(!consent) return alert("Please check the SMS consent box to continue.");
-
-      const subject = encodeURIComponent("Simona Demo Request");
-      const body = encodeURIComponent(
-`New Demo Request
-
-Name: ${name}
-Business: ${business}
-Phone: ${phone}
-Email: ${email}
-
-Message:
-${message || "(none)"}
-
-SMS Consent: YES (opt-in)`
-      );
-
-      const to = "marketingensocialmedia@gmail.com";
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-    });
+    document.getElementById("yr").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
