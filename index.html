@@ -3,130 +3,719 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy — Simona AI</title>
-  <meta name="description" content="Privacy Policy for Simona AI."/>
+  <title>Simona AI — AI Receptionist (Voice + SMS) for US Businesses</title>
+  <meta name="description" content="Simona is an AI receptionist (voice + SMS) for US businesses that answers calls, collects customer details, and sends opt-in appointment updates and customer support messages."/>
+  <meta name="robots" content="index,follow"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Simona AI — AI Receptionist (Voice + SMS)" />
+  <meta property="og:description" content="Answer every call. Collect customer details. Send opt-in appointment updates via SMS." />
+  <meta property="og:type" content="website" />
+
   <style>
     :root{
-      --bg:#0f1220;
-      --card:rgba(255,255,255,.06);
-      --border:rgba(255,255,255,.12);
-      --text:#e8e9f3;
-      --muted:#b8bccf;
+      --bg1:#1b1e2b;
+      --bg2:#3a2b5b;
       --accent:#7c5cff;
       --accent2:#ff5aa5;
+      --text:#e8e9f3;
+      --muted:#b8bccf;
+      --card:rgba(255,255,255,.06);
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 16px 50px rgba(0,0,0,.35);
       --radius:18px;
-      --max:900px;
+      --max:1100px;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: radial-gradient(900px 700px at 20% 10%, rgba(124,92,255,.18), transparent 55%),
-                  radial-gradient(900px 700px at 85% 30%, rgba(255,90,165,.14), transparent 55%),
-                  linear-gradient(160deg, #0f1220, #241b40);
       color:var(--text);
+      background: radial-gradient(1200px 800px at 20% 10%, rgba(124,92,255,.22), transparent 55%),
+                  radial-gradient(900px 700px at 85% 30%, rgba(255,90,165,.18), transparent 55%),
+                  linear-gradient(160deg, var(--bg1), var(--bg2));
       min-height:100vh;
+      overflow-x:hidden;
     }
-    a{color:var(--text)}
-    .wrap{max-width:var(--max); margin:0 auto; padding:38px 18px}
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:22px;
-      box-shadow: 0 16px 50px rgba(0,0,0,.35);
+
+    a{color:inherit; text-decoration:none}
+    .container{width:100%; max-width:var(--max); margin:0 auto; padding:0 20px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(20,22,35,.55);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
-    h1{margin:0 0 10px; font-size:34px}
-    p{color:var(--muted); line-height:1.6}
-    h2{margin:18px 0 6px; font-size:18px}
-    ul{color:var(--muted); line-height:1.6}
-    .topbar{
-      display:flex; justify-content:space-between; align-items:center;
-      margin-bottom:14px; opacity:.95;
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:18px;
     }
-    .badge{
-      display:inline-block;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      font-size:13px;
-      color:var(--muted);
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 12px 30px rgba(124,92,255,.25);
+    }
+    .nav-links{
+      display:flex; gap:14px; flex-wrap:wrap;
+      font-size:14px; color:var(--muted);
+    }
+    .nav-links a{padding:8px 10px; border-radius:10px}
+    .nav-links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .cta{
+      display:flex; gap:10px; align-items:center;
     }
     .btn{
-      display:inline-block;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
       padding:10px 14px;
       border-radius:12px;
+      font-weight:700;
+      font-size:14px;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.09)}
+    .btn-primary{
       border:none;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      font-weight:800;
+      box-shadow: 0 16px 40px rgba(124,92,255,.22);
+    }
+    .btn-primary:hover{filter:saturate(1.1); transform:translateY(-1px)}
+    .hero{
+      padding:70px 0 36px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:20px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+    }
+    .chip-row{
+      display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      padding:8px 10px;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+    h1{
+      font-size: clamp(34px, 4vw, 56px);
+      line-height:1.05;
+      margin:0 0 12px;
+      letter-spacing:-.8px;
+    }
+    .sub{
+      font-size:18px;
+      color:var(--muted);
+      line-height:1.55;
+      margin:0 0 20px;
+      max-width:64ch;
+    }
+    .hero-actions{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
+    }
+    .card{
+      background: var(--card);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); line-height:1.55; font-size:14px}
+
+    .kpis{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+    .kpi{
+      padding:14px;
+      border-radius:16px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .kpi strong{display:block; font-size:18px}
+    .kpi span{color:var(--muted); font-size:13px}
+
+    section{
+      padding:40px 0;
+    }
+    .section-title{
+      font-size:28px;
+      margin:0 0 8px;
+      letter-spacing:-.4px;
+    }
+    .section-sub{
+      margin:0 0 22px;
+      color:var(--muted);
+      line-height:1.55;
+      max-width:70ch;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 900px){
+      .grid-3{grid-template-columns:1fr}
+    }
+    ul.clean{
+      margin:10px 0 0; padding:0;
+      list-style:none;
+    }
+    ul.clean li{
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+    }
+    ul.clean li:last-child{border-bottom:none}
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(124,92,255,.18);
+      border:1px solid rgba(124,92,255,.30);
+      color:#ddd;
+      font-size:12px;
+      margin-bottom:8px;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .two-col{grid-template-columns:1fr}
+    }
+    .codebox{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";
+      font-size:13px;
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+      padding:14px;
+      border-radius:16px;
+      overflow:auto;
+      color:#f0f0ff;
+      line-height:1.5;
+    }
+    .tag{
+      display:inline-flex;
+      gap:6px;
+      align-items:center;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:10px;
+    }
+    .tag b{color:var(--text)}
+
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 900px){
+      .pricing{grid-template-columns:1fr}
+    }
+    .price{
+      padding:18px;
+      border-radius:18px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      position:relative;
+    }
+    .price .name{font-weight:800}
+    .price .who{color:var(--muted); font-size:13px; margin-top:4px}
+    .price ul{margin:12px 0 0; padding-left:18px; color:var(--muted)}
+    .badge{
+      position:absolute; top:14px; right:14px;
+      background: rgba(255,90,165,.18);
+      border:1px solid rgba(255,90,165,.35);
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .contact-grid{grid-template-columns:1fr}
+    }
+    .form label{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      margin:10px 0 6px;
+    }
+    input, textarea{
+      width:100%;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
       color:var(--text);
-      text-decoration:none;
+      padding:12px 12px;
+      border-radius:12px;
+      outline:none;
+      font-size:14px;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .consent{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      margin-top:12px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.35;
+    }
+    .consent input{width:auto; margin-top:3px}
+    .note{
+      font-size:12px;
+      color:rgba(232,233,243,.72);
+      margin-top:12px;
+      line-height:1.4;
+    }
+    .footer{
+      padding:26px 0 40px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .footer-inner{
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .footer a{color:var(--text); opacity:.9}
+    .footer a:hover{text-decoration:underline}
+
+    .toast{
+      position:fixed;
+      bottom:18px;
+      right:18px;
+      max-width:340px;
+      padding:12px 14px;
+      border-radius:14px;
+      background: rgba(20,22,35,.85);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      display:none;
+      z-index:99;
+      font-size:13px;
+      line-height:1.4;
     }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div class="topbar">
-      <span class="badge">Simona AI</span>
-      <a class="btn" href="index.html">Back to site</a>
-    </div>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="logo"></div>
+          <div>Simona AI</div>
+        </div>
 
-    <div class="card">
-      <h1>Privacy Policy</h1>
-      <p><b>Effective date:</b> <span id="date"></span></p>
+        <div class="nav-links">
+          <a href="#what">What it does</a>
+          <a href="#how">How it works</a>
+          <a href="#messages">SMS examples</a>
+          <a href="#pricing">Plans</a>
+          <a href="#contact">Contact</a>
+        </div>
 
-      <p>
-        Simona AI (“Simona”, “we”, “us”) respects your privacy and is committed to protecting your personal information.
-      </p>
-
-      <h2>Information we collect</h2>
-      <p>We may collect information you voluntarily provide, such as:</p>
-      <ul>
-        <li>Name</li>
-        <li>Phone number</li>
-        <li>Email address</li>
-        <li>Business name</li>
-        <li>Message details submitted through our contact form</li>
-        <li>Call metadata (for customer support and service improvement)</li>
-      </ul>
-
-      <h2>How we use your information</h2>
-      <p>We use this information to:</p>
-      <ul>
-        <li>Respond to inquiries</li>
-        <li>Provide customer support</li>
-        <li>Send appointment-related communications (confirmations, reminders, follow-ups) when requested</li>
-      </ul>
-
-      <h2>SMS Messaging</h2>
-      <p>
-        If you opt in to receive SMS messages from Simona, you may receive texts related to customer support or appointment updates.
-        Message frequency may vary.
-      </p>
-      <ul>
-        <li>Message & data rates may apply</li>
-        <li>You can opt out at any time by replying <b>STOP</b></li>
-        <li>For help, reply <b>HELP</b></li>
-      </ul>
-
-      <h2>Data sharing</h2>
-      <p>
-        We do not sell your personal information. We may share limited information with service providers only to operate
-        and improve our services.
-      </p>
-
-      <h2>Contact</h2>
-      <p>
-        If you have questions about this policy, contact us at:
-        <a href="mailto:hello@simona-ai.com"><b>hello@simona-ai.com</b></a>
-      </p>
+        <div class="cta">
+          <a class="btn" href="#contact">Contact</a>
+          <a class="btn btn-primary" href="#contact">Request a demo</a>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="card">
+          <div class="chip-row">
+            <div class="chip"><span class="dot"></span> Voice + SMS AI Receptionist</div>
+            <div class="chip"><span class="dot"></span> Opt-in messaging</div>
+            <div class="chip"><span class="dot"></span> US businesses</div>
+          </div>
+
+          <h1>Answer every call.<br/>Collect details.<br/>Book more appointments.</h1>
+          <p class="sub">
+            Simona is an AI receptionist for US businesses that answers inbound calls, speaks naturally with customers,
+            collects the key details, and sends <b>opt-in</b> SMS updates for appointment confirmations, reminders, and customer support.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Request a demo</a>
+            <a class="btn" href="#what">See features</a>
+            <a class="btn" href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi">
+              <strong>24/7 coverage</strong>
+              <span>Busy hours + after-hours</span>
+            </div>
+            <div class="kpi">
+              <strong>Instant follow-up</strong>
+              <span>Confirmations + reminders</span>
+            </div>
+          </div>
+
+          <p class="note">
+            SMS is opt-in only. Message & data rates may apply. Reply <b>STOP</b> to opt out, <b>HELP</b> for help.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>What Simona handles</h3>
+          <p>
+            Common questions like hours, location, services, pricing range, policies, and next steps — plus collecting
+            name + phone + reason + preferred time.
+          </p>
+
+          <ul class="clean">
+            <li>✅ Answers calls (voice)</li>
+            <li>✅ Captures customer details</li>
+            <li>✅ Sends SMS confirmations & reminders</li>
+            <li>✅ Routes urgent requests to your team</li>
+            <li>✅ Sends staff summaries (SMS/email/CRM)</li>
+          </ul>
+
+          <div class="tag">
+            <span class="dot"></span> Built for appointment-based businesses
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- WHAT -->
+  <section id="what">
+    <div class="container">
+      <h2 class="section-title">What Simona does</h2>
+      <p class="section-sub">
+        A real receptionist experience — powered by AI. Capture every inbound opportunity while keeping your team focused.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="pill">VOICE</div>
+          <h3>Answers inbound calls</h3>
+          <p>Simona picks up during busy hours and after-hours, so customers never reach voicemail.</p>
+        </div>
+        <div class="card">
+          <div class="pill">DETAILS</div>
+          <h3>Collects what matters</h3>
+          <p>Name, phone number, reason for calling, and preferred time — delivered to your team instantly.</p>
+        </div>
+        <div class="card">
+          <div class="pill">SMS</div>
+          <h3>Opt-in follow-ups</h3>
+          <p>Appointment confirmations, reminders, and customer support messages (STOP/HELP compliant).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section id="how">
+    <div class="container">
+      <h2 class="section-title">How it works</h2>
+      <p class="section-sub">
+        Simple flow, predictable results.
+      </p>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>1) Customer calls</h3>
+          <p>Simona answers instantly and handles common questions or collects details for booking/support.</p>
+          <br/>
+          <h3>2) SMS update (opt-in)</h3>
+          <p>Simona sends a quick confirmation or next-step text to keep the customer engaged.</p>
+          <br/>
+          <h3>3) Staff summary</h3>
+          <p>You receive a clean summary via SMS/email/CRM and can jump in anytime.</p>
+        </div>
+
+        <div class="card">
+          <h3>Example call outcome</h3>
+          <div class="codebox">
+Caller: “Hi, I’m looking for an appointment.”
+
+Simona: “Great — can I get your name and best phone number?”
+Simona: “What is this regarding?”
+Simona: “When would you prefer to come in?”
+
+✅ Staff receives:
+Name + Phone + Reason + Preferred time + Notes
+          </div>
+          <div class="tag">
+            <span class="dot"></span> Works for dental, med spa, clinics, salons, home services
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MESSAGES -->
+  <section id="messages">
+    <div class="container">
+      <h2 class="section-title">A2P-friendly SMS examples</h2>
+      <p class="section-sub">
+        These are customer-care style messages (not cold marketing). Includes STOP/HELP language for compliance.
+      </p>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Missed call follow-up</h3>
+          <div class="codebox">
+Hi {{name}}! This is {{business}} — we missed your call.
+How can we help you today?
+Reply STOP to opt out.
+          </div>
+
+          <h3 style="margin-top:16px;">Appointment confirmation</h3>
+          <div class="codebox">
+Your appointment at {{business}} is confirmed for {{date}} at {{time}}.
+Reply STOP to opt out.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Reminder</h3>
+          <div class="codebox">
+Reminder: your appointment at {{business}} is tomorrow at {{time}}.
+Reply STOP to opt out.
+          </div>
+
+          <h3 style="margin-top:16px;">Customer support</h3>
+          <div class="codebox">
+Thanks for contacting {{business}}.
+Reply with your question and we’ll help you shortly.
+Reply STOP to opt out.
+          </div>
+
+          <p class="note">
+            Messaging is opt-in only. We do not send unsolicited texts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">Plans</h2>
+      <p class="section-sub">
+        Simple monthly plans. Pricing depends on your call volume, SMS volume, and features.
+      </p>
+
+      <div class="pricing">
+        <div class="price">
+          <div class="name">Starter</div>
+          <div class="who">Best for small teams</div>
+          <ul>
+            <li>Voice receptionist coverage</li>
+            <li>Lead capture + summaries</li>
+            <li>Basic SMS confirmations</li>
+          </ul>
+        </div>
+
+        <div class="price">
+          <div class="badge">Most popular</div>
+          <div class="name">Growth</div>
+          <div class="who">Best for busy clinics</div>
+          <ul>
+            <li>All Starter features</li>
+            <li>Reminders + missed call recovery</li>
+            <li>Routing & escalation options</li>
+          </ul>
+        </div>
+
+        <div class="price">
+          <div class="name">Pro</div>
+          <div class="who">Best for scaling</div>
+          <ul>
+            <li>All Growth features</li>
+            <li>CRM integrations</li>
+            <li>Custom call flows + reporting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Request a demo</h2>
+      <p class="section-sub">
+        Tell us about your business and we’ll respond within 24 hours.
+      </p>
+
+      <div class="contact-grid">
+        <div class="card">
+          <h3>Contact</h3>
+          <p>Use the form or email us directly.</p>
+          <p style="margin-top:12px;">
+            📩 <b>Email:</b> <a href="mailto:hello@simona-ai.com">hello@simona-ai.com</a><br/>
+            🌎 Serving USA businesses
+          </p>
+
+          <p class="note">
+            <b>Important:</b> SMS is opt-in only. Message & data rates may apply. Reply STOP to opt out, HELP for help.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Demo request form</h3>
+
+          <!--
+            FREE DEPLOYMENT OPTION:
+            1) Create a free Formspree form (https://formspree.io/)
+            2) Replace action="https://formspree.io/f/YOUR_ID" with your real endpoint.
+            If you don't want Formspree, keep it as mailto (works but less reliable).
+          -->
+
+          <form class="form" id="demoForm">
+            <label>Full name</label>
+            <input type="text" id="name" placeholder="Your name" required />
+
+            <label>Business name</label>
+            <input type="text" id="business" placeholder="Your business name" required />
+
+            <label>Phone number</label>
+            <input type="tel" id="phone" placeholder="+1 (___) ___-____" required />
+
+            <label>Email</label>
+            <input type="email" id="email" placeholder="you@company.com" required />
+
+            <label>Message (optional)</label>
+            <textarea id="message" placeholder="Tell us what you want Simona to handle..."></textarea>
+
+            <div class="consent">
+              <input type="checkbox" id="smsConsent" required />
+              <div>
+                <b>SMS Consent</b><br/>
+                I agree to receive SMS messages from <b>Simona</b> regarding appointment updates and customer support.
+                Message & data rates may apply. Reply <b>STOP</b> to opt out, <b>HELP</b> for help.
+                Consent is not a condition of purchase.
+              </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit" style="margin-top:12px; width:100%;">
+              Submit demo request
+            </button>
+
+            <p class="note">
+              By submitting, you agree to our <a href="privacy.html" target="_blank" rel="noopener"><b>Privacy Policy</b></a>.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Simona AI</div>
+        <div>
+          <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
+          <span style="opacity:.45;"> • </span>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
   <script>
-    const d = new Date();
-    document.getElementById("date").textContent = d.toLocaleDateString();
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple form handler (mailto) — no backend required
+    const form = document.getElementById("demoForm");
+    const toast = document.getElementById("toast");
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.style.display = "block";
+      setTimeout(()=> toast.style.display="none", 3600);
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const business = document.getElementById("business").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const consent = document.getElementById("smsConsent").checked;
+
+      if(!consent){
+        showToast("Please check the SMS consent box to continue.");
+        return;
+      }
+
+      // Build email body
+      const subject = encodeURIComponent("Simona Demo Request");
+      const body = encodeURIComponent(
+`New Demo Request
+
+Name: ${name}
+Business: ${business}
+Phone: ${phone}
+Email: ${email}
+
+Message:
+${message || "(none)"}
+
+SMS Consent: YES (opt-in)`
+      );
+
+      // Change this email to yours:
+      const to = "hello@simona-ai.com";
+
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      showToast("Opening your email client to send the demo request...");
+    });
   </script>
 </body>
 </html>
