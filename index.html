@@ -11,22 +11,17 @@
     :root{
       --bg0:#070712;
       --bg1:#0a0a16;
-
       --card: rgba(255,255,255,.06);
       --card2: rgba(255,255,255,.04);
       --stroke: rgba(255,255,255,.10);
-
       --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
-      --muted2: rgba(255,255,255,.52);
-
+      --muted: rgba(255,255,255,.62);
+      --muted2: rgba(255,255,255,.45);
       --shadow: 0 16px 50px rgba(0,0,0,.55);
-      --glow: 0 0 0 1px rgba(255,255,255,.12), 0 20px 80px rgba(145, 95, 255, .22);
-
+      --glow: 0 0 0 1px rgba(255,255,255,.12), 0 20px 80px rgba(145, 95, 255, .20);
       --pink: #ff4fd8;
       --purple: #8f6bff;
       --cyan: #3fe7ff;
-
       --radius: 28px;
       --radius2: 18px;
     }
@@ -41,13 +36,6 @@
         linear-gradient(180deg, var(--bg0), var(--bg1));
       color: var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-
-      /* ✅ BIGGER BASE FONT FOR ENTIRE SITE */
-      font-size: 18px;
-      line-height: 1.55;
-
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       scroll-behavior:smooth;
     }
 
@@ -67,27 +55,28 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding: 16px 0;
+      padding: 14px 0;
       gap: 16px;
     }
 
-    /* ✅ BIGGER LOGO */
     .brand{
       display:flex;
       align-items:center;
       gap: 12px;
-      font-weight: 750;
+      font-weight: 700;
       letter-spacing: .2px;
       white-space:nowrap;
     }
     .brand img{
-      width: 58px; height: 58px;
-      border-radius: 16px;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
       box-shadow: 0 0 0 1px rgba(255,255,255,.10);
       object-fit: cover;
     }
     .brand span{
-      font-size: 18px;
+      font-size: 16px;
+      color: rgba(255,255,255,.90);
     }
 
     .links{
@@ -97,22 +86,22 @@
       justify-content:center;
       flex:1;
       color: var(--muted);
-      font-size: 16px;
+      font-size: 14px;
     }
     .links a{
-      padding: 10px 12px;
+      padding: 8px 10px;
       border-radius: 12px;
       transition: .15s ease;
     }
     .links a:hover{
       background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.92);
+      color: rgba(255,255,255,.86);
     }
 
     .nav-cta{
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:10px;
       white-space:nowrap;
     }
 
@@ -121,29 +110,29 @@
       align-items:center;
       justify-content:center;
       gap:8px;
-      padding: 12px 16px;
+      padding: 10px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      color: rgba(255,255,255,.92);
-      font-weight: 650;
-      font-size: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.88);
+      font-weight: 600;
+      font-size: 14px;
       cursor:pointer;
       transition: .15s ease;
     }
     .btn:hover{
       transform: translateY(-1px);
-      background: rgba(255,255,255,.08);
+      background: rgba(255,255,255,.07);
     }
     .btn-primary{
-      border: 1px solid rgba(255,255,255,.18);
-      background: linear-gradient(135deg, rgba(143,107,255,.98), rgba(255,79,216,.88));
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(143,107,255,.95), rgba(255,79,216,.85));
       box-shadow: 0 14px 40px rgba(143,107,255,.25);
       color:white;
     }
 
     /* HERO */
-    .hero{ padding: 54px 0 18px; }
+    .hero{ padding: 48px 0 18px; }
 
     .grid{
       display:grid;
@@ -175,7 +164,7 @@
 
     .panel-inner{
       position:relative;
-      padding: 30px;
+      padding: 28px;
     }
 
     .chips{
@@ -188,16 +177,16 @@
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding: 10px 14px;
+      padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.78);
-      font-size: 15px;
+      color: rgba(255,255,255,.74);
+      font-size: 13px;
       white-space:nowrap;
     }
     .dot{
-      width:9px; height:9px;
+      width:8px; height:8px;
       border-radius:50%;
       background: linear-gradient(180deg, var(--pink), var(--purple));
       box-shadow: 0 0 18px rgba(255,79,216,.6);
@@ -205,186 +194,159 @@
 
     h1{
       font-family: ui-serif, Georgia, "Times New Roman", serif;
-      font-weight: 800;
-      letter-spacing: -.6px;
+      font-weight: 700;
+      letter-spacing: -.5px;
       margin: 0 0 14px;
-      font-size: clamp(46px, 5.2vw, 72px);
+      font-size: clamp(44px, 5.2vw, 64px);
       line-height: 1.02;
     }
     .lead{
       margin: 0 0 18px;
       color: var(--muted);
-      font-size: 18px;
+      font-size: 16.5px;
       line-height: 1.6;
       max-width: 60ch;
     }
 
     .hero-actions{
       display:flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap:wrap;
       align-items:center;
-      margin-top: 16px;
+      margin-top: 14px;
     }
 
     .industry-tags{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top: 16px;
+      margin-top: 14px;
     }
     .pill{
-      padding: 10px 14px;
+      padding: 8px 12px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
-      color: rgba(255,255,255,.68);
-      font-size: 15px;
+      color: rgba(255,255,255,.60);
+      font-size: 13px;
     }
 
     .fineprint{
-      margin-top: 14px;
-      color: rgba(255,255,255,.52);
-      font-size: 14px;
-      line-height: 1.5;
+      margin-top: 12px;
+      color: rgba(255,255,255,.40);
+      font-size: 12.5px;
+      line-height: 1.45;
     }
-    .fineprint b{ color: rgba(255,255,255,.72); font-weight:650; }
+    .fineprint b{ color: rgba(255,255,255,.60); font-weight:600; }
 
-    /* ✅ HERO RIGHT VISUAL (fixed) */
+    /* HERO RIGHT VISUAL */
     .hero-visual{
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,.10);
       box-shadow: var(--glow);
       overflow:hidden;
       position: relative;
-      min-height: 560px;
+      min-height: 520px;
       background:
-        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.38)),
-        url("./assets/hero.jpeg?v=4") center/cover no-repeat;
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.35)),
+        url("./assets/hero.jpeg") center/cover no-repeat;
     }
 
     .img-toplabel{
       position:absolute;
-      top: 18px;
-      left: 18px;
+      top: 16px;
+      left: 16px;
       display:inline-flex;
       align-items:center;
       gap: 10px;
-      padding: 12px 14px;
+      padding: 10px 12px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.26);
+      background: rgba(0,0,0,.22);
       backdrop-filter: blur(12px);
-      color: rgba(255,255,255,.92);
-      font-weight: 700;
-      font-size: 16px;
+      color: rgba(255,255,255,.85);
+      font-weight: 600;
+      font-size: 14px;
     }
 
     .outcome{
       position:absolute;
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
     }
     .outcome-inner{
-      border-radius: 24px;
+      border-radius: 22px;
       border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.30);
+      background: rgba(0,0,0,.28);
       backdrop-filter: blur(14px);
-      padding: 16px;
+      padding: 14px;
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      gap: 12px;
     }
     .outcome-title{
       grid-column: 1 / -1;
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
-      gap: 12px;
+      gap: 10px;
     }
     .outcome-title h4{
       margin:0;
-      font-size: 18px;
-      color: rgba(255,255,255,.92);
-      font-weight: 800;
-    }
-    .outcome-title span{
-      color: rgba(255,255,255,.72);
       font-size: 15px;
-      white-space:nowrap;
+      color: rgba(255,255,255,.88);
       font-weight: 650;
     }
+    .outcome-title span{
+      color: rgba(255,255,255,.55);
+      font-size: 13px;
+      white-space:nowrap;
+    }
     .outcome p{
-      margin: 8px 0 0;
-      color: rgba(255,255,255,.72);
-      font-size: 16px;
+      margin: 6px 0 0;
+      color: rgba(255,255,255,.65);
+      font-size: 14px;
       line-height: 1.45;
     }
 
     .mini{
       border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      border-radius: 18px;
-      padding: 14px;
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding: 12px;
     }
     .mini strong{
       display:block;
-      font-size: 16px;
-      color: rgba(255,255,255,.94);
+      font-size: 13.5px;
+      color: rgba(255,255,255,.88);
       margin-bottom: 4px;
-      font-weight: 800;
     }
     .mini span{
-      color: rgba(255,255,255,.72);
-      font-size: 15px;
+      color: rgba(255,255,255,.60);
+      font-size: 13px;
     }
 
     /* Sections */
-    section{ padding: 44px 0; }
+    section{ padding: 42px 0; }
 
     .section-title{
       display:flex;
       align-items:flex-end;
       justify-content:space-between;
       gap: 16px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
-    h2{ margin:0; font-size: 28px; letter-spacing: .2px; font-weight: 850; }
+    h2{ margin:0; font-size: 24px; letter-spacing: .2px; }
     .section-title p{
-      margin:0;
+      margin:6px 0 0;
       color: var(--muted);
-      font-size: 17px;
-      max-width: 70ch;
+      font-size: 15px;
+      max-width: 62ch;
       line-height:1.55;
     }
 
-    .cards{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .card{
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: 22px;
-      padding: 18px;
-      box-shadow: 0 12px 40px rgba(0,0,0,.35);
-    }
-    .card h3{
-      margin: 0 0 8px;
-      font-size: 18px;
-      color: rgba(255,255,255,.94);
-      font-weight: 800;
-    }
-    .card p{
-      margin:0;
-      color: rgba(255,255,255,.72);
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    /* ✅ INDUSTRIES IMAGE SECTION */
+    /* Industries images */
     .industry-grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
@@ -398,155 +360,128 @@
       overflow:hidden;
       box-shadow: var(--glow);
       position: relative;
-      min-height: 340px;
+      min-height: 330px;
     }
-    .industry-side{ min-height: 340px; }
     .industry-big img, .industry-side img{
       width: 100%;
       height: 100%;
       object-fit: cover;
       display:block;
       opacity: .96;
-      filter: saturate(1.05);
     }
     .img-caption{
       position:absolute;
-      left: 16px;
-      bottom: 16px;
-      padding: 12px 14px;
+      left: 14px;
+      bottom: 14px;
+      padding: 10px 12px;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.32);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.26);
       backdrop-filter: blur(12px);
-      color: rgba(255,255,255,.92);
-      font-weight: 850;
-      font-size: 16px;
+      color: rgba(255,255,255,.88);
+      font-weight: 650;
+      font-size: 14px;
     }
 
-    /* ✅ BENEFITS BLOCK (real business outcomes) */
-    .benefits{
-      margin-top: 18px;
+    /* Benefit cards */
+    .cards{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
+      margin-top: 16px;
     }
-    .benefit{
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.10);
+    .card{
       background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 22px;
       padding: 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
     }
-    .benefit .kicker{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      color: rgba(255,255,255,.82);
-      font-weight: 850;
+    .card h3{
+      margin: 0 0 8px;
       font-size: 16px;
-      margin-bottom: 8px;
+      color: rgba(255,255,255,.92);
     }
-    .benefit p{
+    .card p{
       margin:0;
-      color: rgba(255,255,255,.72);
-      font-size: 16px;
+      color: rgba(255,255,255,.62);
+      font-size: 14.5px;
       line-height: 1.55;
     }
 
-    /* ✅ PACKAGES */
-    .packages{
+    /* Packages */
+    .pricing-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      align-items: stretch;
-      margin-top: 14px;
+      margin-top: 16px;
     }
-    .pkg{
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.10);
+    .price-card{
       background: rgba(255,255,255,.03);
-      padding: 22px;
-      box-shadow: 0 18px 55px rgba(0,0,0,.40);
-      position: relative;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position:relative;
       overflow:hidden;
     }
-    .pkg::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(800px 380px at 30% 0%, rgba(143,107,255,.18), transparent 55%),
-        radial-gradient(600px 360px at 85% 40%, rgba(255,79,216,.12), transparent 58%);
-      opacity:.9;
-      pointer-events:none;
-    }
-    .pkg > *{ position:relative; }
-
     .badge{
       display:inline-flex;
       align-items:center;
-      justify-content:center;
-      padding: 10px 14px;
+      padding: 7px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.18);
-      color: rgba(255,255,255,.88);
-      font-weight: 800;
-      font-size: 14px;
-      margin-bottom: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.20);
+      font-size: 13px;
+      color: rgba(255,255,255,.78);
+      font-weight:700;
     }
-    .pkg h3{
-      margin: 0 0 8px;
-      font-size: 22px;
-      font-weight: 900;
+    .price-title{
+      margin: 14px 0 8px;
+      font-size: 20px;
+      font-weight: 750;
+      color: rgba(255,255,255,.94);
     }
     .price{
-      display:flex;
-      align-items:baseline;
-      gap: 10px;
-      margin: 8px 0 12px;
-    }
-    .price strong{
-      font-size: 48px;
-      font-weight: 950;
+      font-size: 46px;
+      font-weight: 850;
+      margin: 6px 0 8px;
       letter-spacing: -1px;
     }
-    .price span{
-      color: rgba(255,255,255,.70);
-      font-weight: 650;
-      font-size: 16px;
+    .per{
+      font-size: 14px;
+      color: rgba(255,255,255,.55);
+      font-weight: 600;
     }
-    .pkg p{
-      margin: 0 0 14px;
-      color: rgba(255,255,255,.72);
-      font-size: 16px;
+    .price-desc{
+      color: rgba(255,255,255,.62);
+      font-size: 14.5px;
       line-height: 1.55;
+      margin-bottom: 14px;
     }
-    .list{
-      margin: 0 0 18px;
+    ul{
+      margin: 0;
       padding-left: 18px;
-      color: rgba(255,255,255,.80);
-      font-size: 16px;
+      color: rgba(255,255,255,.62);
+      font-size: 14.5px;
       line-height: 1.65;
     }
-    .list li{ margin: 6px 0; }
-
-    .pkg-actions{
+    .price-actions{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .popular{
+      box-shadow: 0 0 0 1px rgba(255,255,255,.14), 0 18px 70px rgba(255,79,216,.20);
     }
 
-    .mutednote{
-      margin-top: 10px;
-      color: rgba(255,255,255,.52);
-      font-size: 14px;
-    }
-
-    /* How */
+    /* How it works */
     .how{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
       gap: 14px;
+      margin-top: 16px;
     }
     .steps{
       display:flex;
@@ -559,7 +494,7 @@
       border-radius: 22px;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
-      padding: 16px;
+      padding: 14px;
     }
     .num{
       width: 38px;
@@ -568,23 +503,21 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      font-weight: 950;
-      font-size: 16px;
-      background: linear-gradient(135deg, rgba(143,107,255,.98), rgba(255,79,216,.88));
+      font-weight: 800;
+      background: linear-gradient(135deg, rgba(143,107,255,.95), rgba(255,79,216,.85));
       color:white;
       flex: 0 0 auto;
     }
     .step strong{
       display:block;
       margin-bottom: 6px;
-      font-size: 17px;
-      color: rgba(255,255,255,.94);
-      font-weight: 900;
+      font-size: 15px;
+      color: rgba(255,255,255,.92);
     }
     .step span{
-      color: rgba(255,255,255,.74);
-      font-size: 16px;
-      line-height: 1.5;
+      color: rgba(255,255,255,.62);
+      font-size: 14.5px;
+      line-height: 1.45;
     }
 
     .sideimg{
@@ -592,7 +525,7 @@
       overflow:hidden;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
-      min-height: 320px;
+      min-height: 280px;
       box-shadow: var(--glow);
     }
     .sideimg img{
@@ -608,27 +541,27 @@
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
+      margin-top: 16px;
     }
     .quote{
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
-      padding: 20px;
+      padding: 18px;
     }
     .quote p{
       margin:0;
-      color: rgba(255,255,255,.78);
+      color: rgba(255,255,255,.72);
       line-height:1.55;
-      font-size: 16px;
+      font-size: 15px;
     }
     .quote .who{
       margin-top: 12px;
       display:flex;
       align-items:center;
       gap: 10px;
-      color: rgba(255,255,255,.60);
-      font-size: 15px;
-      font-weight: 650;
+      color: rgba(255,255,255,.50);
+      font-size: 13.5px;
     }
     .avatar{
       width:34px;height:34px;border-radius:50%;
@@ -643,32 +576,32 @@
       grid-template-columns: 1fr 1fr;
       gap: 14px;
       align-items:stretch;
+      margin-top: 16px;
     }
     .form{
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
-      padding: 20px;
+      padding: 18px;
     }
     label{
       display:block;
-      font-size: 14px;
-      color: rgba(255,255,255,.72);
-      margin: 12px 0 8px;
-      font-weight: 650;
+      font-size: 13px;
+      color: rgba(255,255,255,.70);
+      margin: 10px 0 6px;
     }
     input, textarea{
       width:100%;
-      padding: 14px 14px;
+      padding: 12px 12px;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(0,0,0,.25);
-      color: rgba(255,255,255,.92);
+      color: rgba(255,255,255,.88);
       outline:none;
-      font-size: 16px;
+      font-size: 14.5px;
     }
-    textarea{ min-height: 120px; resize: vertical; }
-    input::placeholder, textarea::placeholder{ color: rgba(255,255,255,.40); }
+    textarea{ min-height: 110px; resize: vertical; }
+    input::placeholder, textarea::placeholder{ color: rgba(255,255,255,.35); }
 
     .form-row{
       display:grid;
@@ -680,43 +613,41 @@
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,.10);
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      padding: 20px;
+      padding: 18px;
       position: relative;
       overflow:hidden;
     }
-    .callout h3{ margin: 0 0 10px; font-size: 20px; font-weight: 900; }
+    .callout h3{ margin: 0 0 10px; font-size: 18px; }
     .callout p{
       margin:0;
-      color: rgba(255,255,255,.72);
+      color: rgba(255,255,255,.62);
       line-height:1.55;
-      font-size: 16px;
+      font-size: 14.5px;
     }
 
     footer{
       padding: 28px 0 44px;
-      color: rgba(255,255,255,.56);
-      font-size: 14px;
+      color: rgba(255,255,255,.50);
+      font-size: 13px;
       border-top: 1px solid rgba(255,255,255,.06);
     }
     footer a{
-      color: rgba(255,255,255,.76);
+      color: rgba(255,255,255,.78);
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
     /* Responsive */
     @media (max-width: 980px){
-      body{ font-size: 17px; }
       .grid{ grid-template-columns: 1fr; }
       .cards{ grid-template-columns: 1fr; }
       .how{ grid-template-columns: 1fr; }
       .proof{ grid-template-columns: 1fr; }
       .demo{ grid-template-columns: 1fr; }
       .industry-grid{ grid-template-columns: 1fr; }
-      .benefits{ grid-template-columns: 1fr; }
-      .packages{ grid-template-columns: 1fr; }
+      .pricing-grid{ grid-template-columns: 1fr; }
       .links{ display:none; }
-      .hero-visual{ min-height: 460px; }
+      .hero-visual{ min-height: 440px; }
     }
   </style>
 </head>
@@ -727,16 +658,15 @@
   <div class="nav">
     <div class="wrap nav-inner">
       <a class="brand" href="#top">
-        <img src="./assets/logo.png?v=4" alt="Simona AI logo" />
+        <img src="./assets/logo.png?v=6" alt="Simona AI logo" />
         <span>Simona AI</span>
       </a>
 
       <div class="links">
-        <a href="#features">Features</a>
-        <a href="#industries">Benefits</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#industries">Industries</a>
         <a href="#packages">Packages</a>
         <a href="#how-it-works">How it works</a>
-        <a href="#proof">Proof</a>
         <a href="#demo">Demo</a>
       </div>
 
@@ -764,8 +694,8 @@
             <h1>Sound professional.<br/>Even when you’re busy.</h1>
 
             <p class="lead">
-              Simona answers inbound calls, captures what customers need, and follows up via opt-in SMS —
-              so you don’t lose appointments to missed calls, after-hours requests, or slow responses.
+              Simona answers inbound calls, captures the important details, and follows up via opt-in SMS —
+              so you don’t lose leads, you don’t need extra staff, and your business books more appointments.
             </p>
 
             <div class="hero-actions">
@@ -789,7 +719,7 @@
 
         <!-- Right visual -->
         <div class="hero-visual">
-          <div class="img-toplabel">🌿 Front desk + customer support</div>
+          <div class="img-toplabel">🌿 Front desk and customer support</div>
 
           <div class="outcome">
             <div class="outcome-inner">
@@ -807,7 +737,7 @@
               </div>
               <div class="mini">
                 <strong>SMS</strong>
-                <span>Sends opt-in confirmations</span>
+                <span>Sends opt-in reminders</span>
               </div>
             </div>
           </div>
@@ -817,84 +747,78 @@
     </div><!-- wrap -->
   </div><!-- hero -->
 
-  <!-- BENEFITS + IMAGES (replaces “Industries info”) -->
-  <section id="industries">
+
+  <!-- BENEFITS (More persuasive + human) -->
+  <section id="benefits">
     <div class="wrap">
       <div class="section-title">
         <div>
-          <h2>Why businesses use Simona</h2>
-          <p>Because you shouldn’t be stuck answering calls, guiding customers, or booking appointments all day — and hiring staff is expensive.</p>
-        </div>
-      </div>
-
-      <div class="industry-grid">
-        <div class="industry-big">
-          <img src="./assets/industry1.png?v=4" alt="Appointment-based businesses" loading="lazy" />
-          <div class="img-caption">Appointments handled automatically</div>
-        </div>
-
-        <div class="industry-side">
-          <img src="./assets/industry2.png?v=4" alt="Phone + scheduling workflows" loading="lazy" />
-          <div class="img-caption">No missed calls + faster follow-up</div>
-        </div>
-      </div>
-
-      <div class="benefits">
-        <div class="benefit">
-          <div class="kicker">✅ Stop doing receptionist work</div>
-          <p>Simona answers questions, guides the customer, captures details, and confirms next steps — so you can focus on delivering the service.</p>
-        </div>
-        <div class="benefit">
-          <div class="kicker">💰 Cheaper than hiring staff</div>
-          <p>A receptionist can easily cost <b>$2,500–$4,500/month</b> with payroll + training. Simona starts at a fraction of that.</p>
-        </div>
-        <div class="benefit">
-          <div class="kicker">📈 More bookings, fewer no-shows</div>
-          <p>Instant replies + opt-in reminders reduce drop-off and help you convert more “maybe” calls into confirmed appointments.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section id="features">
-    <div class="wrap">
-      <div class="section-title">
-        <div>
-          <h2>Features</h2>
-          <p>Everything you want a receptionist to do — without missed calls, voicemails, or slow follow-ups.</p>
+          <h2>Why businesses choose Simona</h2>
+          <p>
+            No more missed calls. No more rushed conversations. No more paying a full-time receptionist when you only need coverage.
+          </p>
         </div>
       </div>
 
       <div class="cards">
         <div class="card">
-          <h3>Answers calls (busy hours + after-hours)</h3>
-          <p>Simona responds instantly when you’re on another call or closed for the day.</p>
-        </div>
-        <div class="card">
-          <h3>Captures lead details</h3>
-          <p>Collects name, phone, reason, and preferred time — then sends a clean summary to your team.</p>
-        </div>
-        <div class="card">
-          <h3>Appointment-ready follow-up</h3>
-          <p>Handles booking requests, confirmations, reminders, and reschedule prompts via opt-in SMS.</p>
+          <h3>You stop losing leads</h3>
+          <p>Simona answers when your team is busy or closed — so every call gets a response.</p>
         </div>
 
         <div class="card">
-          <h3>Answers common questions</h3>
-          <p>Hours, location, pricing ranges, and policies — in a natural, professional voice.</p>
+          <h3>You don’t need to “guide” customers</h3>
+          <p>Simona handles common questions (services, hours, location, pricing range) with a calm, human voice.</p>
         </div>
+
         <div class="card">
-          <h3>Instant SMS follow-up</h3>
-          <p>Stops lead drop-off by following up immediately after calls (opt-in only).</p>
+          <h3>You book without extra staff</h3>
+          <p>Simona captures appointment requests + sends clean summaries so your team can schedule fast.</p>
         </div>
+
         <div class="card">
-          <h3>Routes urgent requests</h3>
-          <p>Escalates urgent situations to staff so customers don’t feel ignored.</p>
+          <h3>You reduce no-shows</h3>
+          <p>Automated opt-in confirmations + reminders help customers show up and follow through.</p>
+        </div>
+
+        <div class="card">
+          <h3>You save thousands per month</h3>
+          <p>A receptionist costs far more than Simona — salary, training, turnover, and missed calls.</p>
+        </div>
+
+        <div class="card">
+          <h3>You look premium</h3>
+          <p>Customers get immediate, professional responses instead of voicemail or slow follow-ups.</p>
         </div>
       </div>
     </div>
   </section>
+
+
+  <!-- INDUSTRIES -->
+  <section id="industries">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Where Simona works best</h2>
+          <p>Appointment-based businesses that need fast, professional follow-up — even after-hours.</p>
+        </div>
+      </div>
+
+      <div class="industry-grid">
+        <div class="industry-big">
+          <img src="./assets/industry1.png" alt="Dental / Med Spa / Clinics" loading="lazy" />
+          <div class="img-caption">Dental • Med Spa • Clinics</div>
+        </div>
+
+        <div class="industry-side">
+          <img src="./assets/industry2.png" alt="Salons / Home Services" loading="lazy" />
+          <div class="img-caption">Salons • Home Services</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- PACKAGES -->
   <section id="packages">
@@ -902,76 +826,84 @@
       <div class="section-title">
         <div>
           <h2>Packages</h2>
-          <p>Pick the level of coverage you want — from “stop missing calls” to full appointment follow-up + workflows.</p>
+          <p>Pick your level of coverage — from “stop missing calls” to full appointment follow-up + workflows.</p>
         </div>
       </div>
 
-      <div class="packages">
-        <div class="pkg">
-          <div class="badge">Starter</div>
-          <h3>Capture Every Lead</h3>
-          <div class="price">
-            <strong>$299</strong><span>/month</span>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <span class="badge">Starter</span>
+          <div class="price-title">Capture Every Lead</div>
+          <div class="price">$299 <span class="per">/ month</span></div>
+          <div class="price-desc">
+            Best if you want to stop missed calls + get clean summaries fast.
           </div>
-          <p>Best if you want to stop missed calls and get clean summaries fast.</p>
-          <ul class="list">
+
+          <ul>
             <li>Voice answering (busy + after-hours)</li>
             <li>Lead capture (name / reason / preferred time)</li>
             <li>Instant staff summary (SMS/email)</li>
             <li>FAQ handling (hours, location, policies)</li>
           </ul>
-          <div class="pkg-actions">
+
+          <div class="price-actions">
             <a class="btn btn-primary" href="#demo">Request demo</a>
             <a class="btn" href="#demo">Ask questions</a>
           </div>
         </div>
 
-        <div class="pkg">
-          <div class="badge">Most Popular</div>
-          <h3>Bookings + Follow-Ups</h3>
-          <div class="price">
-            <strong>$499</strong><span>/month</span>
+        <div class="price-card popular">
+          <span class="badge">Most Popular</span>
+          <div class="price-title">Bookings + Follow-Ups</div>
+          <div class="price">$499 <span class="per">/ month</span></div>
+          <div class="price-desc">
+            Built for appointment businesses that need faster conversion + fewer no-shows.
           </div>
-          <p>Built for appointment businesses that need faster conversion and fewer no-shows.</p>
-          <ul class="list">
+
+          <ul>
             <li>Everything in Starter</li>
             <li>Opt-in SMS confirmations + reminders</li>
             <li>No-show reduction flows</li>
             <li>Routing for urgent requests</li>
             <li>Custom scripts per business</li>
           </ul>
-          <div class="pkg-actions">
+
+          <div class="price-actions">
             <a class="btn btn-primary" href="#demo">Request demo</a>
             <a class="btn" href="#demo">Get a quote</a>
           </div>
         </div>
 
-        <div class="pkg">
-          <div class="badge">Scale</div>
-          <h3>Multi-Location + Integrations</h3>
-          <div class="price">
-            <strong>$799</strong><span>/month</span>
+        <div class="price-card">
+          <span class="badge">Scale</span>
+          <div class="price-title">Multi-Location + Integrations</div>
+          <div class="price">$799 <span class="per">/ month</span></div>
+          <div class="price-desc">
+            For teams that want deeper workflows, integrations, and advanced routing.
           </div>
-          <p>For teams that want deeper workflows, integrations, and advanced routing.</p>
-          <ul class="list">
+
+          <ul>
             <li>Everything in Pro</li>
             <li>Multi-location setup</li>
             <li>CRM / Sheets / tools integration</li>
             <li>Advanced reporting</li>
             <li>Priority support</li>
           </ul>
-          <div class="pkg-actions">
+
+          <div class="price-actions">
             <a class="btn btn-primary" href="#demo">Request demo</a>
             <a class="btn" href="#demo">Talk to us</a>
           </div>
         </div>
       </div>
 
-      <div class="mutednote">
-        Packages shown as examples. Final pricing may vary based on call volume + required workflows. SMS is opt-in only.
-      </div>
+      <p class="fineprint" style="margin-top:14px;">
+        Packages shown as examples. Final pricing may vary based on call volume + required workflows.
+        SMS is opt-in only. Reply STOP to opt out, HELP for help.
+      </p>
     </div>
   </section>
+
 
   <!-- HOW IT WORKS -->
   <section id="how-it-works">
@@ -979,7 +911,7 @@
       <div class="section-title">
         <div>
           <h2>How it works</h2>
-          <p>Simple setup. Clear outcomes. Your team stays focused while Simona handles the front line.</p>
+          <p>Simple setup. Clear outcomes. Your team reminders + lead capture become automatic.</p>
         </div>
       </div>
 
@@ -988,15 +920,15 @@
           <div class="step">
             <div class="num">1</div>
             <div>
-              <strong>Customer calls your business</strong>
-              <span>Simona answers like a real receptionist, with a calm, professional voice.</span>
+              <strong>A customer calls your business</strong>
+              <span>Simona answers like a real receptionist with a natural, professional voice.</span>
             </div>
           </div>
           <div class="step">
             <div class="num">2</div>
             <div>
               <strong>Simona collects the key details</strong>
-              <span>Name, phone, reason for calling, and preferred time — in under 30 seconds.</span>
+              <span>Name, phone number, reason for calling, and preferred time — in under 30 seconds.</span>
             </div>
           </div>
           <div class="step">
@@ -1009,41 +941,12 @@
         </div>
 
         <div class="sideimg">
-          <img src="./assets/dashboard.png?v=4" alt="Example call summary dashboard" loading="lazy" />
+          <img src="./assets/dashboard.png" alt="Example call summary dashboard" loading="lazy" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROOF -->
-  <section id="proof">
-    <div class="wrap">
-      <div class="section-title">
-        <div>
-          <h2>Proof</h2>
-          <p>What owners want most: fewer missed calls, faster follow-ups, and more appointments.</p>
-        </div>
-      </div>
-
-      <div class="proof">
-        <div class="quote">
-          <p>“We were losing leads after-hours. With Simona, customers get a response immediately and we can follow up the next morning.”</p>
-          <div class="who">
-            <span class="avatar"></span>
-            <span>Clinic Owner • US</span>
-          </div>
-        </div>
-
-        <div class="quote">
-          <p>“The best part is the summaries. No guessing, no digging through voicemails—just the details we need to book.”</p>
-          <div class="who">
-            <span class="avatar"></span>
-            <span>Dental Office • Front Desk Lead</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- DEMO -->
   <section id="demo">
@@ -1051,7 +954,7 @@
       <div class="section-title">
         <div>
           <h2>Request a demo</h2>
-          <p>Tell us your business type and what you want Simona to handle. We’ll reply with next steps.</p>
+          <p>Tell us what you want Simona to handle. We’ll reply with the best setup for your business.</p>
         </div>
       </div>
 
@@ -1083,10 +986,10 @@
             <label>What should Simona handle?</label>
             <textarea name="message" placeholder="Answer missed calls, capture appointment requests, send confirmations & reminders..."></textarea>
 
-            <div style="height:14px;"></div>
+            <div style="height:12px;"></div>
             <button class="btn btn-primary" type="submit">Send request</button>
 
-            <p class="fineprint" style="margin-top:12px;">
+            <p class="fineprint" style="margin-top:10px;">
               Opt-in SMS only. Reply STOP to opt out, HELP for help.
             </p>
           </form>
@@ -1095,9 +998,10 @@
         <div class="callout">
           <h3>What you get</h3>
           <p>
-            A voice receptionist that answers calls, captures details, and follows up via SMS — so you never lose a lead to missed calls.
+            A voice receptionist that answers calls, captures lead details, and follows up via SMS —
+            so you never lose a customer to voicemail.
           </p>
-          <div style="height:14px;"></div>
+          <div style="height:12px;"></div>
           <p class="fineprint">
             Best for appointment-based businesses (dental, med spa, salons, clinics, home services).
           </p>
@@ -1106,15 +1010,40 @@
     </div>
   </section>
 
+
+  <!-- FOOTER (Twilio-friendly) -->
   <footer>
     <div class="wrap">
-      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-        <div>© <span id="yr"></span> Simona AI</div>
+      <div style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:flex-start;">
+
         <div>
-          <a href="./privacy.html">Privacy Policy</a>
-          &nbsp;•&nbsp;
-          <a href="#demo">Request a demo</a>
+          <div style="font-weight:800; color:rgba(255,255,255,.88); margin-bottom:6px;">
+            Simona AI
+          </div>
+          <div style="color:rgba(255,255,255,.60); line-height:1.55;">
+            Operated by <b>Alexandra Trujillo</b><br/>
+            Email: <a href="mailto:hello.simonaai@gmail.com">hello.simonaai@gmail.com</a><br/>
+            Phone: <a href="tel:+1XXXXXXXXXX">+1 (XXX) XXX-XXXX</a><br/>
+            Address: <span>Antso Jakituna Hiribidea, 24, 20010 Donostia / San Sebastián, Gipuzkoa</span>
+          </div>
         </div>
+
+        <div style="text-align:right; min-width:240px;">
+          <div style="margin-bottom:10px;">
+            <a href="./privacy.html">Privacy Policy</a>
+            &nbsp;•&nbsp;
+            <a href="./terms.html">Terms</a>
+            &nbsp;•&nbsp;
+            <a href="#demo">Request a demo</a>
+          </div>
+
+          <div style="color:rgba(255,255,255,.42); font-size:12.5px; line-height:1.5;">
+            © <span id="yr"></span> Simona AI. All rights reserved.
+            <br/>
+            SMS is opt-in only. Msg & data rates may apply. Reply STOP to opt out, HELP for help.
+          </div>
+        </div>
+
       </div>
     </div>
   </footer>
