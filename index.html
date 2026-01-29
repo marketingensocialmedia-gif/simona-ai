@@ -3,553 +3,1297 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simona AI — AI Receptionist for San Antonio Dentists & Med Spas</title>
-  <meta name="description" content="Stop losing leads to missed calls and slow follow-up. Simona AI answers calls + texts, captures qualified leads, and notifies your staff instantly." />
+
+  <title>Simona AI — Voice + SMS Receptionist for US Businesses</title>
+  <meta name="description" content="Simona AI answers inbound calls, captures lead details, and follows up via opt-in SMS—so your business never misses a customer." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Simona AI — Voice + SMS Receptionist" />
+  <meta property="og:description" content="Simona answers calls, captures lead details, and follows up via opt-in SMS—so you book more appointments." />
+  <meta property="og:type" content="website" />
 
   <style>
     :root{
-      --bg:#0b0f17;
-      --card:#0f1626;
-      --muted:#9aa6bd;
-      --text:#e9eef9;
-      --accent:#7c5cff;
-      --accent2:#2ee59d;
-      --border:rgba(255,255,255,.10);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius:18px;
+      --bg0:#070712;
+      --bg1:#0a0a16;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.04);
+      --stroke: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.62);
+      --muted2: rgba(255,255,255,.45);
+      --shadow: 0 16px 50px rgba(0,0,0,.55);
+      --glow: 0 0 0 1px rgba(255,255,255,.12), 0 20px 80px rgba(145, 95, 255, .20);
+      --pink: #ff4fd8;
+      --purple: #8f6bff;
+      --cyan: #3fe7ff;
+      --radius: 28px;
+      --radius2: 18px;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 10% -10%, rgba(124,92,255,.35), transparent 60%),
-                  radial-gradient(1000px 700px at 90% 0%, rgba(46,229,157,.20), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.5;
-      font-size:16px;
+
+    *{ box-sizing:border-box; }
+    html,body{
+      margin:0; padding:0;
+      background:
+        radial-gradient(1200px 900px at 20% 10%, rgba(143,107,255,.18), transparent 55%),
+        radial-gradient(900px 650px at 80% 20%, rgba(255,79,216,.12), transparent 55%),
+        radial-gradient(700px 600px at 55% 90%, rgba(63,231,255,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      scroll-behavior:smooth;
     }
-    a{color:inherit; text-decoration:none}
-    .container{max-width:1100px; margin:0 auto; padding:0 18px;}
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(11,15,23,.6);
-      border-bottom:1px solid var(--border);
-    }
+
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ width:min(1200px, calc(100% - 32px)); margin:0 auto; }
+
+    /* Top nav */
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:14px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(5,5,12,.55);
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800;
-      letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: .2px;
+      white-space:nowrap;
     }
-    .dot{
-      width:12px; height:12px; border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(124,92,255,.18);
+    .brand img{
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.10);
+      object-fit: cover;
     }
-    .navlinks{display:flex; gap:14px; color:var(--muted); font-weight:600}
-    .navlinks a{padding:8px 10px; border-radius:10px}
-    .navlinks a:hover{background:rgba(255,255,255,.06); color:var(--text)}
-    .cta{
-      display:flex; gap:10px; align-items:center;
+    .brand span{
+      font-size: 16px;
+      color: rgba(255,255,255,.90);
     }
+
+    .links{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+      justify-content:center;
+      flex:1;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .links a{
+      padding: 8px 10px;
+      border-radius: 12px;
+      transition: .15s ease;
+    }
+    .links a:hover{
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.86);
+    }
+
+    .nav-cta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
+    }
+
     .btn{
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      padding:10px 14px;
-      border-radius:14px;
-      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.88);
+      font-weight: 600;
+      font-size: 14px;
       cursor:pointer;
-      box-shadow:none;
-      transition:.15s ease;
+      transition: .15s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+    }
+    .btn-primary{
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(143,107,255,.95), rgba(255,79,216,.85));
+      box-shadow: 0 14px 40px rgba(143,107,255,.25);
+      color:white;
+    }
+
+    /* HERO */
+    .hero{ padding: 48px 0 18px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position: relative;
+    }
+
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(143,107,255,.18), transparent 55%),
+        radial-gradient(600px 380px at 85% 30%, rgba(255,79,216,.12), transparent 58%),
+        radial-gradient(400px 300px at 70% 105%, rgba(63,231,255,.09), transparent 60%);
+      pointer-events:none;
+      opacity: .95;
+    }
+
+    .panel-inner{
+      position:relative;
+      padding: 28px;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom: 18px;
+    }
+    .chip{
       display:inline-flex;
       align-items:center;
       gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.74);
+      font-size: 13px;
       white-space:nowrap;
     }
-    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.09)}
-    .btn.primary{
-      border-color: rgba(124,92,255,.55);
-      background: linear-gradient(135deg, rgba(124,92,255,.90), rgba(46,229,157,.55));
-      color:#06101a;
+    .dot{
+      width:8px; height:8px;
+      border-radius:50%;
+      background: linear-gradient(180deg, var(--pink), var(--purple));
+      box-shadow: 0 0 18px rgba(255,79,216,.6);
     }
-    .btn.primary:hover{filter:brightness(1.03)}
-    .hero{
-      padding:56px 0 24px;
+
+    h1{
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      margin: 0 0 14px;
+      font-size: clamp(44px, 5.2vw, 64px);
+      line-height: 1.02;
     }
-    .hero-grid{
+    .lead{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16.5px;
+      line-height: 1.6;
+      max-width: 60ch;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 14px;
+    }
+
+    .industry-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 14px;
+    }
+    .pill{
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.60);
+      font-size: 13px;
+    }
+
+    .fineprint{
+      margin-top: 12px;
+      color: rgba(255,255,255,.40);
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+    .fineprint b{ color: rgba(255,255,255,.60); font-weight:600; }
+
+    /* HERO RIGHT VISUAL */
+    .hero-visual{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--glow);
+      overflow:hidden;
+      position: relative;
+      min-height: 520px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.35)),
+        url("./assets/hero.jpeg") center/cover no-repeat;
+    }
+
+    .img-toplabel{
+      position:absolute;
+      top: 16px;
+      left: 16px;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(12px);
+      color: rgba(255,255,255,.85);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .outcome{
+      position:absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+    }
+    .outcome-inner{
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.28);
+      backdrop-filter: blur(14px);
+      padding: 14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .outcome-title{
+      grid-column: 1 / -1;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .outcome-title h4{
+      margin:0;
+      font-size: 15px;
+      color: rgba(255,255,255,.88);
+      font-weight: 650;
+    }
+    .outcome-title span{
+      color: rgba(255,255,255,.55);
+      font-size: 13px;
+      white-space:nowrap;
+    }
+    .outcome p{
+      margin: 6px 0 0;
+      color: rgba(255,255,255,.65);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .mini{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding: 12px;
+    }
+    .mini strong{
+      display:block;
+      font-size: 13.5px;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 4px;
+    }
+    .mini span{
+      color: rgba(255,255,255,.60);
+      font-size: 13px;
+    }
+
+    /* Sections */
+    section{ padding: 42px 0; }
+
+    .section-title{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    h2{ margin:0; font-size: 24px; letter-spacing: .2px; }
+    .section-title p{
+      margin:6px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 62ch;
+      line-height:1.55;
+    }
+
+    /* Industries images */
+    .industry-grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:stretch;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .industry-big, .industry-side{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      overflow:hidden;
+      box-shadow: var(--glow);
+      position: relative;
+      min-height: 330px;
+    }
+    .industry-big img, .industry-side img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      opacity: .96;
+    }
+    .img-caption{
+      position:absolute;
+      left: 14px;
+      bottom: 14px;
+      padding: 10px 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.26);
+      backdrop-filter: blur(12px);
+      color: rgba(255,255,255,.88);
+      font-weight: 650;
+      font-size: 14px;
+    }
+
+    /* Benefit cards */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
     }
     .card{
-      background: rgba(15,22,38,.72);
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .hero-main{padding:28px}
-    h1{
-      margin:0 0 12px;
-      font-size: clamp(30px, 4vw, 44px);
-      line-height:1.08;
-      letter-spacing:-.6px;
-    }
-    .sub{
-      color:var(--muted);
-      font-size: clamp(16px, 1.6vw, 18px);
-      margin:0 0 18px;
-    }
-    .pillrow{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0;}
-    .pill{
-      font-size:13px;
-      color:var(--text);
-      background: rgba(255,255,255,.06);
-      border:1px solid var(--border);
-      padding:8px 10px;
-      border-radius:999px;
-    }
-    .hero-side{padding:22px}
-    .kpi{
-      display:flex; flex-direction:column; gap:12px;
-    }
-    .kpi .box{
-      padding:14px;
-      border-radius: 14px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-    }
-    .kpi .label{color:var(--muted); font-size:13px; font-weight:700}
-    .kpi .value{font-size:18px; font-weight:900; margin-top:2px}
-    section{padding:28px 0}
-    .section-title{
-      font-size:24px; margin:0 0 12px; letter-spacing:-.3px;
-    }
-    .grid3{display:grid; grid-template-columns: repeat(3,1fr); gap:14px;}
-    .grid2{display:grid; grid-template-columns: repeat(2,1fr); gap:14px;}
-    .item{padding:16px}
-    .item h3{margin:0 0 6px; font-size:16px}
-    .item p{margin:0; color:var(--muted); font-size:14px}
-    .muted{color:var(--muted)}
-    .divider{height:1px; background:var(--border); margin:10px 0}
-    .faq .q{
-      padding:14px 16px;
-      border:1px solid var(--border);
-      border-radius:14px;
-      background: rgba(255,255,255,.04);
-      margin-bottom:10px;
-    }
-    .faq summary{
-      cursor:pointer;
-      font-weight:800;
-      list-style:none;
-    }
-    .faq summary::-webkit-details-marker{display:none}
-    .faq p{margin:10px 0 0; color:var(--muted)}
-    .formwrap{padding:18px}
-    label{display:block; font-weight:800; font-size:13px; margin:10px 0 6px}
-    input, select, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background: rgba(0,0,0,.22);
-      color:var(--text);
-      outline:none;
-    }
-    input:focus, select:focus, textarea:focus{border-color: rgba(124,92,255,.65)}
-    textarea{min-height:110px; resize:vertical}
-    .row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
-    .consent{
-      display:flex; gap:10px; align-items:flex-start;
-      margin-top:12px;
-      padding:12px;
-      border-radius:12px;
-      border:1px solid var(--border);
       background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
     }
-    .consent input{width:auto; margin-top:3px}
-    .small{font-size:12px; color:var(--muted)}
-    .banner{
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background: rgba(46,229,157,.10);
-      color: var(--text);
-      margin-bottom:14px;
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: rgba(255,255,255,.92);
+    }
+    .card p{
+      margin:0;
+      color: rgba(255,255,255,.62);
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+
+    /* Packages */
+    .pricing-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .price-card{
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.20);
+      font-size: 13px;
+      color: rgba(255,255,255,.78);
       font-weight:700;
     }
-    .banner.error{background: rgba(255,90,90,.10)}
-    footer{
-      padding:28px 0 40px;
-      color:var(--muted);
-      border-top:1px solid var(--border);
+    .price-title{
+      margin: 14px 0 8px;
+      font-size: 20px;
+      font-weight: 750;
+      color: rgba(255,255,255,.94);
     }
-    .footerlinks{display:flex; flex-wrap:wrap; gap:12px; margin-top:10px}
-    .sticky-mobile{
-      position:fixed;
-      left:0; right:0; bottom:0;
-      padding:12px;
-      background: rgba(11,15,23,.72);
-      border-top:1px solid var(--border);
-      backdrop-filter: blur(10px);
-      display:none;
-      z-index:60;
+    .price{
+      font-size: 46px;
+      font-weight: 850;
+      margin: 6px 0 8px;
+      letter-spacing: -1px;
     }
-    .sticky-mobile .btn{width:100%; justify-content:center}
-    /* Honeypot: offscreen (less likely autofill than "display:none") */
-    .hp{
-      position:absolute;
-      left:-5000px;
-      width:1px; height:1px;
+    .per{
+      font-size: 14px;
+      color: rgba(255,255,255,.55);
+      font-weight: 600;
+    }
+    .price-desc{
+      color: rgba(255,255,255,.62);
+      font-size: 14.5px;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    ul{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.62);
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+    .price-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .popular{
+      box-shadow: 0 0 0 1px rgba(255,255,255,.14), 0 18px 70px rgba(255,79,216,.20);
+    }
+
+    /* How it works */
+    .how{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .steps{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .step{
+      display:flex;
+      gap: 12px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 14px;
+    }
+    .num{
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 800;
+      background: linear-gradient(135deg, rgba(143,107,255,.95), rgba(255,79,216,.85));
+      color:white;
+      flex: 0 0 auto;
+    }
+    .step strong{
+      display:block;
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: rgba(255,255,255,.92);
+    }
+    .step span{
+      color: rgba(255,255,255,.62);
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
+
+    .sideimg{
+      border-radius: var(--radius);
       overflow:hidden;
-      opacity:0;
-      pointer-events:none;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      min-height: 280px;
+      box-shadow: var(--glow);
     }
-    @media (max-width: 900px){
-      .hero-grid{grid-template-columns:1fr}
-      .grid3{grid-template-columns:1fr}
-      .grid2{grid-template-columns:1fr}
-      .row{grid-template-columns:1fr}
-      .navlinks{display:none}
-      .sticky-mobile{display:block}
+    .sideimg img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      opacity: .96;
+    }
+
+    /* FAQ */
+    .faq{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .faq details{
+      padding: 14px 16px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .faq details:first-child{ border-top: 0; }
+    .faq summary{
+      cursor:pointer;
+      font-weight: 700;
+      color: rgba(255,255,255,.90);
+      list-style: none;
+      outline:none;
+    }
+    .faq summary::-webkit-details-marker{ display:none; }
+    .faq summary::after{
+      content:"＋";
+      float:right;
+      color: rgba(255,255,255,.55);
+      font-weight:800;
+    }
+    .faq details[open] summary::after{ content:"－"; }
+    .faq .a{
+      margin-top: 8px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.6;
+      font-size: 14.5px;
+      max-width: 90ch;
+    }
+
+    /* Demo */
+    .demo{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items:stretch;
+      margin-top: 16px;
+    }
+    .form{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 18px;
+    }
+    label{
+      display:block;
+      font-size: 13px;
+      color: rgba(255,255,255,.70);
+      margin: 10px 0 6px;
+    }
+    input, textarea, select{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+      color: rgba(255,255,255,.88);
+      outline:none;
+      font-size: 14.5px;
+    }
+    textarea{ min-height: 110px; resize: vertical; }
+    input::placeholder, textarea::placeholder{ color: rgba(255,255,255,.35); }
+
+    .form-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .callout{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      padding: 18px;
+      position: relative;
+      overflow:hidden;
+    }
+    .callout h3{ margin: 0 0 10px; font-size: 18px; }
+    .callout p{
+      margin:0;
+      color: rgba(255,255,255,.62);
+      line-height:1.55;
+      font-size: 14.5px;
+    }
+
+    .notice{
+      display:none;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+      color: rgba(255,255,255,.80);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .notice.success{
+      border-color: rgba(63,231,255,.22);
+      box-shadow: 0 0 0 1px rgba(63,231,255,.10);
+    }
+    .notice.error{
+      border-color: rgba(255,79,216,.22);
+      box-shadow: 0 0 0 1px rgba(255,79,216,.10);
+    }
+
+    .checkbox-row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.02);
+    }
+    .checkbox-row input[type="checkbox"]{
+      width:18px; height:18px;
+      margin-top: 2px;
+      flex: 0 0 auto;
+    }
+    .checkbox-row div{
+      color: rgba(255,255,255,.70);
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+
+    /* Honeypot (hidden) */
+    .hp{
+      position:absolute !important;
+      left:-9999px !important;
+      width:1px !important;
+      height:1px !important;
+      overflow:hidden !important;
+      opacity:0 !important;
+      pointer-events:none !important;
+    }
+
+    footer{
+      padding: 28px 0 44px;
+      color: rgba(255,255,255,.50);
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    footer a{
+      color: rgba(255,255,255,.78);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .cards{ grid-template-columns: 1fr; }
+      .how{ grid-template-columns: 1fr; }
+      .demo{ grid-template-columns: 1fr; }
+      .industry-grid{ grid-template-columns: 1fr; }
+      .pricing-grid{ grid-template-columns: 1fr; }
+      .links{ display:none; }
+      .hero-visual{ min-height: 440px; }
+      .form-row{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <div class="nav">
-        <div class="brand">
-          <span class="dot"></span>
-          <span>Simona AI</span>
-        </div>
-        <nav class="navlinks">
-          <a href="#how">How it works</a>
-          <a href="#features">Features</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div class="cta">
-          <a class="btn" href="#contact">Start pilot</a>
-          <a class="btn primary" href="#contact">Book a 2-min demo</a>
-        </div>
-      </div>
-    </div>
-  </header>
 
-  <div class="sticky-mobile">
-    <div class="container">
-      <a class="btn primary" href="#contact">Book a 2-min demo</a>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <img src="./assets/logo.png?v=6" alt="Simona AI logo" />
+        <span>Simona AI</span>
+      </a>
+
+      <div class="links">
+        <a href="#benefits">Benefits</a>
+        <a href="#industries">Industries</a>
+        <a href="#packages">Packages</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#demo">Demo</a>
+      </div>
+
+      <div class="nav-cta">
+        <a class="btn" href="./privacy.html">Privacy</a>
+        <a class="btn btn-primary" href="#demo">Request a demo</a>
+      </div>
     </div>
   </div>
 
-  <main>
-    <section class="hero" id="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="card hero-main">
-            <h1>Stop losing leads to missed calls and slow follow-up.</h1>
-            <p class="sub">
-              Simona AI answers calls + texts, captures qualified leads, and instantly notifies your staff —
-              built for San Antonio dentists and med spas.
+  <!-- HERO -->
+  <div id="top" class="hero">
+    <div class="wrap">
+      <div class="grid">
+
+        <!-- Left panel -->
+        <div class="panel">
+          <div class="panel-inner">
+            <div class="chips">
+              <span class="chip"><span class="dot"></span> Voice + SMS receptionist</span>
+              <span class="chip"><span class="dot"></span> Opt-in messaging</span>
+              <span class="chip"><span class="dot"></span> Built for appointments</span>
+            </div>
+
+            <h1>Sound professional.<br/>Even when you’re busy.</h1>
+
+            <p class="lead">
+              Simona answers inbound calls, captures the important details, and follows up via opt-in SMS —
+              so you don’t lose leads, you don’t need extra staff, and your business books more appointments.
             </p>
-            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="btn primary" href="#contact">Book a 2-min demo</a>
-              <a class="btn" href="#contact">Start a 14-day pilot</a>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#demo">Request a demo</a>
+              <a class="btn" href="#packages">See packages</a>
             </div>
 
-            <div class="pillrow">
-              <span class="pill">After-hours coverage</span>
-              <span class="pill">Human handoff triggers</span>
-              <span class="pill">Lead capture + SMS follow-up</span>
-              <span class="pill">Instant staff notifications</span>
+            <div class="industry-tags">
+              <span class="pill">Dental</span>
+              <span class="pill">Med Spa</span>
+              <span class="pill">Clinics</span>
+              <span class="pill">Salons</span>
+              <span class="pill">Home Services</span>
+            </div>
+
+            <div class="fineprint">
+              <b>Compliance-friendly:</b> SMS is opt-in only. Message & data rates may apply. Reply <b>STOP</b> to opt out, <b>HELP</b> for help.
             </div>
           </div>
+        </div>
 
-          <div class="card hero-side">
-            <div class="kpi">
-              <div class="box">
-                <div class="label">Typical problem</div>
-                <div class="value">Calls go to voicemail</div>
+        <!-- Right visual -->
+        <div class="hero-visual">
+          <div class="img-toplabel">🌿 Front desk and customer support</div>
+
+          <div class="outcome">
+            <div class="outcome-inner">
+              <div class="outcome-title">
+                <div>
+                  <h4>Example outcome</h4>
+                  <p>“Hi, I’d like to book an appointment.” → Simona collects name + reason + preferred time.</p>
+                </div>
+                <span>Instant staff summary</span>
               </div>
-              <div class="box">
-                <div class="label">Simona AI does</div>
-                <div class="value">Captures name + phone + reason + time</div>
+
+              <div class="mini">
+                <strong>Voice</strong>
+                <span>Answers calls after-hours</span>
               </div>
-              <div class="box">
-                <div class="label">So you get</div>
-                <div class="value">More bookings, less chaos</div>
+              <div class="mini">
+                <strong>SMS</strong>
+                <span>Sends opt-in reminders</span>
               </div>
             </div>
-            <div class="divider"></div>
-            <p class="small">
-              Note: We avoid HIPAA claims. If you enable call recording, we add disclosures in your Privacy Policy.
-            </p>
+          </div>
+        </div>
+
+      </div><!-- grid -->
+    </div><!-- wrap -->
+  </div><!-- hero -->
+
+
+  <!-- BENEFITS -->
+  <section id="benefits">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Why businesses choose Simona</h2>
+          <p>
+            No more missed calls. No more rushed conversations. No more paying a full-time receptionist when you only need coverage.
+          </p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3>You stop losing leads</h3>
+          <p>Simona answers when your team is busy or closed — so every call gets a response.</p>
+        </div>
+
+        <div class="card">
+          <h3>You don’t need to “guide” customers</h3>
+          <p>Simona handles common questions (services, hours, location, pricing range) with a calm, human voice.</p>
+        </div>
+
+        <div class="card">
+          <h3>You book without extra staff</h3>
+          <p>Simona captures appointment requests + sends clean summaries so your team can schedule fast.</p>
+        </div>
+
+        <div class="card">
+          <h3>You reduce no-shows</h3>
+          <p>Automated opt-in confirmations + reminders help customers show up and follow through.</p>
+        </div>
+
+        <div class="card">
+          <h3>You save thousands per month</h3>
+          <p>A receptionist costs far more than Simona — salary, training, turnover, and missed calls.</p>
+        </div>
+
+        <div class="card">
+          <h3>You look premium</h3>
+          <p>Customers get immediate, professional responses instead of voicemail or slow follow-ups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- INDUSTRIES -->
+  <section id="industries">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Where Simona works best</h2>
+          <p>Appointment-based businesses that need fast, professional follow-up — even after-hours.</p>
+        </div>
+      </div>
+
+      <div class="industry-grid">
+        <div class="industry-big">
+          <img src="./assets/industry1.png" alt="Dental / Med Spa / Clinics" loading="lazy" />
+          <div class="img-caption">Dental • Med Spa • Clinics</div>
+        </div>
+
+        <div class="industry-side">
+          <img src="./assets/industry2.png" alt="Salons / Home Services" loading="lazy" />
+          <div class="img-caption">Salons • Home Services</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PACKAGES -->
+  <section id="packages">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Packages</h2>
+          <p>Pick your level of coverage — from “stop missing calls” to full appointment follow-up + workflows.</p>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <span class="badge">Starter</span>
+          <div class="price-title">Capture Every Lead</div>
+          <div class="price">$299 <span class="per">/ month</span></div>
+          <div class="price-desc">
+            Best if you want to stop missed calls + get clean summaries fast.
+          </div>
+
+          <ul>
+            <li>Voice answering (busy + after-hours)</li>
+            <li>Lead capture (name / reason / preferred time)</li>
+            <li>Instant staff summary (SMS/email)</li>
+            <li>FAQ handling (hours, location, policies)</li>
+          </ul>
+
+          <div class="price-actions">
+            <a class="btn btn-primary" href="#demo">Request demo</a>
+            <a class="btn" href="#demo">Ask questions</a>
+          </div>
+        </div>
+
+        <div class="price-card popular">
+          <span class="badge">Most Popular</span>
+          <div class="price-title">Bookings + Follow-Ups</div>
+          <div class="price">$499 <span class="per">/ month</span></div>
+          <div class="price-desc">
+            Built for appointment businesses that need faster conversion + fewer no-shows.
+          </div>
+
+          <ul>
+            <li>Everything in Starter</li>
+            <li>Opt-in SMS confirmations + reminders</li>
+            <li>No-show reduction flows</li>
+            <li>Routing for urgent requests</li>
+            <li>Custom scripts per business</li>
+          </ul>
+
+          <div class="price-actions">
+            <a class="btn btn-primary" href="#demo">Request demo</a>
+            <a class="btn" href="#demo">Get a quote</a>
+          </div>
+        </div>
+
+        <div class="price-card">
+          <span class="badge">Scale</span>
+          <div class="price-title">Multi-Location + Integrations</div>
+          <div class="price">$799 <span class="per">/ month</span></div>
+          <div class="price-desc">
+            For teams that want deeper workflows, integrations, and advanced routing.
+          </div>
+
+          <ul>
+            <li>Everything in Pro</li>
+            <li>Multi-location setup</li>
+            <li>CRM / Sheets / tools integration</li>
+            <li>Advanced reporting</li>
+            <li>Priority support</li>
+          </ul>
+
+          <div class="price-actions">
+            <a class="btn btn-primary" href="#demo">Request demo</a>
+            <a class="btn" href="#demo">Talk to us</a>
           </div>
         </div>
       </div>
-    </section>
 
-    <section id="how">
-      <div class="container">
-        <h2 class="section-title">How it works</h2>
-        <div class="grid3">
-          <div class="card item">
-            <h3>1) Answer</h3>
-            <p>Simona responds during busy hours and after-hours with your preferred script.</p>
-          </div>
-          <div class="card item">
-            <h3>2) Qualify</h3>
-            <p>Captures name, phone, reason for calling, and preferred callback time.</p>
-          </div>
-          <div class="card item">
-            <h3>3) Notify</h3>
-            <p>Instant alert to your team so the lead doesn’t go cold.</p>
-          </div>
+      <p class="fineprint" style="margin-top:14px;">
+        Packages shown as examples. Final pricing may vary based on call volume + required workflows.
+        SMS is opt-in only. Reply STOP to opt out, HELP for help.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>How it works</h2>
+          <p>Simple setup. Clear outcomes. Your team reminders + lead capture become automatic.</p>
         </div>
       </div>
-    </section>
 
-    <section id="features">
-      <div class="container">
-        <h2 class="section-title">Features clinics actually care about</h2>
-        <div class="grid2">
-          <div class="card item">
-            <h3>Human handoff triggers</h3>
-            <p>If the caller asks for a person, is upset, or it’s urgent, Simona routes them to your preferred option.</p>
+      <div class="how">
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <div>
+              <strong>A customer calls your business</strong>
+              <span>Simona answers like a real receptionist with a natural, professional voice.</span>
+            </div>
           </div>
-          <div class="card item">
-            <h3>Urgent keyword routing</h3>
-            <p>Keywords like pain, swelling, bleeding, emergency can trigger priority instructions + staff alerts.</p>
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <strong>Simona collects the key details</strong>
+              <span>Name, phone number, reason for calling, and preferred time — in under 30 seconds.</span>
+            </div>
           </div>
-          <div class="card item">
-            <h3>After-hours capture</h3>
-            <p>Collects details and sends an SMS so prospects don’t bounce to a competitor.</p>
-          </div>
-          <div class="card item">
-            <h3>Simple logging</h3>
-            <p>We can log leads to a Google Sheet and connect to common tools depending on your setup.</p>
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <strong>Instant opt-in SMS follow-up</strong>
+              <span>Customers get confirmations/reminders, and your team gets a summary for fast action.</span>
+            </div>
           </div>
         </div>
+
+        <div class="sideimg">
+          <img src="./assets/dashboard.png" alt="Example call summary dashboard" loading="lazy" />
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="faq" class="faq">
-      <div class="container">
-        <h2 class="section-title">FAQ</h2>
 
-        <details class="q">
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>FAQ</h2>
+          <p>Practical answers for busy practices — built for reliability, not hype.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details>
           <summary>1) Does this replace my front desk?</summary>
-          <p>No. Simona AI supports your team by capturing and organizing leads when staff is busy or after-hours—so your front desk can focus on patients/clients in front of them.</p>
+          <div class="a">No. Simona AI supports your team by capturing and organizing leads when staff is busy or after-hours—so your front desk can focus on patients/clients in front of them.</div>
         </details>
-
-        <details class="q">
+        <details>
           <summary>2) What happens if someone wants a human right away?</summary>
-          <p>We add “human handoff” triggers. If the caller asks for a person, is upset, or it’s urgent, Simona routes them to your preferred option.</p>
+          <div class="a">We add “human handoff” triggers. If the caller asks for a person, is upset, or it’s urgent, Simona routes them to your preferred option.</div>
         </details>
-
-        <details class="q">
+        <details>
           <summary>3) Can it handle urgent dental calls?</summary>
-          <p>Yes. Urgent keywords (pain, swelling, bleeding, emergency) can trigger priority routing instructions and immediate staff alerts.</p>
+          <div class="a">Yes. Urgent keywords (pain, swelling, bleeding, emergency) can trigger priority routing instructions and immediate staff alerts.</div>
         </details>
-
-        <details class="q">
+        <details>
           <summary>4) Can it answer after-hours?</summary>
-          <p>Yes. You choose the after-hours message and next steps, including capturing details and sending an SMS so the lead doesn’t go cold.</p>
+          <div class="a">Yes. You choose the after-hours message and next steps, including capturing details and sending an SMS so the lead doesn’t go cold.</div>
         </details>
-
-        <details class="q">
+        <details>
           <summary>5) Will patients/clients get annoyed by texts?</summary>
-          <p>Texts are short and helpful. We include an opt-out (“Reply STOP to opt out”) and only message people who contact your practice.</p>
+          <div class="a">Texts are short and helpful. We include an opt-out (“Reply STOP to opt out”) and only message people who contact your practice.</div>
         </details>
-
-        <details class="q">
+        <details>
           <summary>6) How fast can we launch?</summary>
-          <p>Typically 48–72 hours once we have your basic info (hours, services, routing rules, and staff notification preferences).</p>
+          <div class="a">Typically 48–72 hours once we have your basic info (hours, services, routing rules, and staff notification preferences).</div>
         </details>
-
-        <details class="q">
+        <details>
           <summary>7) Do you integrate with my systems?</summary>
-          <p>We can log leads to a Google Sheet and connect to common tools depending on your setup. On the demo we’ll confirm what you use and the best integration path.</p>
+          <div class="a">We can log leads to a Google Sheet and connect to common tools depending on your setup. On the demo we’ll confirm what you use and the best integration path.</div>
         </details>
-
-        <details class="q">
+        <details>
           <summary>8) What if Simona doesn’t understand a question?</summary>
-          <p>We design a safe fallback: clarify once, then route to your team or capture the lead and promise a callback—so you still save the opportunity.</p>
+          <div class="a">We design a safe fallback: clarify once, then route to your team or capture the lead and promise a callback—so you still save the opportunity.</div>
         </details>
-
-        <details class="q">
+        <details>
           <summary>9) Is this compliant? Do you record calls?</summary>
-          <p>We can configure call recording and disclosures based on your preference and local requirements. We also include clear privacy and SMS consent language on the website.</p>
+          <div class="a">We can configure call recording and disclosures based on your preference and local requirements. We also include clear privacy and SMS consent language on the website.</div>
         </details>
-
-        <details class="q">
+        <details>
           <summary>10) What does “qualified lead” mean?</summary>
-          <p>A qualified lead is a real person who provides name + phone and a clear reason for calling, with a preferred callback time (and optional details like insurance/treatment interest).</p>
+          <div class="a">A qualified lead is a real person who provides name + phone and a clear reason for calling, with a preferred callback time (and optional details like insurance/treatment interest).</div>
         </details>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact / Demo Request</h2>
-        <div class="card formwrap">
 
-          <div id="formBanner" style="display:none"></div>
+  <!-- DEMO -->
+  <section id="demo">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Request a demo</h2>
+          <p>Tell us what you want Simona to handle. We’ll reply with the best setup for your business.</p>
+        </div>
+      </div>
 
-          <form id="leadForm"
-                method="POST"
-                action="https://aisimona.app.n8n.cloud/webhook/simona-leads"
-                accept-charset="UTF-8">
+      <div class="demo">
+        <div class="form">
 
-            <!-- Honeypot (bots fill this). Keep OFFSCREEN. -->
+          <!-- Anchor for redirects if you ever use them -->
+          <div id="contact" style="position:relative; top:-80px;"></div>
+
+          <!-- Status messages -->
+          <div id="formNoticeSuccess" class="notice success">
+            ✅ Thanks — we got your request. If you don’t hear back within 1 business day, email <b>hello.simonaai@gmail.com</b>.
+          </div>
+          <div id="formNoticeError" class="notice error">
+            ⚠️ Something didn’t go through. Please email <b>hello.simonaai@gmail.com</b> and we’ll help immediately.
+          </div>
+
+          <!-- Hidden iframe: prevents leaving the page (avoids blank/405/redirect issues) -->
+          <iframe name="lead_sink" id="lead_sink" style="display:none;"></iframe>
+
+          <form
+            id="leadForm"
+            action="https://aisimona.app.n8n.cloud/webhook/simona-leads"
+            method="POST"
+            target="lead_sink"
+            accept-charset="UTF-8"
+          >
+            <!-- Honeypot (spam trap) -->
             <div class="hp" aria-hidden="true">
-              <label for="company_website">Company Website</label>
-              <input id="company_website"
-                     name="company_website"
-                     type="text"
-                     tabindex="-1"
-                     autocomplete="off"
-                     inputmode="none"
-                     value="" />
+              <label>Company website</label>
+              <input
+                type="text"
+                name="company_website"
+                tabindex="-1"
+                autocomplete="new-password"
+                value=""
+              />
             </div>
 
-            <!-- Hidden meta fields -->
-            <input type="hidden" id="source_page" name="source_page" value="" />
-            <input type="hidden" id="timestamp" name="timestamp" value="" />
-            <input type="hidden" id="redirect_url_success" name="redirect_url_success" value="" />
-            <input type="hidden" id="redirect_url_error" name="redirect_url_error" value="" />
+            <!-- Helpful metadata -->
+            <input type="hidden" name="source_page" id="source_page" value="" />
+            <input type="hidden" name="timestamp" id="timestamp" value="" />
+            <input type="hidden" name="redirect_url_success" value="https://marketingensocialmedia-gif.github.io/simona-ai/?submitted=1#contact" />
+            <input type="hidden" name="redirect_url_error" value="https://marketingensocialmedia-gif.github.io/simona-ai/?submitted=0#contact" />
 
-            <div class="row">
+            <div class="form-row">
               <div>
-                <label for="business_name">Business name</label>
-                <input id="business_name" name="business_name" required />
+                <label>Business name</label>
+                <input name="business_name" placeholder="Smile Dental" required />
               </div>
               <div>
-                <label for="full_name">Full name</label>
-                <input id="full_name" name="full_name" required />
-              </div>
-            </div>
-
-            <div class="row">
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" required />
-              </div>
-              <div>
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" required />
+                <label>Full name</label>
+                <input name="full_name" placeholder="Alex Johnson" required />
               </div>
             </div>
 
-            <div class="row">
+            <div class="form-row">
               <div>
-                <label for="business_type">Business type</label>
-                <select id="business_type" name="business_type" required>
-                  <option value="" selected disabled>Select…</option>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="you@email.com" required />
+              </div>
+              <div>
+                <label>Phone</label>
+                <input name="phone" placeholder="+1 (555) 123-4567" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label>Business type</label>
+                <select name="business_type" required>
+                  <option value="" disabled selected>Select one</option>
                   <option>Dentist</option>
                   <option>Med Spa</option>
                 </select>
               </div>
               <div>
-                <label for="city">City (Texas)</label>
-                <input id="city" name="city" placeholder="San Antonio" required />
+                <label>City (Texas)</label>
+                <input name="city" placeholder="San Antonio" required />
               </div>
             </div>
 
-            <div class="row">
+            <label>Biggest issue</label>
+            <select name="biggest_issue" required>
+              <option value="" disabled selected>Select one</option>
+              <option>Missed calls</option>
+              <option>After-hours</option>
+              <option>Staff overload</option>
+              <option>Slow follow-up</option>
+            </select>
+
+            <label>What should Simona handle? (optional)</label>
+            <textarea name="message" placeholder="Answer missed calls, capture appointment requests, send confirmations & reminders..."></textarea>
+
+            <div class="checkbox-row">
+              <input id="sms_consent" type="checkbox" name="sms_consent" required />
               <div>
-                <label for="biggest_issue">Biggest issue</label>
-                <select id="biggest_issue" name="biggest_issue" required>
-                  <option value="" selected disabled>Select…</option>
-                  <option>Missed calls</option>
-                  <option>After-hours</option>
-                  <option>Staff overload</option>
-                  <option>Slow follow-up</option>
-                </select>
-              </div>
-              <div>
-                <label for="message">Message (optional)</label>
-                <input id="message" name="message" placeholder="Tell us what’s happening…" />
+                <b>I agree to receive text messages about my inquiry.</b><br/>
+                By submitting, you agree to receive texts regarding your inquiry. Message & data rates may apply. Reply STOP to opt out.
               </div>
             </div>
 
-            <div class="consent">
-              <input id="sms_consent" name="sms_consent" type="checkbox" required />
-              <div>
-                <div style="font-weight:900">I agree to receive text messages about my inquiry.</div>
-                <div class="small">
-                  By submitting, you agree to receive texts regarding your inquiry. Message &amp; data rates may apply.
-                  Reply STOP to opt out.
-                </div>
-              </div>
-            </div>
+            <div style="height:12px;"></div>
+            <button id="submitBtn" class="btn btn-primary" type="submit">Send request</button>
 
-            <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
-              <button type="submit" class="btn primary">Submit</button>
-              <a class="btn" href="mailto:hello.simonaai@gmail.com">Email us</a>
-            </div>
-
-            <p class="small" style="margin-top:10px;">
-              Email notifications go to: <strong>hello.simonaai@gmail.com</strong>
+            <p class="fineprint" style="margin-top:10px;">
+              Opt-in SMS only. Reply STOP to opt out, HELP for help.
             </p>
           </form>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <div><strong>© 2026 Simona AI.</strong> Serving Texas.</div>
-      <div class="footerlinks">
-        <a href="#" class="muted">Privacy</a>
-        <a href="#" class="muted">Terms</a>
-        <a href="#" class="muted">Cookies</a>
-        <a href="mailto:hello.simonaai@gmail.com" class="muted">hello.simonaai@gmail.com</a>
+        <div class="callout">
+          <h3>What you get</h3>
+          <p>
+            A voice receptionist that answers calls, captures lead details, and follows up via SMS —
+            so you never lose a customer to voicemail.
+          </p>
+          <div style="height:12px;"></div>
+          <p class="fineprint">
+            Best for appointment-based businesses (dental, med spa, salons, clinics, home services).
+          </p>
+        </div>
       </div>
-      <div class="small" style="margin-top:10px;">
-        SMS disclosure: By submitting, you agree to receive texts regarding your inquiry. Message &amp; data rates may apply.
-        Reply STOP to opt out.
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:flex-start;">
+
+        <div>
+          <div style="font-weight:800; color:rgba(255,255,255,.88); margin-bottom:6px;">
+            Simona AI
+          </div>
+          <div style="color:rgba(255,255,255,.60); line-height:1.55;">
+            Operated by <b>Alexandra Trujillo</b><br/>
+            Email: <a href="mailto:hello.simonaai@gmail.com">hello.simonaai@gmail.com</a><br/>
+            Phone: <a href="tel:+1XXXXXXXXXX">+1 (XXX) XXX-XXXX</a><br/>
+            Address: <span>Antso Jakituna Hiribidea, 24, 20010 Donostia / San Sebastián, Gipuzkoa</span>
+          </div>
+        </div>
+
+        <div style="text-align:right; min-width:240px;">
+          <div style="margin-bottom:10px;">
+            <a href="./privacy.html">Privacy Policy</a>
+            &nbsp;•&nbsp;
+            <a href="./terms.html">Terms</a>
+            &nbsp;•&nbsp;
+            <a href="#demo">Request a demo</a>
+          </div>
+
+          <div style="color:rgba(255,255,255,.42); font-size:12.5px; line-height:1.5;">
+            © <span id="yr"></span> Simona AI. All rights reserved.
+            <br/>
+            SMS is opt-in only. Msg & data rates may apply. Reply STOP to opt out, HELP for help.
+          </div>
+        </div>
+
       </div>
     </div>
   </footer>
 
   <script>
-    (function(){
-      // Populate hidden fields for n8n
-      const base = window.location.href.split('?')[0].split('#')[0];
-      const successUrl = base + '?submitted=1#contact';
-      const errorUrl = base + '?submitted=0#contact';
+    // Year
+    document.getElementById("yr").textContent = new Date().getFullYear();
 
-      document.getElementById('source_page').value = window.location.href;
-      document.getElementById('timestamp').value = new Date().toISOString();
-      document.getElementById('redirect_url_success').value = successUrl;
-      document.getElementById('redirect_url_error').value = errorUrl;
-
-      // Show success/error banner based on query param
+    // Show message if URL has ?submitted=1 or ?submitted=0
+    (function () {
       const params = new URLSearchParams(window.location.search);
-      const submitted = params.get('submitted');
-
-      const banner = document.getElementById('formBanner');
-      if(submitted === '1'){
-        banner.className = 'banner';
-        banner.textContent = "✅ Thanks — we got it. We’ll follow up shortly.";
-        banner.style.display = 'block';
-      } else if(submitted === '0'){
-        banner.className = 'banner error';
-        banner.textContent = "⚠️ Something went wrong. Please try again or email hello.simonaai@gmail.com.";
-        banner.style.display = 'block';
+      const submitted = params.get("submitted");
+      if (submitted === "1") {
+        document.getElementById("formNoticeSuccess").style.display = "block";
+      } else if (submitted === "0") {
+        document.getElementById("formNoticeError").style.display = "block";
       }
+    })();
+
+    // Prevent blank/405 page by submitting into a hidden iframe + showing inline success
+    (function () {
+      const form = document.getElementById("leadForm");
+      const iframe = document.getElementById("lead_sink");
+      const submitBtn = document.getElementById("submitBtn");
+      const success = document.getElementById("formNoticeSuccess");
+      const error = document.getElementById("formNoticeError");
+
+      let submitted = false;
+
+      form.addEventListener("submit", function () {
+        // Fill hidden meta fields
+        document.getElementById("source_page").value = window.location.href;
+        document.getElementById("timestamp").value = new Date().toISOString();
+
+        // UI state
+        submitted = true;
+        success.style.display = "none";
+        error.style.display = "none";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+      });
+
+      iframe.addEventListener("load", function () {
+        // Ignore the initial about:blank load
+        if (!submitted) return;
+
+        // We can't reliably read cross-domain response, so show success UI.
+        // If you want strict error handling, you can do it in n8n + return a same-domain redirect later.
+        success.style.display = "block";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send request";
+        form.reset();
+
+        // Optional: put a success flag in URL without reloading
+        const url = new URL(window.location.href);
+        url.searchParams.set("submitted", "1");
+        window.history.replaceState({}, "", url.toString());
+
+        submitted = false;
+
+        // Scroll to the success notice
+        success.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
     })();
   </script>
 </body>
