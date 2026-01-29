@@ -7,7 +7,7 @@
   <title>Simona AI — Voice + SMS Receptionist for San Antonio Dentists & Med Spas</title>
   <meta name="description" content="Simona AI answers missed calls, captures leads, and follows up via opt-in SMS—so San Antonio dentists and med spas book more appointments without extra staff." />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (replace og:image when you have it) -->
   <meta property="og:title" content="Simona AI — Voice + SMS Receptionist (San Antonio)" />
   <meta property="og:description" content="Stop losing leads to missed calls. Simona answers, captures details, and follows up via opt-in SMS so you book more appointments." />
   <meta property="og:type" content="website" />
@@ -49,13 +49,16 @@
     a{ color:inherit; text-decoration:none; }
     .wrap{ width:min(1200px, calc(100% - 32px)); margin:0 auto; }
 
+    /* Anchor offset for sticky nav */
     section{ padding: 42px 0; scroll-margin-top: 92px; }
 
+    /* Focus states (accessibility) */
     a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
       outline: 2px solid rgba(63,231,255,.75);
       outline-offset: 2px;
     }
 
+    /* Top nav */
     .nav{
       position: sticky;
       top: 0;
@@ -144,6 +147,7 @@
       color:white;
     }
 
+    /* Mobile nav */
     .menu-btn{ display:none; }
     .mobile-menu{
       display:none;
@@ -165,6 +169,7 @@
     }
     .menu-row .btn{ width: 100%; }
 
+    /* HERO */
     #hero{ padding: 48px 0 18px; }
     .grid{
       display:grid;
@@ -266,6 +271,7 @@
     }
     .fineprint b{ color: rgba(255,255,255,.60); font-weight:650; }
 
+    /* HERO RIGHT VISUAL */
     .hero-visual{
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,.10);
@@ -348,6 +354,7 @@
     }
     .mini span{ color: rgba(255,255,255,.60); font-size: 13px; }
 
+    /* Section header */
     .section-title{
       display:flex;
       align-items:flex-end;
@@ -364,6 +371,7 @@
       line-height:1.55;
     }
 
+    /* Cards */
     .card{
       background: rgba(255,255,255,.03);
       border: 1px solid rgba(255,255,255,.10);
@@ -383,6 +391,7 @@
       line-height: 1.55;
     }
 
+    /* PROOF */
     .proof-grid{
       display:grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -405,6 +414,7 @@
       font-size: 13.5px;
     }
 
+    /* HOW IT WORKS */
     .how{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -463,6 +473,7 @@
       opacity: .96;
     }
 
+    /* Use-cases tabs */
     .tabs{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
     .tab-btn{
       padding: 10px 12px;
@@ -489,6 +500,7 @@
       margin-top: 12px;
     }
 
+    /* FEATURES */
     .cards3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -496,6 +508,7 @@
       margin-top: 16px;
     }
 
+    /* ROI */
     .roi-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -558,6 +571,7 @@
       line-height: 1.45;
     }
 
+    /* PRICING */
     .pricing-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -620,6 +634,7 @@
       box-shadow: 0 0 0 1px rgba(255,255,255,.14), 0 18px 70px rgba(255,79,216,.20);
     }
 
+    /* PILOT */
     .pilot-grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
@@ -644,6 +659,7 @@
       font-size: 14.5px;
     }
 
+    /* Week 1 outcomes */
     .outcomes{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -651,6 +667,7 @@
       margin-top: 16px;
     }
 
+    /* FAQ */
     details{
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
@@ -671,6 +688,7 @@
       font-size: 14.5px;
     }
 
+    /* CONTACT */
     .contact-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -702,6 +720,43 @@
       line-height: 1.45;
     }
 
+    /* ✅ Bright status banner (success/error) */
+    .status-banner{
+      display:block;
+      margin-bottom:12px;
+      padding:14px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      color: rgba(255,255,255,.92);
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
+    .status-banner.success{
+      border-color: rgba(63,231,255,.45);
+      background:
+        radial-gradient(900px 400px at 10% 0%, rgba(63,231,255,.22), transparent 55%),
+        radial-gradient(900px 400px at 90% 0%, rgba(143,107,255,.18), transparent 60%),
+        rgba(255,255,255,.06);
+      box-shadow:
+        0 0 0 1px rgba(63,231,255,.18),
+        0 18px 70px rgba(63,231,255,.12),
+        0 18px 50px rgba(0,0,0,.35);
+    }
+    .status-banner.error{
+      border-color: rgba(255,79,216,.45);
+      background:
+        radial-gradient(900px 400px at 10% 0%, rgba(255,79,216,.20), transparent 55%),
+        radial-gradient(900px 400px at 90% 0%, rgba(143,107,255,.14), transparent 60%),
+        rgba(255,255,255,.06);
+      box-shadow:
+        0 0 0 1px rgba(255,79,216,.16),
+        0 18px 70px rgba(255,79,216,.10),
+        0 18px 50px rgba(0,0,0,.35);
+    }
+
+    /* Sticky mobile CTA */
     .sticky-cta{
       position: fixed;
       left: 12px;
@@ -725,6 +780,7 @@
       text-underline-offset: 3px;
     }
 
+    /* Responsive */
     @media (max-width: 980px){
       .grid{ grid-template-columns: 1fr; }
       .how{ grid-template-columns: 1fr; }
@@ -743,6 +799,17 @@
       :root{ --navH: 66px; }
     }
   </style>
+
+  <!-- Tracking placeholders (optional) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{GA4_ID}}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '{{GA4_ID}}');
+  </script>
+  -->
 </head>
 
 <body>
@@ -797,6 +864,7 @@
   <section id="hero">
     <div class="wrap">
       <div class="grid">
+
         <div class="panel">
           <div class="panel-inner">
             <div class="chips">
@@ -1218,7 +1286,7 @@
     </div>
   </section>
 
-  <!-- WEEK 1 OUTCOMES -->
+  <!-- TESTIMONIALS (Week 1 outcomes) -->
   <section id="testimonials">
     <div class="wrap">
       <div class="section-title">
@@ -1299,12 +1367,10 @@
       <div class="contact-grid">
         <div class="form">
 
-          <!-- Status message (shows after n8n redirect) -->
-          <div id="leadStatus" class="fineprint" style="display:none; margin-bottom:12px; padding:12px; border:1px solid rgba(255,255,255,.10); border-radius:18px; background:rgba(0,0,0,.18);">
-            Status
-          </div>
+          <!-- ✅ Bright status banner (shows after n8n redirect) -->
+          <div id="leadStatus" class="status-banner" style="display:none;" role="status" aria-live="polite"></div>
 
-          <!-- n8n webhook wired in -->
+          <!-- ✅ n8n webhook wired in -->
           <form
             id="leadForm"
             action="https://aisimona.app.n8n.cloud/webhook/simona-leads"
@@ -1395,7 +1461,7 @@
             </p>
           </form>
 
-          <!-- Calendly placeholder -->
+          <!-- Optional: Calendly embed placeholder (paste your Calendly link into src) -->
           <div style="height:14px;"></div>
           <div class="card">
             <h3>Prefer to book instantly?</h3>
@@ -1529,7 +1595,7 @@
     [missedCalls, convRate, bizDays, avgTicket].forEach(el => el?.addEventListener("input", calcROI));
     calcROI();
 
-    // Redirect helper + status message (n8n)
+    // n8n redirect helper + status message
     (function () {
       const base = window.location.origin + window.location.pathname;
       const success = base + "?submitted=1#contact";
@@ -1551,9 +1617,15 @@
 
       if (statusBox && (submitted === "1" || submitted === "0")) {
         statusBox.style.display = "block";
-        statusBox.textContent = submitted === "1"
-          ? "✅ Thanks — we got your request. If you don’t hear back within 1 business day, email hello.simonaai@gmail.com."
-          : "⚠️ Something went wrong. Please try again or email hello.simonaai@gmail.com.";
+        statusBox.classList.remove("success", "error");
+
+        if (submitted === "1") {
+          statusBox.classList.add("success");
+          statusBox.innerHTML = "✅ <b>Thanks — we got your request.</b> If you don’t hear back within 1 business day, email <b>hello.simonaai@gmail.com</b>.";
+        } else {
+          statusBox.classList.add("error");
+          statusBox.innerHTML = "⚠️ <b>Something went wrong.</b> Please try again, or email <b>hello.simonaai@gmail.com</b>.";
+        }
       }
     })();
 
