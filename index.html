@@ -702,33 +702,6 @@
       line-height: 1.45;
     }
 
-    /* ✅ BRIGHT STATUS BOX (this is the main change you wanted) */
-    .status-box{
-      display:none;
-      margin-bottom:12px;
-      padding: 14px 14px;
-      border-radius:18px;
-      border: 1px solid rgba(63,231,255,.50);
-      background: linear-gradient(135deg, rgba(63,231,255,.18), rgba(143,107,255,.10));
-      color: rgba(255,255,255,.92);
-      box-shadow:
-        0 0 0 1px rgba(63,231,255,.10),
-        0 18px 70px rgba(63,231,255,.12);
-      font-size: 15px;
-      line-height: 1.45;
-    }
-    .status-box.success{
-      border-color: rgba(63,231,255,.55);
-      background: linear-gradient(135deg, rgba(63,231,255,.22), rgba(143,107,255,.12));
-    }
-    .status-box.error{
-      border-color: rgba(255,79,216,.50);
-      background: linear-gradient(135deg, rgba(255,79,216,.18), rgba(0,0,0,.22));
-      box-shadow:
-        0 0 0 1px rgba(255,79,216,.10),
-        0 18px 70px rgba(255,79,216,.12);
-    }
-
     .sticky-cta{
       position: fixed;
       left: 12px;
@@ -1326,9 +1299,12 @@
       <div class="contact-grid">
         <div class="form">
 
-          <!-- ✅ BRIGHT status box -->
-          <div id="leadStatus" class="status-box" role="status" aria-live="polite"></div>
+          <!-- Status message (shows after n8n redirect) -->
+          <div id="leadStatus" class="fineprint" style="display:none; margin-bottom:12px; padding:12px; border:1px solid rgba(255,255,255,.10); border-radius:18px; background:rgba(0,0,0,.18);">
+            Status
+          </div>
 
+          <!-- n8n webhook wired in -->
           <form
             id="leadForm"
             action="https://aisimona.app.n8n.cloud/webhook/simona-leads"
@@ -1419,6 +1395,7 @@
             </p>
           </form>
 
+          <!-- Calendly placeholder -->
           <div style="height:14px;"></div>
           <div class="card">
             <h3>Prefer to book instantly?</h3>
@@ -1574,9 +1551,6 @@
 
       if (statusBox && (submitted === "1" || submitted === "0")) {
         statusBox.style.display = "block";
-        statusBox.classList.remove("success","error");
-        statusBox.classList.add(submitted === "1" ? "success" : "error");
-
         statusBox.textContent = submitted === "1"
           ? "✅ Thanks — we got your request. If you don’t hear back within 1 business day, email hello.simonaai@gmail.com."
           : "⚠️ Something went wrong. Please try again or email hello.simonaai@gmail.com.";
