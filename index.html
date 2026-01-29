@@ -7,7 +7,7 @@
   <title>Simona AI — Voice + SMS Receptionist for San Antonio Dentists & Med Spas</title>
   <meta name="description" content="Simona AI answers missed calls, captures leads, and follows up via opt-in SMS—so San Antonio dentists and med spas book more appointments without extra staff." />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (replace og:image when you have it) -->
   <meta property="og:title" content="Simona AI — Voice + SMS Receptionist (San Antonio)" />
   <meta property="og:description" content="Stop losing leads to missed calls. Simona answers, captures details, and follows up via opt-in SMS so you book more appointments." />
   <meta property="og:type" content="website" />
@@ -49,13 +49,16 @@
     a{ color:inherit; text-decoration:none; }
     .wrap{ width:min(1200px, calc(100% - 32px)); margin:0 auto; }
 
+    /* Anchor offset for sticky nav */
     section{ padding: 42px 0; scroll-margin-top: 92px; }
 
+    /* Focus states (accessibility) */
     a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
       outline: 2px solid rgba(63,231,255,.75);
       outline-offset: 2px;
     }
 
+    /* Top nav */
     .nav{
       position: sticky;
       top: 0;
@@ -144,6 +147,7 @@
       color:white;
     }
 
+    /* Mobile nav */
     .menu-btn{ display:none; }
     .mobile-menu{
       display:none;
@@ -165,6 +169,7 @@
     }
     .menu-row .btn{ width: 100%; }
 
+    /* HERO */
     #hero{ padding: 48px 0 18px; }
     .grid{
       display:grid;
@@ -266,6 +271,7 @@
     }
     .fineprint b{ color: rgba(255,255,255,.60); font-weight:650; }
 
+    /* HERO RIGHT VISUAL */
     .hero-visual{
       border-radius: var(--radius);
       border: 1px solid rgba(255,255,255,.10);
@@ -348,6 +354,7 @@
     }
     .mini span{ color: rgba(255,255,255,.60); font-size: 13px; }
 
+    /* Section header */
     .section-title{
       display:flex;
       align-items:flex-end;
@@ -364,6 +371,7 @@
       line-height:1.55;
     }
 
+    /* Cards */
     .card{
       background: rgba(255,255,255,.03);
       border: 1px solid rgba(255,255,255,.10);
@@ -383,6 +391,7 @@
       line-height: 1.55;
     }
 
+    /* PROOF */
     .proof-grid{
       display:grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -405,6 +414,7 @@
       font-size: 13.5px;
     }
 
+    /* HOW IT WORKS */
     .how{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -463,6 +473,7 @@
       opacity: .96;
     }
 
+    /* Use-cases tabs */
     .tabs{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
     .tab-btn{
       padding: 10px 12px;
@@ -489,6 +500,7 @@
       margin-top: 12px;
     }
 
+    /* FEATURES */
     .cards3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -496,6 +508,7 @@
       margin-top: 16px;
     }
 
+    /* ROI */
     .roi-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -558,6 +571,7 @@
       line-height: 1.45;
     }
 
+    /* PRICING */
     .pricing-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -620,6 +634,7 @@
       box-shadow: 0 0 0 1px rgba(255,255,255,.14), 0 18px 70px rgba(255,79,216,.20);
     }
 
+    /* PILOT */
     .pilot-grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
@@ -644,6 +659,7 @@
       font-size: 14.5px;
     }
 
+    /* Week 1 outcomes */
     .outcomes{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -651,6 +667,7 @@
       margin-top: 16px;
     }
 
+    /* FAQ */
     details{
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
@@ -671,6 +688,7 @@
       font-size: 14.5px;
     }
 
+    /* CONTACT */
     .contact-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -702,6 +720,7 @@
       line-height: 1.45;
     }
 
+    /* Sticky mobile CTA */
     .sticky-cta{
       position: fixed;
       left: 12px;
@@ -725,6 +744,7 @@
       text-underline-offset: 3px;
     }
 
+    /* Responsive */
     @media (max-width: 980px){
       .grid{ grid-template-columns: 1fr; }
       .how{ grid-template-columns: 1fr; }
@@ -743,6 +763,17 @@
       :root{ --navH: 66px; }
     }
   </style>
+
+  <!-- Tracking placeholders (optional) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{GA4_ID}}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '{{GA4_ID}}');
+  </script>
+  -->
 </head>
 
 <body>
@@ -797,6 +828,7 @@
   <section id="hero">
     <div class="wrap">
       <div class="grid">
+
         <div class="panel">
           <div class="panel-inner">
             <div class="chips">
@@ -1218,7 +1250,7 @@
     </div>
   </section>
 
-  <!-- WEEK 1 OUTCOMES -->
+  <!-- TESTIMONIALS (Week 1 outcomes) -->
   <section id="testimonials">
     <div class="wrap">
       <div class="section-title">
@@ -1299,18 +1331,13 @@
       <div class="contact-grid">
         <div class="form">
 
-          <!-- Status message (shows after n8n redirect) -->
+          <!-- Status message (shows after redirect) -->
           <div id="leadStatus" class="fineprint" style="display:none; margin-bottom:12px; padding:12px; border:1px solid rgba(255,255,255,.10); border-radius:18px; background:rgba(0,0,0,.18);">
             Status
           </div>
 
-          <!-- n8n webhook wired in -->
-          <form
-            id="leadForm"
-            action="https://aisimona.app.n8n.cloud/webhook/simona-leads"
-            method="POST"
-            accept-charset="UTF-8"
-          >
+          <!-- ✅ FORM (no action/method so GitHub never receives POST) -->
+          <form id="leadForm" accept-charset="UTF-8">
             <div class="form-row">
               <div>
                 <label for="business_name">Business name</label>
@@ -1381,9 +1408,7 @@
               <input id="company_website" name="company_website" tabindex="-1" autocomplete="off" />
             </div>
 
-            <!-- Hidden fields for redirect back to the site -->
-            <input type="hidden" id="redirect_url_success" name="redirect_url_success" value="">
-            <input type="hidden" id="redirect_url_error" name="redirect_url_error" value="">
+            <!-- Hidden metadata fields -->
             <input type="hidden" id="source_page" name="source_page" value="">
             <input type="hidden" id="timestamp" name="timestamp" value="">
 
@@ -1395,7 +1420,7 @@
             </p>
           </form>
 
-          <!-- Calendly placeholder -->
+          <!-- Optional: Calendly embed placeholder (paste your Calendly link into src) -->
           <div style="height:14px;"></div>
           <div class="card">
             <h3>Prefer to book instantly?</h3>
@@ -1529,22 +1554,8 @@
     [missedCalls, convRate, bizDays, avgTicket].forEach(el => el?.addEventListener("input", calcROI));
     calcROI();
 
-    // Redirect helper + status message (n8n)
+    // Status message based on URL (?submitted=1 or 0)
     (function () {
-      const base = window.location.origin + window.location.pathname;
-      const success = base + "?submitted=1#contact";
-      const error = base + "?submitted=0#contact";
-
-      const sEl = document.getElementById("redirect_url_success");
-      const eEl = document.getElementById("redirect_url_error");
-      const src = document.getElementById("source_page");
-      const ts  = document.getElementById("timestamp");
-
-      if (sEl) sEl.value = success;
-      if (eEl) eEl.value = error;
-      if (src) src.value = window.location.href;
-      if (ts) ts.value = new Date().toISOString();
-
       const statusBox = document.getElementById("leadStatus");
       const params = new URLSearchParams(window.location.search);
       const submitted = params.get("submitted");
@@ -1552,7 +1563,7 @@
       if (statusBox && (submitted === "1" || submitted === "0")) {
         statusBox.style.display = "block";
         statusBox.textContent = submitted === "1"
-          ? "✅ Thanks — we got your request. If you don’t hear back within 1 business day, email hello.simonaai@gmail.com."
+          ? "✅ Thanks! We received your request and will contact you shortly."
           : "⚠️ Something went wrong. Please try again or email hello.simonaai@gmail.com.";
       }
     })();
@@ -1568,8 +1579,57 @@
     document.querySelectorAll(".track.pilot").forEach(el => {
       el.addEventListener("click", () => trackEvent("pilot_click", { location: el.closest("section")?.id || "unknown" }));
     });
-    document.getElementById("leadForm")?.addEventListener("submit", () => {
+
+    // ✅ Lead form submit -> send to n8n via fetch (no GitHub POST, no 405)
+    const N8N_WEBHOOK_URL = "https://aisimona.app.n8n.cloud/webhook/simona-leads";
+
+    document.getElementById("leadForm")?.addEventListener("submit", async (e) => {
+      e.preventDefault();
       trackEvent("form_submit", { form: "leadForm" });
+
+      const form = e.currentTarget;
+
+      // Run built-in validation UI (so required fields behave normally)
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Honeypot (spam) -> quiet success
+      const hp = (document.getElementById("company_website")?.value || "").trim();
+      if (hp.length > 0) {
+        window.location.href = window.location.origin + window.location.pathname + "?submitted=1#contact";
+        return;
+      }
+
+      // Metadata fields
+      const source_page = window.location.href;
+      const timestamp = new Date().toISOString();
+      const src = document.getElementById("source_page");
+      const ts  = document.getElementById("timestamp");
+      if (src) src.value = source_page;
+      if (ts) ts.value = timestamp;
+
+      // Build URL-encoded body (works cross-domain without needing CORS response access)
+      const fd = new FormData(form);
+      const params = new URLSearchParams();
+      fd.forEach((value, key) => {
+        params.append(key, typeof value === "string" ? value : "");
+      });
+
+      try {
+        // no-cors = request still sends even if n8n doesn't return CORS headers
+        await fetch(N8N_WEBHOOK_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+          body: params.toString(),
+        });
+
+        window.location.href = window.location.origin + window.location.pathname + "?submitted=1#contact";
+      } catch (err) {
+        window.location.href = window.location.origin + window.location.pathname + "?submitted=0#contact";
+      }
     });
   </script>
 </body>
