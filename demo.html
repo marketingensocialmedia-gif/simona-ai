@@ -130,11 +130,13 @@
       border: 1px solid rgba(255,255,255,.10);
       box-shadow: var(--glow);
       background: rgba(0,0,0,.20);
+      aspect-ratio: 16 / 9; /* keep it 16:9 */
     }
-    video{
+    .video-shell iframe{
       width: 100%;
-      height: auto;
+      height: 100%;
       display:block;
+      border: 0;
       background: rgba(0,0,0,.35);
     }
 
@@ -195,17 +197,23 @@
 
       <div class="card">
         <div class="video-shell">
-          <video controls playsinline preload="metadata" poster="./assets/demo-poster.jpg">
-            <source src="./assets/simona-demo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <!-- YouTube Embed -->
+          <iframe
+            src="https://www.youtube.com/embed/0GzzhGqHwjM?rel=0&modestbranding=1"
+            title="Simona AI Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
         </div>
 
         <div class="cta-row">
           <a class="btn btn-primary" href="https://calendly.com/hello-simonaai/30min?utm_source=vsl&utm_medium=demo-page" target="_blank" rel="noopener">
-            Book a 15-min setup call
+            Book a 30-min setup call
           </a>
           <a class="btn" href="./index.html#contact">Back to contact form</a>
+          <a class="btn" href="https://youtu.be/0GzzhGqHwjM" target="_blank" rel="noopener">
+            Open on YouTube
+          </a>
         </div>
 
         <div class="fineprint">
