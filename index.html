@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,61 +7,106 @@
   <title>Simona AI — Voice + SMS Receptionist for San Antonio Dentists & Med Spas</title>
   <meta name="description" content="Simona AI answers missed calls, captures leads, and follows up via opt-in SMS—so San Antonio dentists and med spas book more appointments without extra staff." />
 
-  <!-- Open Graph -->
+  <!-- ✅ Site URLs (ABSOLUTE for WhatsApp/iMessage previews) -->
+  <link rel="canonical" href="REPLACE_WITH_YOUR_SITE_URL" />
+  <meta property="og:url" content="REPLACE_WITH_YOUR_SITE_URL" />
+  <meta property="og:site_name" content="Simona AI" />
+
+  <!-- ✅ Open Graph (WhatsApp/iMessage) -->
   <meta property="og:title" content="Simona AI — Voice + SMS Receptionist (San Antonio)" />
   <meta property="og:description" content="Stop losing leads to missed calls. Simona answers, captures details, and follows up via opt-in SMS so you book more appointments." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="REPLACE_WITH_OG_IMAGE_URL" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-  <!-- Use hero as OG image + cache-bust -->
-  <meta property="og:image" content="./assets/hero.jpeg?v=3" />
-  <meta property="og:image:type" content="image/jpeg" />
+  <!-- ✅ Twitter (helps some link unfurlers too) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Simona AI — Voice + SMS Receptionist (San Antonio)" />
+  <meta name="twitter:description" content="Stop losing leads to missed calls. Simona answers, captures details, and follows up via opt-in SMS so you book more appointments." />
+  <meta name="twitter:image" content="REPLACE_WITH_OG_IMAGE_URL" />
 
-  <!-- Preload hero image (cache-bust) -->
-  <link rel="preload" as="image" href="./assets/hero.jpeg?v=3" />
+  <!-- ✅ Theme color: updated via JS based on theme -->
+  <meta name="theme-color" content="#f6f8ff" id="themeColorMeta" />
+
+  <!-- ✅ Preload hero (WebP first, JPEG fallback) -->
+  <link rel="preload" as="image" href="./assets/hero.webp" type="image/webp" />
+  <link rel="preload" as="image" href="./assets/hero.jpeg" type="image/jpeg" />
 
   <style>
     :root{
-      /* Clean clinic / dashboard theme */
-      --bg: #F6F9FF;
-      --bg2:#EEF4FF;
+      /* Light clinic mode (default) */
+      --bg0:#f6f8ff;
+      --bg1:#ffffff;
+      --surface: rgba(255,255,255,.78);
+      --card: rgba(255,255,255,.92);
+      --stroke: rgba(18, 32, 66, .10);
 
-      --surface: #FFFFFF;
-      --surface2: #F8FAFF;
+      --text: rgba(16, 22, 36, .92);
+      --muted: rgba(16, 22, 36, .65);
 
-      --text: rgba(15,23,42,.92);   /* slate-900 */
-      --muted: rgba(15,23,42,.62);
+      --shadow: 0 14px 40px rgba(14, 26, 60, .12);
+      --glow: 0 0 0 1px rgba(18, 32, 66, .10), 0 18px 70px rgba(73, 126, 255, .16);
 
-      --border: rgba(15,23,42,.10);
-      --border2: rgba(15,23,42,.08);
+      /* Brand accents (clinic + tech) */
+      --pink: #ff4fd8;
+      --purple: #7a6cff;
+      --cyan: #28c7ff;
 
-      --shadow: 0 18px 40px rgba(15,23,42,.08);
-      --shadow2: 0 10px 22px rgba(15,23,42,.06);
+      /* Clinic blues (used more in light mode) */
+      --blue: #2f6bff;
+      --teal: #24d2c0;
 
-      --primary: #2F6BFF;
-      --primary2:#4FD9FF;
+      --radius: 28px;
+      --navH: 74px;
 
-      --radius: 20px;
-      --radius2: 16px;
-      --navH: 72px;
+      /* Hero images (WebP + fallback) */
+      --hero-img: image-set(
+        url("./assets/hero.webp") type("image/webp"),
+        url("./assets/hero.jpeg") type("image/jpeg")
+      );
+
+      /* Theme color meta target */
+      --themeColor: #f6f8ff;
+    }
+
+    /* Dark theme overrides */
+    html[data-theme="dark"]{
+      --bg0:#070712;
+      --bg1:#0a0a16;
+      --surface: rgba(10, 10, 22, .62);
+      --card: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.10);
+
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.62);
+
+      --shadow: 0 16px 50px rgba(0,0,0,.55);
+      --glow: 0 0 0 1px rgba(255,255,255,.12), 0 20px 80px rgba(145, 95, 255, .20);
+
+      --themeColor: #070712;
     }
 
     *{ box-sizing:border-box; }
     html,body{
       margin:0; padding:0;
-      background: linear-gradient(180deg, var(--bg), var(--bg2));
       color: var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       scroll-behavior:smooth;
+      background:
+        radial-gradient(1200px 900px at 20% 10%, rgba(122,108,255,.14), transparent 55%),
+        radial-gradient(900px 650px at 85% 18%, rgba(40,199,255,.10), transparent 55%),
+        radial-gradient(700px 600px at 55% 95%, rgba(36,210,192,.08), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
     }
 
     a{ color:inherit; text-decoration:none; }
     .wrap{ width:min(1200px, calc(100% - 32px)); margin:0 auto; }
-    section{ padding: 44px 0; scroll-margin-top: 92px; }
+    section{ padding: 42px 0; scroll-margin-top: 92px; }
 
     a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
-      outline: 2px solid rgba(47,107,255,.45);
-      outline-offset: 3px;
-      border-radius: 10px;
+      outline: 2px solid rgba(40,199,255,.55);
+      outline-offset: 2px;
     }
 
     /* NAV */
@@ -69,9 +114,9 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255,255,255,.75);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border2);
+      backdrop-filter: blur(16px);
+      background: var(--surface);
+      border-bottom: 1px solid var(--stroke);
     }
     .nav-inner{
       display:flex;
@@ -81,7 +126,6 @@
       gap: 12px;
       min-height: var(--navH);
     }
-
     .brand{
       display:flex;
       align-items:center;
@@ -91,14 +135,16 @@
       white-space:nowrap;
     }
     .brand img{
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border-radius: 14px;
-      box-shadow: 0 0 0 1px var(--border2);
-      background: #fff;
+      box-shadow: 0 0 0 1px rgba(18,32,66,.10);
       object-fit: cover;
     }
-    .brand span{ font-size: 16px; color: rgba(15,23,42,.92); }
+    html[data-theme="dark"] .brand img{
+      box-shadow: 0 0 0 1px rgba(255,255,255,.10);
+    }
+    .brand span{ font-size: 16px; color: var(--text); }
 
     .links{
       display:flex;
@@ -117,8 +163,12 @@
       white-space: nowrap;
     }
     .links a:hover{
-      background: rgba(47,107,255,.08);
-      color: rgba(15,23,42,.90);
+      background: rgba(18, 32, 66, .06);
+      color: rgba(16, 22, 36, .90);
+    }
+    html[data-theme="dark"] .links a:hover{
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.90);
     }
 
     .nav-cta{
@@ -128,7 +178,6 @@
       white-space:nowrap;
     }
 
-    /* BUTTONS */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -136,39 +185,77 @@
       gap:8px;
       padding: 10px 14px;
       border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.85);
-      color: rgba(15,23,42,.86);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.50);
+      color: rgba(16,22,36,.88);
       font-weight: 750;
       font-size: 14px;
       cursor:pointer;
       transition: .15s ease;
-      box-shadow: var(--shadow2);
+    }
+    html[data-theme="dark"] .btn{
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.88);
+      border-color: rgba(255,255,255,.12);
     }
     .btn:hover{
       transform: translateY(-1px);
-      background: #fff;
+      background: rgba(255,255,255,.72);
     }
+    html[data-theme="dark"] .btn:hover{
+      background: rgba(255,255,255,.07);
+    }
+
+    /* Primary CTA: clinic blue gradient in light, stays premium in dark */
     .btn-primary{
-      border: 1px solid rgba(47,107,255,.22);
-      background: linear-gradient(135deg, rgba(47,107,255,.98), rgba(79,217,255,.75));
-      color: white;
-      box-shadow: 0 14px 32px rgba(47,107,255,.18);
+      border: 1px solid rgba(18,32,66,.08);
+      background: linear-gradient(135deg, rgba(47,107,255,.95), rgba(36,210,192,.85));
+      box-shadow: 0 14px 40px rgba(47,107,255,.20);
+      color:white;
+    }
+    html[data-theme="dark"] .btn-primary{
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(143,107,255,.95), rgba(255,79,216,.85));
+      box-shadow: 0 14px 40px rgba(143,107,255,.25);
+      color:white;
+    }
+
+    /* Theme toggle button */
+    .theme-btn{
+      padding: 10px 12px;
+      min-width: 46px;
+    }
+    .theme-icon{
+      width: 18px; height: 18px;
+      display:inline-block;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,.70)),
+        linear-gradient(135deg, rgba(47,107,255,.55), rgba(36,210,192,.35));
+      box-shadow: 0 6px 16px rgba(47,107,255,.18);
+    }
+    html[data-theme="dark"] .theme-icon{
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.85), rgba(255,255,255,.20)),
+        linear-gradient(135deg, rgba(143,107,255,.45), rgba(255,79,216,.25));
+      box-shadow: 0 10px 22px rgba(143,107,255,.22);
     }
 
     .menu-btn{ display:none; }
     .mobile-menu{
       display:none;
-      border-top: 1px solid var(--border2);
+      border-top: 1px solid var(--stroke);
       padding: 10px 0 14px;
     }
     .mobile-menu a{
       display:block;
       padding: 10px 10px;
       border-radius: 14px;
-      color: rgba(15,23,42,.78);
+      color: var(--muted);
     }
-    .mobile-menu a:hover{ background: rgba(47,107,255,.08); }
+    .mobile-menu a:hover{ background: rgba(18, 32, 66, .06); color: var(--text); }
+    html[data-theme="dark"] .mobile-menu a:hover{ background: rgba(255,255,255,.06); }
+
     .menu-row{
       display:flex;
       justify-content: space-between;
@@ -178,8 +265,7 @@
     .menu-row .btn{ width: 100%; }
 
     /* HERO */
-    #hero{ padding: 46px 0 18px; }
-
+    #hero{ padding: 48px 0 18px; }
     .grid{
       display:grid;
       grid-template-columns: 1.05fr .95fr;
@@ -188,13 +274,35 @@
     }
 
     .panel{
-      background: var(--surface);
-      border: 1px solid var(--border2);
+      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.70));
+      border: 1px solid var(--stroke);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
+      position: relative;
     }
-    .panel-inner{ padding: 28px; }
+    html[data-theme="dark"] .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border-color: rgba(255,255,255,.10);
+    }
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(47,107,255,.16), transparent 55%),
+        radial-gradient(650px 400px at 85% 25%, rgba(36,210,192,.12), transparent 58%),
+        radial-gradient(500px 350px at 70% 110%, rgba(122,108,255,.10), transparent 60%);
+      pointer-events:none;
+      opacity: .95;
+    }
+    html[data-theme="dark"] .panel::before{
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(143,107,255,.18), transparent 55%),
+        radial-gradient(600px 380px at 85% 30%, rgba(255,79,216,.12), transparent 58%),
+        radial-gradient(400px 300px at 70% 105%, rgba(63,231,255,.09), transparent 60%);
+    }
+    .panel-inner{ position:relative; padding: 28px; }
 
     .chips{
       display:flex;
@@ -208,17 +316,26 @@
       gap:8px;
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid var(--border2);
-      background: var(--surface2);
-      color: rgba(15,23,42,.72);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.70);
+      color: rgba(16,22,36,.70);
       font-size: 13px;
       white-space:nowrap;
+    }
+    html[data-theme="dark"] .chip{
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.74);
+      border-color: rgba(255,255,255,.12);
     }
     .dot{
       width:8px; height:8px;
       border-radius:50%;
-      background: var(--primary);
-      box-shadow: 0 0 0 3px rgba(47,107,255,.12);
+      background: linear-gradient(180deg, var(--blue), var(--teal));
+      box-shadow: 0 0 18px rgba(47,107,255,.35);
+    }
+    html[data-theme="dark"] .dot{
+      background: linear-gradient(180deg, var(--pink), var(--purple));
+      box-shadow: 0 0 18px rgba(255,79,216,.6);
     }
 
     h1{
@@ -228,7 +345,6 @@
       margin: 0 0 14px;
       font-size: clamp(42px, 5.0vw, 62px);
       line-height: 1.02;
-      color: rgba(15,23,42,.95);
     }
     .lead{
       margin: 0 0 18px;
@@ -255,37 +371,45 @@
     .pill{
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid var(--border2);
-      background: #fff;
-      color: rgba(15,23,42,.60);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.62);
+      color: rgba(16,22,36,.62);
       font-size: 13px;
+    }
+    html[data-theme="dark"] .pill{
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.60);
+      border-color: rgba(255,255,255,.10);
     }
 
     .fineprint{
       margin-top: 12px;
-      color: rgba(15,23,42,.52);
+      color: rgba(16, 22, 36, .55);
       font-size: 12.5px;
       line-height: 1.45;
     }
-    .fineprint b{ color: rgba(15,23,42,.78); font-weight:700; }
+    html[data-theme="dark"] .fineprint{
+      color: rgba(255,255,255,.40);
+    }
+    .fineprint b{ font-weight:750; }
 
-    /* HERO VISUAL (clean card like your example) */
     .hero-visual{
       border-radius: var(--radius);
-      border: 1px solid var(--border2);
-      box-shadow: var(--shadow);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--glow);
       overflow:hidden;
       position: relative;
       min-height: 520px;
-      background: url("./assets/hero.jpeg?v=3") center/cover no-repeat;
+
+      /* ✅ WebP + fallback via image-set() */
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.12), rgba(10,18,40,.20)),
+        var(--hero-img) center/cover no-repeat;
     }
-    /* subtle bright overlay (no dark glass) */
-    .hero-visual::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.28));
-      pointer-events:none;
+    html[data-theme="dark"] .hero-visual{
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.38)),
+        var(--hero-img) center/cover no-repeat;
     }
 
     .img-toplabel{
@@ -297,13 +421,17 @@
       gap: 10px;
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid var(--border2);
-      background: rgba(255,255,255,.88);
-      color: rgba(15,23,42,.84);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.70);
+      backdrop-filter: blur(12px);
+      color: rgba(16,22,36,.86);
       font-weight: 800;
       font-size: 14px;
-      box-shadow: var(--shadow2);
-      z-index: 1;
+    }
+    html[data-theme="dark"] .img-toplabel{
+      background: rgba(0,0,0,.22);
+      color: rgba(255,255,255,.85);
+      border-color: rgba(255,255,255,.12);
     }
 
     .outcome{
@@ -311,18 +439,22 @@
       left: 14px;
       right: 14px;
       bottom: 14px;
-      z-index: 1;
     }
     .outcome-inner{
-      border-radius: 18px;
-      border: 1px solid var(--border2);
-      background: rgba(255,255,255,.90);
+      border-radius: 22px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(14px);
       padding: 14px;
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      box-shadow: var(--shadow2);
     }
+    html[data-theme="dark"] .outcome-inner{
+      background: rgba(0,0,0,.28);
+      border-color: rgba(255,255,255,.10);
+    }
+
     .outcome-title{
       grid-column: 1 / -1;
       display:flex;
@@ -333,37 +465,50 @@
     .outcome-title h4{
       margin:0;
       font-size: 15px;
-      color: rgba(15,23,42,.92);
+      color: rgba(16,22,36,.92);
       font-weight: 900;
     }
+    html[data-theme="dark"] .outcome-title h4{ color: rgba(255,255,255,.88); }
+
     .outcome-title span{
-      color: rgba(15,23,42,.60);
+      color: rgba(16,22,36,.55);
       font-size: 13px;
       white-space:nowrap;
-      font-weight: 700;
     }
+    html[data-theme="dark"] .outcome-title span{ color: rgba(255,255,255,.55); }
+
     .outcome p{
       margin: 6px 0 0;
-      color: rgba(15,23,42,.68);
+      color: rgba(16,22,36,.65);
       font-size: 14px;
       line-height: 1.45;
     }
+    html[data-theme="dark"] .outcome p{ color: rgba(255,255,255,.65); }
+
     .mini{
-      border: 1px solid var(--border2);
-      background: #fff;
-      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.70);
+      border-radius: 16px;
       padding: 12px;
     }
+    html[data-theme="dark"] .mini{
+      background: rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.10);
+    }
+
     .mini strong{
       display:block;
       font-size: 13.5px;
-      color: rgba(15,23,42,.90);
+      color: rgba(16,22,36,.92);
       margin-bottom: 4px;
       font-weight: 900;
     }
-    .mini span{ color: rgba(15,23,42,.62); font-size: 13px; }
+    html[data-theme="dark"] .mini strong{ color: rgba(255,255,255,.88); }
 
-    /* Sections */
+    .mini span{ color: rgba(16,22,36,.60); font-size: 13px; }
+    html[data-theme="dark"] .mini span{ color: rgba(255,255,255,.60); }
+
+    /* SECTION TITLES + CARDS */
     .section-title{
       display:flex;
       align-items:flex-end;
@@ -371,7 +516,7 @@
       gap: 16px;
       margin-bottom: 16px;
     }
-    h2{ margin:0; font-size: 24px; letter-spacing: .2px; color: rgba(15,23,42,.92); font-weight: 900; }
+    h2{ margin:0; font-size: 24px; letter-spacing: .2px; }
     .section-title p{
       margin:6px 0 0;
       color: var(--muted);
@@ -381,21 +526,25 @@
     }
 
     .card{
-      background: var(--surface);
-      border: 1px solid var(--border2);
-      border-radius: 18px;
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 22px;
       padding: 18px;
-      box-shadow: var(--shadow2);
+      box-shadow: var(--shadow);
+    }
+    html[data-theme="dark"] .card{
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
     }
     .card h3{
       margin: 0 0 8px;
       font-size: 16px;
-      color: rgba(15,23,42,.92);
+      color: var(--text);
       font-weight: 900;
     }
     .card p{
       margin:0;
-      color: rgba(15,23,42,.62);
+      color: var(--muted);
       font-size: 14.5px;
       line-height: 1.55;
     }
@@ -415,14 +564,14 @@
     .stat b{
       font-size: 22px;
       letter-spacing: -.3px;
-      color: rgba(15,23,42,.92);
-      font-weight: 900;
+      color: var(--text);
+      font-weight: 950;
     }
     .stat span{
-      color: rgba(15,23,42,.55);
+      color: rgba(16,22,36,.55);
       font-size: 13.5px;
-      font-weight: 700;
     }
+    html[data-theme="dark"] .stat span{ color: rgba(255,255,255,.55); }
 
     .how{
       display:grid;
@@ -438,12 +587,16 @@
     .step{
       display:flex;
       gap: 12px;
-      border-radius: 18px;
-      border: 1px solid var(--border2);
-      background: var(--surface);
+      border-radius: 22px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.78);
       padding: 14px;
-      box-shadow: var(--shadow2);
     }
+    html[data-theme="dark"] .step{
+      background: rgba(255,255,255,.03);
+      border-color: rgba(255,255,255,.10);
+    }
+
     .num{
       width: 38px;
       height: 38px;
@@ -451,57 +604,73 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      font-weight: 900;
-      background: rgba(47,107,255,.12);
-      color: rgba(47,107,255,.95);
+      font-weight: 950;
+      background: linear-gradient(135deg, rgba(47,107,255,.95), rgba(36,210,192,.85));
+      color:white;
       flex: 0 0 auto;
-      border: 1px solid rgba(47,107,255,.18);
     }
+    html[data-theme="dark"] .num{
+      background: linear-gradient(135deg, rgba(143,107,255,.95), rgba(255,79,216,.85));
+    }
+
     .step strong{
       display:block;
       margin-bottom: 6px;
       font-size: 15px;
-      color: rgba(15,23,42,.92);
+      color: var(--text);
       font-weight: 900;
     }
     .step span{
-      color: rgba(15,23,42,.62);
+      color: var(--muted);
       font-size: 14.5px;
       line-height: 1.45;
     }
+
     .sideimg{
       border-radius: var(--radius);
       overflow:hidden;
-      border: 1px solid var(--border2);
-      background: var(--surface);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.70);
       min-height: 280px;
-      box-shadow: var(--shadow2);
+      box-shadow: var(--glow);
+    }
+    html[data-theme="dark"] .sideimg{
+      background: rgba(255,255,255,.03);
+      border-color: rgba(255,255,255,.10);
     }
     .sideimg img{
       width:100%;
       height:100%;
       object-fit: cover;
       display:block;
+      opacity: .98;
     }
 
-    /* Tabs */
     .tabs{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
     .tab-btn{
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #fff;
-      color: rgba(15,23,42,.78);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.70);
+      color: rgba(16,22,36,.78);
       font-weight: 900;
       font-size: 13.5px;
       cursor:pointer;
       transition: .15s ease;
-      box-shadow: var(--shadow2);
+    }
+    html[data-theme="dark"] .tab-btn{
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.78);
+      border-color: rgba(255,255,255,.12);
     }
     .tab-btn[aria-selected="true"]{
-      background: rgba(47,107,255,.12);
-      border-color: rgba(47,107,255,.22);
-      color: rgba(47,107,255,.95);
+      background: linear-gradient(135deg, rgba(47,107,255,.95), rgba(36,210,192,.85));
+      border-color: rgba(18,32,66,.08);
+      color: white;
+    }
+    html[data-theme="dark"] .tab-btn[aria-selected="true"]{
+      background: linear-gradient(135deg, rgba(143,107,255,.95), rgba(255,79,216,.85));
+      border-color: rgba(255,255,255,.16);
     }
     .tab-panel{ margin-top: 14px; display:none; }
     .tab-panel.active{ display:block; }
@@ -519,7 +688,7 @@
       margin-top: 16px;
     }
 
-    /* ROI */
+    /* ROI + FORMS */
     .roi-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -529,31 +698,45 @@
     }
     .roi-box{
       border-radius: var(--radius);
-      border: 1px solid var(--border2);
-      background: var(--surface);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.86);
       padding: 18px;
       box-shadow: var(--shadow);
+    }
+    html[data-theme="dark"] .roi-box{
+      background: rgba(255,255,255,.03);
     }
     label{
       display:block;
       font-size: 13px;
-      color: rgba(15,23,42,.70);
+      color: rgba(16,22,36,.70);
       margin: 12px 0 6px;
       font-weight: 800;
     }
+    html[data-theme="dark"] label{ color: rgba(255,255,255,.70); }
+
     input, textarea, select{
       width:100%;
       padding: 12px 12px;
       border-radius: 14px;
-      border: 1px solid var(--border);
-      background: #fff;
-      color: rgba(15,23,42,.90);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.78);
+      color: rgba(16,22,36,.90);
       outline:none;
       font-size: 14.5px;
-      box-shadow: 0 1px 0 rgba(15,23,42,.04);
     }
+    html[data-theme="dark"] input,
+    html[data-theme="dark"] textarea,
+    html[data-theme="dark"] select{
+      background: rgba(0,0,0,.25);
+      color: rgba(255,255,255,.88);
+      border-color: rgba(255,255,255,.12);
+    }
+
     textarea{ min-height: 110px; resize: vertical; }
-    input::placeholder, textarea::placeholder{ color: rgba(15,23,42,.40); }
+    input::placeholder, textarea::placeholder{ color: rgba(16,22,36,.40); }
+    html[data-theme="dark"] input::placeholder,
+    html[data-theme="dark"] textarea::placeholder{ color: rgba(255,255,255,.35); }
 
     .form-row{
       display:grid;
@@ -563,30 +746,33 @@
     .roi-output{
       margin-top: 14px;
       padding: 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(47,107,255,.18);
-      background: rgba(47,107,255,.06);
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.78);
+    }
+    html[data-theme="dark"] .roi-output{
+      background: rgba(0,0,0,.20);
+      border-color: rgba(255,255,255,.10);
     }
     .roi-output .big{
       font-size: 38px;
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing: -1px;
       margin: 2px 0 6px;
-      color: rgba(15,23,42,.92);
     }
     .roi-output .sub{
-      color: rgba(15,23,42,.62);
+      color: var(--muted);
       font-size: 14.5px;
       line-height: 1.5;
     }
     .roi-note{
       margin-top: 10px;
-      color: rgba(15,23,42,.52);
+      color: rgba(16,22,36,.55);
       font-size: 12.5px;
       line-height: 1.45;
     }
+    html[data-theme="dark"] .roi-note{ color: rgba(255,255,255,.45); }
 
-    /* Pricing */
     .pricing-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -594,41 +780,49 @@
       margin-top: 16px;
     }
     .price-card{
-      background: var(--surface);
-      border: 1px solid var(--border2);
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--stroke);
       border-radius: var(--radius);
       padding: 18px;
-      box-shadow: var(--shadow2);
+      box-shadow: var(--shadow);
       position:relative;
       overflow:hidden;
+    }
+    html[data-theme="dark"] .price-card{
+      background: rgba(255,255,255,.03);
     }
     .badge{
       display:inline-flex;
       align-items:center;
       padding: 7px 12px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--surface2);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.78);
       font-size: 13px;
-      color: rgba(15,23,42,.78);
-      font-weight:900;
+      color: rgba(16,22,36,.78);
+      font-weight:950;
+    }
+    html[data-theme="dark"] .badge{
+      background: rgba(0,0,0,.20);
+      color: rgba(255,255,255,.78);
+      border-color: rgba(255,255,255,.12);
     }
     .price-title{
       margin: 14px 0 8px;
       font-size: 20px;
-      font-weight: 900;
-      color: rgba(15,23,42,.94);
+      font-weight: 950;
+      color: var(--text);
     }
     .price{
       font-size: 46px;
-      font-weight: 900;
+      font-weight: 950;
       margin: 6px 0 8px;
       letter-spacing: -1px;
-      color: rgba(15,23,42,.94);
     }
-    .per{ font-size: 14px; color: rgba(15,23,42,.55); font-weight: 800; }
+    .per{ font-size: 14px; color: rgba(16,22,36,.55); font-weight: 800; }
+    html[data-theme="dark"] .per{ color: rgba(255,255,255,.55); }
     .price-desc{
-      color: rgba(15,23,42,.62);
+      color: var(--muted);
       font-size: 14.5px;
       line-height: 1.55;
       margin-bottom: 14px;
@@ -636,7 +830,7 @@
     ul{
       margin: 0;
       padding-left: 18px;
-      color: rgba(15,23,42,.62);
+      color: var(--muted);
       font-size: 14.5px;
       line-height: 1.65;
     }
@@ -647,11 +841,12 @@
       margin-top: 14px;
     }
     .popular{
-      border-color: rgba(47,107,255,.22);
-      box-shadow: 0 22px 55px rgba(47,107,255,.10);
+      box-shadow: 0 0 0 1px rgba(47,107,255,.16), 0 18px 70px rgba(36,210,192,.18);
+    }
+    html[data-theme="dark"] .popular{
+      box-shadow: 0 0 0 1px rgba(255,255,255,.14), 0 18px 70px rgba(255,79,216,.20);
     }
 
-    /* Pilot / Callout */
     .pilot-grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
@@ -661,17 +856,20 @@
     }
     .callout{
       border-radius: var(--radius);
-      border: 1px solid var(--border2);
-      background: var(--surface);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.86);
       padding: 18px;
       position: relative;
       overflow:hidden;
       box-shadow: var(--shadow);
     }
-    .callout h3{ margin: 0 0 10px; font-size: 18px; color: rgba(15,23,42,.92); font-weight: 900; }
+    html[data-theme="dark"] .callout{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    }
+    .callout h3{ margin: 0 0 10px; font-size: 18px; font-weight: 950; }
     .callout p{
       margin:0;
-      color: rgba(15,23,42,.62);
+      color: var(--muted);
       line-height:1.55;
       font-size: 14.5px;
     }
@@ -683,29 +881,31 @@
       margin-top: 16px;
     }
 
-    /* FAQ */
     details{
-      border: 1px solid var(--border2);
-      background: var(--surface);
-      border-radius: 16px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.86);
+      border-radius: 18px;
       padding: 12px 14px;
-      box-shadow: var(--shadow2);
+      box-shadow: var(--shadow);
+    }
+    html[data-theme="dark"] details{
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 12px 40px rgba(0,0,0,.35);
     }
     details + details{ margin-top: 10px; }
     summary{
       cursor:pointer;
-      font-weight: 900;
-      color: rgba(15,23,42,.88);
+      font-weight: 950;
+      color: var(--text);
       font-size: 15px;
     }
     details p{
       margin: 10px 0 0;
-      color: rgba(15,23,42,.62);
+      color: var(--muted);
       line-height: 1.6;
       font-size: 14.5px;
     }
 
-    /* Contact */
     .contact-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -715,10 +915,13 @@
     }
     .form{
       border-radius: var(--radius);
-      border: 1px solid var(--border2);
-      background: var(--surface);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.86);
       padding: 18px;
       box-shadow: var(--shadow);
+    }
+    html[data-theme="dark"] .form{
+      background: rgba(255,255,255,.03);
     }
     .consent{
       display:flex;
@@ -726,18 +929,21 @@
       align-items:flex-start;
       margin-top: 12px;
       padding: 12px;
-      border-radius: 16px;
-      border: 1px solid var(--border2);
-      background: var(--surface2);
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.70);
+    }
+    html[data-theme="dark"] .consent{
+      background: rgba(0,0,0,.16);
+      border-color: rgba(255,255,255,.10);
     }
     .consent input{ width:auto; margin-top: 3px; }
     .consent span{
-      color: rgba(15,23,42,.62);
+      color: var(--muted);
       font-size: 13.5px;
       line-height: 1.45;
     }
 
-    /* Sticky */
     .sticky-cta{
       position: fixed;
       left: 12px;
@@ -749,19 +955,24 @@
     }
     .sticky-cta .btn{ width: 100%; padding: 12px 14px; border-radius: 16px; }
 
-    /* Footer */
     footer{
       padding: 28px 0 44px;
-      color: rgba(15,23,42,.55);
+      color: var(--muted);
       font-size: 13px;
-      border-top: 1px solid var(--border2);
+      border-top: 1px solid var(--stroke);
       background: rgba(255,255,255,.55);
-      backdrop-filter: blur(10px);
+    }
+    html[data-theme="dark"] footer{
+      background: transparent;
+      border-top-color: rgba(255,255,255,.06);
     }
     footer a{
-      color: rgba(15,23,42,.80);
+      color: rgba(16,22,36,.82);
       text-decoration: underline;
       text-underline-offset: 3px;
+    }
+    html[data-theme="dark"] footer a{
+      color: rgba(255,255,255,.78);
     }
 
     @media (max-width: 980px){
@@ -806,6 +1017,10 @@
       </div>
 
       <div class="nav-cta">
+        <button class="btn theme-btn" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+          <span class="theme-icon" aria-hidden="true"></span>
+        </button>
+
         <a class="btn" href="./privacy.html">Privacy</a>
         <button class="btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu">
           Menu
@@ -1113,7 +1328,7 @@
           </div>
 
           <div class="roi-output" aria-live="polite">
-            <div class="sub" style="color: rgba(15,23,42,.62); font-weight: 800;">Estimated recovered revenue / month</div>
+            <div class="sub">Estimated recovered revenue / month</div>
             <div class="big" id="roiValue">$0</div>
             <div class="sub">
               Formula: missed_calls_per_day × conversion_rate × avg_ticket × business_days
@@ -1257,37 +1472,6 @@
     </div>
   </section>
 
-  <!-- WEEK 1 OUTCOMES -->
-  <section id="testimonials">
-    <div class="wrap">
-      <div class="section-title">
-        <div>
-          <h2>What you’ll see in Week 1</h2>
-          <p>No fake testimonials. Here are the real outcomes your team should notice immediately.</p>
-        </div>
-      </div>
-
-      <div class="outcomes">
-        <div class="card">
-          <h3>Fewer missed leads</h3>
-          <p>Calls get answered consistently, so fewer people disappear after hearing voicemail.</p>
-        </div>
-        <div class="card">
-          <h3>Cleaner summaries</h3>
-          <p>Staff gets structured info: name, reason, preferred time, urgency—ready to schedule.</p>
-        </div>
-        <div class="card">
-          <h3>Faster follow-up</h3>
-          <p>Opt-in follow-up reduces the “we’ll call you back” lag that kills conversion.</p>
-        </div>
-      </div>
-
-      <div class="fineprint">
-        Week 2 typically adds deeper flows (opt-in confirmations/reminders, escalation rules, and integrations on Scale).
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ -->
   <section id="faq">
     <div class="wrap">
@@ -1338,14 +1522,15 @@
       <div class="contact-grid">
         <div class="form">
 
-          <!-- status message -->
           <div
             id="leadStatus"
-            style="display:none; margin-bottom:12px; padding:14px 14px; border-radius:16px;
-                   border:1px solid rgba(47,107,255,.18);
-                   background: rgba(47,107,255,.06);
-                   box-shadow: 0 10px 22px rgba(15,23,42,.06);
-                   color: rgba(15,23,42,.92);
+            style="display:none; margin-bottom:12px; padding:14px 14px; border-radius:20px;
+                   border:1px solid rgba(40,199,255,.55);
+                   background: radial-gradient(900px 220px at 10% 0%, rgba(40,199,255,.18), transparent 60%),
+                               radial-gradient(700px 220px at 90% 0%, rgba(47,107,255,.12), transparent 60%),
+                               rgba(255,255,255,.72);
+                   box-shadow: 0 0 0 1px rgba(40,199,255,.14), 0 18px 70px rgba(40,199,255,.10);
+                   color: rgba(16,22,36,.92);
                    font-size: 15px; line-height: 1.45;"
           >
             ✅ Thanks — we got your request. If you don’t hear back within 1 business day, email <b>hello.simonaai@gmail.com</b>.
@@ -1411,7 +1596,7 @@
               <input id="sms_consent" type="checkbox" name="sms_consent" value="yes" required />
               <span>
                 <b>
-                  <label for="sms_consent" style="display:inline; margin:0; color:rgba(15,23,42,.84);">
+                  <label for="sms_consent" style="display:inline; margin:0; color:inherit;">
                     I agree to receive text messages about my inquiry.
                   </label>
                 </b>
@@ -1421,22 +1606,17 @@
               </span>
             </div>
 
-            <!-- Honeypot (anti-spam) -->
             <div style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
               <label for="company_website">Company website</label>
               <input id="company_website" name="company_website" tabindex="-1" autocomplete="off" />
             </div>
 
-            <!-- Hidden fields for redirect back to the site -->
             <input type="hidden" id="redirect_url_success" name="redirect_url_success"
               value="https://marketingensocialmedia-gif.github.io/simona-ai/thanks.html">
-
             <input type="hidden" id="redirect_url_error" name="redirect_url_error"
               value="https://marketingensocialmedia-gif.github.io/simona-ai/index.html?submitted=0#contact">
-
             <input type="hidden" id="source_page" name="source_page"
               value="https://marketingensocialmedia-gif.github.io/simona-ai/index.html">
-
             <input type="hidden" id="timestamp" name="timestamp" value="">
 
             <div style="height:12px;"></div>
@@ -1450,17 +1630,11 @@
           <div style="height:14px;"></div>
           <div class="card">
             <h3>Prefer to book instantly?</h3>
-            <p>Use Calendly below.</p>
+            <p>Paste your Calendly link into the widget below.</p>
             <div style="height:10px;"></div>
-            <div style="border:1px solid var(--border2); border-radius:16px; overflow:hidden; background:#fff; box-shadow: var(--shadow2);">
+            <div style="border:1px solid var(--stroke); border-radius:18px; overflow:hidden; background:rgba(255,255,255,.60);">
               <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-
-              <div
-                class="calendly-inline-widget"
-                data-url="https://calendly.com/hello-simonaai/30min"
-                style="min-width:320px;height:660px;"
-              ></div>
-
+              <div class="calendly-inline-widget" data-url="https://calendly.com/hello-simonaai/30min" style="min-width:320px;height:660px;"></div>
               <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
             </div>
           </div>
@@ -1490,8 +1664,8 @@
     <div class="wrap">
       <div style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:flex-start;">
         <div>
-          <div style="font-weight:900; color:rgba(15,23,42,.88); margin-bottom:6px;">Simona AI</div>
-          <div style="color:rgba(15,23,42,.62); line-height:1.55;">
+          <div style="font-weight:950; color:var(--text); margin-bottom:6px;">Simona AI</div>
+          <div style="color:var(--muted); line-height:1.55;">
             Serving <b>Texas</b> (San Antonio launch)<br/>
             Email: <a href="mailto:hello.simonaai@gmail.com">hello.simonaai@gmail.com</a>
           </div>
@@ -1512,7 +1686,7 @@
             <a class="track book-demo" href="#contact">Book a demo</a>
           </div>
 
-          <div style="color:rgba(15,23,42,.50); font-size:12.5px; line-height:1.5;">
+          <div style="color:rgba(16,22,36,.55); font-size:12.5px; line-height:1.5;">
             © <span id="yr"></span> Simona AI. All rights reserved.
           </div>
         </div>
@@ -1526,6 +1700,36 @@
   </div>
 
   <script>
+    // ✅ Theme: saved preference + system preference fallback
+    (function initTheme(){
+      const root = document.documentElement;
+      const meta = document.getElementById("themeColorMeta");
+
+      function applyTheme(theme){
+        root.setAttribute("data-theme", theme);
+        const themeColor = getComputedStyle(root).getPropertyValue("--themeColor").trim() || (theme === "dark" ? "#070712" : "#f6f8ff");
+        if (meta) meta.setAttribute("content", themeColor);
+      }
+
+      const saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark"){
+        applyTheme(saved);
+      } else {
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        applyTheme(prefersDark ? "dark" : "light");
+      }
+
+      const btn = document.getElementById("themeToggle");
+      if (btn){
+        btn.addEventListener("click", () => {
+          const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+          const next = current === "dark" ? "light" : "dark";
+          localStorage.setItem("theme", next);
+          applyTheme(next);
+        });
+      }
+    })();
+
     // Year
     document.getElementById("yr").textContent = new Date().getFullYear();
 
@@ -1605,8 +1809,9 @@
 
       if (statusBox && submitted === "0") {
         statusBox.style.display = "block";
-        statusBox.style.borderColor = "rgba(255,80,80,.30)";
-        statusBox.style.background = "rgba(255,80,80,.08)";
+        statusBox.style.borderColor = "rgba(255,80,80,.55)";
+        statusBox.style.background =
+          "radial-gradient(900px 220px at 10% 0%, rgba(255,80,80,.16), transparent 60%), rgba(255,255,255,.72)";
         statusBox.textContent = "⚠️ Something went wrong. Please try again or email hello.simonaai@gmail.com.";
       }
 
