@@ -7,164 +7,226 @@
   <title>Simona AI — Voice + SMS Receptionist for San Antonio Dentists & Med Spas</title>
   <meta name="description" content="Simona AI answers missed calls, captures leads, and follows up via opt-in SMS—so San Antonio dentists and med spas book more appointments without extra staff." />
 
-  <!-- Canonical -->
+  <!-- ✅ CANONICAL (helps social scrapers) -->
   <link rel="canonical" href="https://marketingensocialmedia-gif.github.io/simona-ai/" />
 
-  <!-- Open Graph (WhatsApp/iMessage/LinkedIn) -->
-  <meta property="og:title" content="Simona AI — Voice + SMS Receptionist (San Antonio)" />
+  <!-- ✅ Open Graph (WhatsApp / iMessage / FB / LinkedIn) -->
+  <!-- IMPORTANT: og:image must be an ABSOLUTE URL and must EXIST (no 404). Upload /assets/og.png as 1200×630 -->
+  <meta property="og:site_name" content="Simona AI" />
+  <meta property="og:title" content="Simona AI — Voice + SMS Receptionist" />
   <meta property="og:description" content="Stop losing leads to missed calls. Simona answers, captures details, and follows up via opt-in SMS so you book more appointments." />
   <meta property="og:type" content="website" />
-  <!-- IMPORTANT: upload this file later (1200x630 PNG recommended) -->
-  <meta property="og:image" content="https://marketingensocialmedia-gif.github.io/simona-ai/assets/og-image.png" />
+  <meta property="og:url" content="https://marketingensocialmedia-gif.github.io/simona-ai/" />
+  <meta property="og:image" content="https://marketingensocialmedia-gif.github.io/simona-ai/assets/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:url" content="https://marketingensocialmedia-gif.github.io/simona-ai/" />
 
-  <!-- Twitter -->
+  <!-- ✅ Twitter (also used by some previews) -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Simona AI — Voice + SMS Receptionist" />
-  <meta name="twitter:description" content="Answers missed calls + captures leads + opt-in SMS follow-up." />
-  <meta name="twitter:image" content="https://marketingensocialmedia-gif.github.io/simona-ai/assets/og-image.png" />
+  <meta name="twitter:description" content="Answer missed calls, capture leads, and follow up via opt-in SMS." />
+  <meta name="twitter:image" content="https://marketingensocialmedia-gif.github.io/simona-ai/assets/og.png" />
 
-  <!-- Favicons (upload later) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png">
+  <!-- ✅ Favicon pack (upload these files if you want the full set) -->
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./assets/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
 
-  <!-- Preload hero (fallback JPEG you DO have) -->
-  <link rel="preload" as="image" href="./assets/hero.jpeg" imagesrcset="./assets/hero.jpeg 1x" />
+  <!-- ✅ Performance: preconnect + preload hero (uses WebP if you upload it later) -->
+  <link rel="preload" as="image" href="./assets/hero.webp" imagesrcset="./assets/hero.webp 1x" type="image/webp">
+  <link rel="preload" as="image" href="./assets/hero.jpeg" imagesrcset="./assets/hero.jpeg 1x" type="image/jpeg">
 
   <style>
+    /* =========================================================
+       THEME SYSTEM (Light clinic mode default + Dark toggle)
+       ========================================================= */
     :root{
-      /* Brand (blue / cyan / green) */
-      --blue: #2b8cff;
-      --cyan: #2fe5ff;
-      --green:#27d6a3;
+      /* Accents: BLUE + GREEN (no magenta) */
+      --a0: #12B3FF;  /* sky */
+      --a1: #19E6C0;  /* teal */
+      --a2: #38F28D;  /* mint */
+      --a3: #0B7CFF;  /* deep blue */
 
-      /* Dark */
-      --bg0: #070f24;
-      --bg1: #0b1b33;
+      --radius: 26px;
+      --navH: 72px;
+
+      /* Light defaults */
+      --bg0: #F7FAFF;
+      --bg1: #EFF5FF;
+      --card: rgba(255,255,255,.78);
+      --card2: rgba(255,255,255,.60);
+      --stroke: rgba(12, 22, 40, .10);
+      --stroke2: rgba(12, 22, 40, .08);
+      --text: rgba(12, 18, 30, .92);
+      --muted: rgba(12, 18, 30, .62);
+      --muted2: rgba(12, 18, 30, .48);
+
+      --shadow: 0 18px 55px rgba(10, 20, 40, .10);
+      --shadow2: 0 10px 28px rgba(10, 20, 40, .08);
+
+      --glass: rgba(255,255,255,.70);
+      --glassBlur: blur(14px);
+
+      --ring: 0 0 0 1px rgba(12, 22, 40, .08);
+
+      --btnText: #07121F;
+      --btnBg: rgba(255,255,255,.72);
+      --btnBorder: rgba(12, 22, 40, .12);
+
+      --heroGlow:
+        radial-gradient(1000px 600px at 20% 0%, rgba(18,179,255,.16), transparent 55%),
+        radial-gradient(900px 560px at 85% 10%, rgba(25,230,192,.14), transparent 55%),
+        radial-gradient(900px 650px at 55% 105%, rgba(56,242,141,.12), transparent 58%);
+    }
+
+    /* Dark theme overrides */
+    :root[data-theme="dark"]{
+      --bg0: #060B14;
+      --bg1: #070D18;
       --card: rgba(255,255,255,.06);
-      --stroke: rgba(255,255,255,.12);
+      --card2: rgba(255,255,255,.04);
+      --stroke: rgba(255,255,255,.10);
+      --stroke2: rgba(255,255,255,.08);
       --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.64);
-      --shadow: 0 16px 50px rgba(0,0,0,.45);
-      --glow: 0 0 0 1px rgba(255,255,255,.10), 0 18px 70px rgba(47,229,255,.16);
-      --radius: 28px;
-      --navH: 74px;
+      --muted: rgba(255,255,255,.62);
+      --muted2: rgba(255,255,255,.48);
 
-      /* Light (used when [data-theme="light"]) */
-      --l-bg0: #f7fbff;
-      --l-bg1: #eef6ff;
-      --l-card: rgba(10,40,80,.06);
-      --l-stroke: rgba(10,40,80,.12);
-      --l-text: rgba(8,18,38,.92);
-      --l-muted: rgba(8,18,38,.62);
-      --l-shadow: 0 16px 50px rgba(0,20,60,.12);
-      --l-glow: 0 0 0 1px rgba(10,40,80,.10), 0 18px 70px rgba(43,140,255,.14);
+      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --shadow2: 0 10px 28px rgba(0,0,0,.35);
+
+      --glass: rgba(10,12,18,.60);
+      --ring: 0 0 0 1px rgba(255,255,255,.10);
+
+      --btnText: rgba(255,255,255,.90);
+      --btnBg: rgba(255,255,255,.06);
+      --btnBorder: rgba(255,255,255,.14);
+
+      --heroGlow:
+        radial-gradient(1000px 600px at 20% 0%, rgba(18,179,255,.20), transparent 55%),
+        radial-gradient(900px 560px at 85% 10%, rgba(25,230,192,.18), transparent 55%),
+        radial-gradient(900px 650px at 55% 105%, rgba(56,242,141,.14), transparent 58%);
     }
 
     *{ box-sizing:border-box; }
-    html,body{
-      margin:0; padding:0;
+    html,body{ margin:0; padding:0; }
+
+    body{
+      background:
+        var(--heroGlow),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
       color: var(--text);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       scroll-behavior:smooth;
     }
 
-    /* THEME BACKGROUNDS */
-    body{
-      background:
-        radial-gradient(900px 600px at 15% 10%, rgba(43,140,255,.18), transparent 55%),
-        radial-gradient(700px 500px at 85% 20%, rgba(47,229,255,.14), transparent 55%),
-        radial-gradient(600px 500px at 50% 90%, rgba(39,214,163,.12), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-    }
-
-    body[data-theme="light"]{
-      color: var(--l-text);
-      background:
-        radial-gradient(900px 600px at 15% 10%, rgba(43,140,255,.12), transparent 60%),
-        radial-gradient(700px 500px at 85% 20%, rgba(47,229,255,.10), transparent 60%),
-        radial-gradient(600px 500px at 50% 90%, rgba(39,214,163,.10), transparent 65%),
-        linear-gradient(180deg, var(--l-bg0), var(--l-bg1));
-    }
-
     a{ color:inherit; text-decoration:none; }
-    .wrap{ width:min(1200px, calc(100% - 32px)); margin:0 auto; }
-
-    section{ padding: 42px 0; scroll-margin-top: 92px; }
+    .wrap{ width:min(1180px, calc(100% - 32px)); margin:0 auto; }
+    section{ padding: 46px 0; scroll-margin-top: 92px; }
 
     a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
-      outline: 2px solid rgba(47,229,255,.75);
+      outline: 2px solid rgba(18,179,255,.75);
       outline-offset: 2px;
+      border-radius: 12px;
     }
 
-    /* NAV */
+    /* =========================================================
+       NAV (cleaner, premium)
+       ========================================================= */
     .nav{
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(16px);
-      background: rgba(7,15,36,.60);
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: var(--glass);
+      backdrop-filter: var(--glassBlur);
+      border-bottom: 1px solid var(--stroke2);
     }
-    body[data-theme="light"] .nav{
-      background: rgba(247,251,255,.70);
-      border-bottom: 1px solid rgba(10,40,80,.10);
-    }
-
     .nav-inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding: 12px 0;
-      gap: 12px;
       min-height: var(--navH);
+      gap: 14px;
+      padding: 10px 0;
     }
 
-    /* LOGO + WORDMARK */
-    .logo-wrap{
-      display:inline-flex;
+    .brand{
+      display:flex;
       align-items:center;
-      gap: 12px;
+      gap: 10px;
       font-weight: 900;
       letter-spacing: .2px;
       white-space:nowrap;
+      min-width: 170px;
     }
 
-    .logo-ai{
-      width: 42px;
-      height: 42px;
-      display:block;
-      transition: transform .25s ease;
-    }
-    .logo-ai:hover{ transform: translateY(-1px); }
-
-    /* pulse glow */
-    .logo-ai:hover .ai-halo{ animation: haloPulse 1.8s ease-in-out infinite; }
-    @keyframes haloPulse {
-      0% { opacity:.55; }
-      50%{ opacity:.95; }
-      100%{ opacity:.55; }
+    /* NEW LOGO (inline SVG container) */
+    .logo-badge{
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      display:grid; place-items:center;
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.85), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.66));
+      box-shadow: var(--ring), var(--shadow2);
+      border: 1px solid var(--stroke2);
+      position: relative;
+      overflow:hidden;
     }
 
-    .logo-text{
+    :root[data-theme="dark"] .logo-badge{
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.22), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    .logo-badge::after{
+      content:"";
+      position:absolute; inset:-20px;
+      background: radial-gradient(circle at 40% 40%, rgba(18,179,255,.26), transparent 45%),
+                  radial-gradient(circle at 70% 70%, rgba(56,242,141,.22), transparent 48%);
+      opacity:.55;
+      filter: blur(10px);
+      pointer-events:none;
+    }
+
+    .logo-svg{
+      width: 26px; height: 26px;
+      position:relative;
+      z-index: 1;
+      filter: drop-shadow(0 8px 14px rgba(18,179,255,.25));
+    }
+
+    /* Subtle premium hover pulse */
+    .brand:hover .logo-badge{
+      box-shadow: var(--ring), 0 0 0 1px rgba(18,179,255,.18), 0 16px 45px rgba(18,179,255,.16);
+    }
+    .brand:hover .logo-svg{
+      animation: glowPulse .9s ease-in-out both;
+    }
+    @keyframes glowPulse{
+      0%   { transform: scale(1);   filter: drop-shadow(0 8px 14px rgba(18,179,255,.22)); }
+      50%  { transform: scale(1.06);filter: drop-shadow(0 14px 24px rgba(25,230,192,.30)); }
+      100% { transform: scale(1);   filter: drop-shadow(0 10px 18px rgba(56,242,141,.22)); }
+    }
+
+    .brand span{
       font-size: 16px;
-      font-weight: 900;
-      color: rgba(255,255,255,.92);
+      color: var(--text);
     }
-    body[data-theme="light"] .logo-text{ color: rgba(8,18,38,.92); }
-
-    .logo-text b{
-      background: linear-gradient(135deg, var(--blue), var(--cyan), var(--green));
+    .brand em{
+      font-style: normal;
+      background: linear-gradient(90deg, var(--a0), var(--a1), var(--a2));
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      font-weight: 950;
+      letter-spacing: .3px;
     }
 
     .links{
       display:flex;
-      gap: 10px;
+      gap: 6px;
       align-items:center;
       justify-content:center;
       flex: 1;
@@ -172,21 +234,18 @@
       font-size: 14px;
       flex-wrap: wrap;
     }
-    body[data-theme="light"] .links{ color: var(--l-muted); }
-
     .links a{
       padding: 8px 10px;
-      border-radius: 12px;
+      border-radius: 14px;
       transition: .15s ease;
       white-space: nowrap;
+      border: 1px solid transparent;
     }
     .links a:hover{
-      background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.90);
-    }
-    body[data-theme="light"] .links a:hover{
-      background: rgba(10,40,80,.06);
-      color: rgba(8,18,38,.92);
+      background: var(--card2);
+      border-color: var(--stroke2);
+      color: var(--text);
+      transform: translateY(-1px);
     }
 
     .nav-cta{
@@ -194,6 +253,8 @@
       align-items:center;
       gap:10px;
       white-space:nowrap;
+      min-width: 260px;
+      justify-content:flex-end;
     }
 
     .btn{
@@ -203,49 +264,68 @@
       gap:8px;
       padding: 10px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.88);
+      border: 1px solid var(--btnBorder);
+      background: var(--btnBg);
+      color: var(--btnText);
       font-weight: 750;
       font-size: 14px;
       cursor:pointer;
       transition: .15s ease;
+      box-shadow: 0 10px 28px rgba(10, 20, 40, .06);
     }
-    body[data-theme="light"] .btn{
-      border: 1px solid rgba(10,40,80,.14);
-      background: rgba(255,255,255,.70);
-      color: rgba(8,18,38,.90);
+    :root[data-theme="dark"] .btn{
+      box-shadow: 0 10px 28px rgba(0,0,0,.28);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: var(--shadow2);
     }
 
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.07); }
-    body[data-theme="light"] .btn:hover{ background: rgba(255,255,255,.92); }
-
+    /* Primary button: blue→teal→mint */
     .btn-primary{
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(135deg, rgba(43,140,255,.95), rgba(47,229,255,.85), rgba(39,214,163,.85));
-      box-shadow: 0 14px 40px rgba(47,229,255,.18);
-      color:white;
+      border: 1px solid rgba(18,179,255,.22);
+      color: white;
+      background: linear-gradient(90deg, var(--a3), var(--a1), var(--a2));
+      box-shadow: 0 14px 38px rgba(18,179,255,.18);
+    }
+
+    /* Theme toggle */
+    .toggle{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--btnBorder);
+      background: var(--btnBg);
+      color: var(--btnText);
+      cursor:pointer;
+      font-weight: 800;
+    }
+    .toggle .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: linear-gradient(180deg, var(--a0), var(--a2));
+      box-shadow: 0 0 0 3px rgba(18,179,255,.12);
     }
 
     .menu-btn{ display:none; }
     .mobile-menu{
       display:none;
-      border-top: 1px solid rgba(255,255,255,.06);
+      border-top: 1px solid var(--stroke2);
       padding: 10px 0 14px;
     }
-    body[data-theme="light"] .mobile-menu{ border-top: 1px solid rgba(10,40,80,.10); }
-
     .mobile-menu a{
       display:block;
       padding: 10px 10px;
       border-radius: 14px;
-      color: rgba(255,255,255,.78);
+      color: var(--muted);
+      border: 1px solid transparent;
     }
-    body[data-theme="light"] .mobile-menu a{ color: rgba(8,18,38,.82); }
-
-    .mobile-menu a:hover{ background: rgba(255,255,255,.06); }
-    body[data-theme="light"] .mobile-menu a:hover{ background: rgba(10,40,80,.06); }
-
+    .mobile-menu a:hover{
+      background: var(--card2);
+      border-color: var(--stroke2);
+      color: var(--text);
+    }
     .menu-row{
       display:flex;
       justify-content: space-between;
@@ -254,38 +334,33 @@
     }
     .menu-row .btn{ width: 100%; }
 
-    /* HERO */
-    #hero{ padding: 48px 0 18px; }
-
+    /* =========================================================
+       HERO
+       ========================================================= */
+    #hero{ padding: 44px 0 16px; }
     .grid{
       display:grid;
       grid-template-columns: 1.05fr .95fr;
-      gap: 22px;
+      gap: 18px;
       align-items: stretch;
     }
 
     .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      border: 1px solid rgba(255,255,255,.10);
+      background: var(--card);
+      border: 1px solid var(--stroke);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow:hidden;
       position: relative;
     }
-    body[data-theme="light"] .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.68));
-      border: 1px solid rgba(10,40,80,.12);
-      box-shadow: var(--l-shadow);
-    }
-
     .panel::before{
       content:"";
       position:absolute;
-      inset:0;
+      inset:-1px;
       background:
-        radial-gradient(800px 500px at 20% 0%, rgba(43,140,255,.20), transparent 55%),
-        radial-gradient(600px 380px at 80% 30%, rgba(47,229,255,.16), transparent 58%),
-        radial-gradient(400px 300px at 70% 105%, rgba(39,214,163,.12), transparent 60%);
+        radial-gradient(800px 460px at 20% 0%, rgba(18,179,255,.14), transparent 55%),
+        radial-gradient(760px 430px at 85% 18%, rgba(25,230,192,.12), transparent 55%),
+        radial-gradient(720px 520px at 60% 115%, rgba(56,242,141,.10), transparent 58%);
       pointer-events:none;
       opacity: .95;
     }
@@ -303,34 +378,33 @@
       gap:8px;
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.74);
+      border: 1px solid var(--stroke2);
+      background: rgba(255,255,255,.55);
+      color: var(--muted);
       font-size: 13px;
       white-space:nowrap;
     }
-    body[data-theme="light"] .chip{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(255,255,255,.72);
-      color: rgba(8,18,38,.72);
+    :root[data-theme="dark"] .chip{
+      background: rgba(255,255,255,.05);
+      border-color: rgba(255,255,255,.10);
     }
 
-    .dot{
-      width:8px; height:8px;
-      border-radius:50%;
-      background: linear-gradient(135deg, var(--blue), var(--cyan), var(--green));
-      box-shadow: 0 0 18px rgba(47,229,255,.45);
+    .chip i{
+      width:8px; height:8px; border-radius:50%;
+      background: linear-gradient(180deg, var(--a0), var(--a2));
+      box-shadow: 0 0 0 3px rgba(18,179,255,.10);
+      display:inline-block;
     }
 
     h1{
       font-family: ui-serif, Georgia, "Times New Roman", serif;
-      font-weight: 800;
+      font-weight: 850;
       letter-spacing: -.6px;
       margin: 0 0 14px;
       font-size: clamp(42px, 5.0vw, 62px);
       line-height: 1.02;
+      color: var(--text);
     }
-
     .lead{
       margin: 0 0 18px;
       color: var(--muted);
@@ -338,7 +412,6 @@
       line-height: 1.6;
       max-width: 62ch;
     }
-    body[data-theme="light"] .lead{ color: var(--l-muted); }
 
     .hero-actions{
       display:flex;
@@ -357,53 +430,60 @@
     .pill{
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      color: rgba(255,255,255,.60);
+      border: 1px solid var(--stroke2);
+      background: rgba(255,255,255,.45);
+      color: var(--muted2);
       font-size: 13px;
     }
-    body[data-theme="light"] .pill{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(255,255,255,.68);
-      color: rgba(8,18,38,.62);
+    :root[data-theme="dark"] .pill{
+      background: rgba(255,255,255,.04);
+      border-color: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.55);
     }
 
     .fineprint{
       margin-top: 12px;
-      color: rgba(255,255,255,.45);
+      color: var(--muted2);
       font-size: 12.5px;
       line-height: 1.45;
     }
-    body[data-theme="light"] .fineprint{ color: rgba(8,18,38,.48); }
-    .fineprint b{ font-weight:750; }
+    .fineprint b{ color: var(--muted); font-weight:800; }
 
-    /* HERO VISUAL with WebP fallback */
+    /* Hero visual: use <picture> so JPEG always works if WebP missing */
     .hero-visual{
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: var(--glow);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
       overflow:hidden;
       position: relative;
-      min-height: 520px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.40));
+      min-height: 540px;
+      background: rgba(255,255,255,.32);
     }
-    body[data-theme="light"] .hero-visual{
-      border: 1px solid rgba(10,40,80,.12);
-      box-shadow: var(--l-glow);
+    :root[data-theme="dark"] .hero-visual{
+      background: rgba(255,255,255,.05);
+    }
+
+    .hero-visual::before{
+      content:"";
+      position:absolute; inset:0;
       background:
-        linear-gradient(180deg, rgba(255,255,255,.10), rgba(10,40,80,.10));
+        radial-gradient(900px 520px at 30% 0%, rgba(18,179,255,.16), transparent 60%),
+        radial-gradient(700px 520px at 90% 20%, rgba(25,230,192,.14), transparent 60%),
+        radial-gradient(700px 600px at 60% 110%, rgba(56,242,141,.12), transparent 64%);
+      pointer-events:none;
+      opacity:.95;
+      z-index: 0;
     }
 
     .hero-media{
       position:absolute;
       inset:0;
-      width:100%;
-      height:100%;
-      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-media picture, .hero-media img{
+      width:100%; height:100%;
       display:block;
-      transform: scale(1.02);
-      filter: saturate(1.02);
+      object-fit: cover;
     }
 
     .img-toplabel{
@@ -415,17 +495,19 @@
       gap: 10px;
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.22);
-      backdrop-filter: blur(12px);
-      color: rgba(255,255,255,.88);
-      font-weight: 750;
+      border: 1px solid var(--stroke2);
+      background: rgba(255,255,255,.68);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      font-weight: 850;
       font-size: 14px;
+      z-index: 2;
+      box-shadow: var(--shadow2);
     }
-    body[data-theme="light"] .img-toplabel{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(255,255,255,.78);
-      color: rgba(8,18,38,.86);
+    :root[data-theme="dark"] .img-toplabel{
+      background: rgba(0,0,0,.25);
+      color: rgba(255,255,255,.90);
+      border-color: rgba(255,255,255,.12);
     }
 
     .outcome{
@@ -433,20 +515,22 @@
       left: 14px;
       right: 14px;
       bottom: 14px;
+      z-index: 2;
     }
     .outcome-inner{
       border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.30);
+      border: 1px solid var(--stroke2);
+      background: rgba(255,255,255,.76);
       backdrop-filter: blur(14px);
       padding: 14px;
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      box-shadow: var(--shadow2);
     }
-    body[data-theme="light"] .outcome-inner{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(255,255,255,.82);
+    :root[data-theme="dark"] .outcome-inner{
+      background: rgba(0,0,0,.28);
+      border-color: rgba(255,255,255,.12);
     }
 
     .outcome-title{
@@ -459,39 +543,44 @@
     .outcome-title h4{
       margin:0;
       font-size: 15px;
-      font-weight: 850;
+      color: var(--text);
+      font-weight: 900;
     }
     .outcome-title span{
-      opacity:.7;
+      color: var(--muted2);
       font-size: 13px;
       white-space:nowrap;
+      font-weight: 800;
     }
     .outcome p{
       margin: 6px 0 0;
-      opacity:.8;
+      color: var(--muted);
       font-size: 14px;
       line-height: 1.45;
     }
 
     .mini{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
+      border: 1px solid var(--stroke2);
+      background: rgba(255,255,255,.56);
       border-radius: 16px;
       padding: 12px;
     }
-    body[data-theme="light"] .mini{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(10,40,80,.04);
+    :root[data-theme="dark"] .mini{
+      background: rgba(255,255,255,.05);
+      border-color: rgba(255,255,255,.10);
     }
     .mini strong{
       display:block;
       font-size: 13.5px;
+      color: var(--text);
       margin-bottom: 4px;
-      font-weight: 900;
+      font-weight: 950;
     }
-    .mini span{ opacity:.75; font-size: 13px; }
+    .mini span{ color: var(--muted); font-size: 13px; }
 
-    /* SECTION TITLES + CARDS */
+    /* =========================================================
+       CONTENT CARDS
+       ========================================================= */
     .section-title{
       display:flex;
       align-items:flex-end;
@@ -507,29 +596,23 @@
       max-width: 70ch;
       line-height:1.55;
     }
-    body[data-theme="light"] .section-title p{ color: var(--l-muted); }
 
     .card{
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.10);
+      background: var(--card);
+      border: 1px solid var(--stroke);
       border-radius: 22px;
       padding: 18px;
-      box-shadow: 0 12px 40px rgba(0,0,0,.28);
+      box-shadow: var(--shadow2);
     }
-    body[data-theme="light"] .card{
-      background: rgba(255,255,255,.78);
-      border: 1px solid rgba(10,40,80,.12);
-      box-shadow: 0 12px 40px rgba(0,20,60,.10);
-    }
-
     .card h3{
       margin: 0 0 8px;
       font-size: 16px;
-      font-weight: 900;
+      color: var(--text);
+      font-weight: 950;
     }
     .card p{
       margin:0;
-      opacity: .82;
+      color: var(--muted);
       font-size: 14.5px;
       line-height: 1.55;
     }
@@ -549,11 +632,13 @@
     .stat b{
       font-size: 22px;
       letter-spacing: -.3px;
+      color: var(--text);
       font-weight: 950;
     }
     .stat span{
-      opacity:.7;
+      color: var(--muted2);
       font-size: 13.5px;
+      font-weight: 800;
     }
 
     .how{
@@ -562,24 +647,16 @@
       gap: 14px;
       margin-top: 16px;
     }
-    .steps{
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-    }
+    .steps{ display:flex; flex-direction:column; gap: 12px; }
     .step{
       display:flex;
       gap: 12px;
       border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
+      border: 1px solid var(--stroke);
+      background: var(--card);
       padding: 14px;
+      box-shadow: var(--shadow2);
     }
-    body[data-theme="light"] .step{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(255,255,255,.78);
-    }
-
     .num{
       width: 38px;
       height: 38px;
@@ -588,108 +665,88 @@
       align-items:center;
       justify-content:center;
       font-weight: 950;
-      background: linear-gradient(135deg, rgba(43,140,255,.95), rgba(47,229,255,.85), rgba(39,214,163,.85));
+      background: linear-gradient(90deg, var(--a3), var(--a1), var(--a2));
       color:white;
       flex: 0 0 auto;
+      box-shadow: 0 12px 28px rgba(18,179,255,.16);
     }
     .step strong{
       display:block;
       margin-bottom: 6px;
       font-size: 15px;
-      font-weight: 900;
+      color: var(--text);
+      font-weight: 950;
     }
-    .step span{ opacity:.82; font-size: 14.5px; line-height: 1.45; }
+    .step span{
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
 
     .sideimg{
       border-radius: var(--radius);
       overflow:hidden;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
+      border: 1px solid var(--stroke);
+      background: var(--card);
       min-height: 280px;
-      box-shadow: var(--glow);
-    }
-    body[data-theme="light"] .sideimg{
-      border: 1px solid rgba(10,40,80,.12);
-      box-shadow: var(--l-glow);
-      background: rgba(255,255,255,.78);
+      box-shadow: var(--shadow);
     }
     .sideimg img{
       width:100%;
       height:100%;
       object-fit: cover;
       display:block;
-      opacity: .98;
     }
 
-    /* IMAGES STRIP */
-    .img-grid{
+    /* SEE IT section (your new images) */
+    .see-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
       margin-top: 16px;
     }
-    .img-card{
+    .shot{
       border-radius: var(--radius);
       overflow:hidden;
-      border: 1px solid rgba(255,255,255,.10);
+      border: 1px solid var(--stroke);
+      background: var(--card);
       box-shadow: var(--shadow);
-      background: rgba(255,255,255,.03);
-      position: relative;
-      min-height: 280px;
     }
-    body[data-theme="light"] .img-card{
-      border: 1px solid rgba(10,40,80,.12);
-      box-shadow: var(--l-shadow);
-      background: rgba(255,255,255,.78);
-    }
-    .img-card img{
+    .shot img{
       width:100%;
-      height:100%;
+      height: 320px;
       object-fit: cover;
       display:block;
     }
-    .img-cap{
-      position:absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 14px;
-      padding: 12px 14px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.36);
-      backdrop-filter: blur(12px);
-      color: rgba(255,255,255,.90);
-      font-weight: 850;
+    .shot .cap{
+      padding: 14px 16px;
+      border-top: 1px solid var(--stroke2);
+      color: var(--muted);
       font-size: 14px;
-      line-height: 1.35;
+      line-height: 1.45;
+      background: rgba(255,255,255,.40);
     }
-    body[data-theme="light"] .img-cap{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(255,255,255,.86);
-      color: rgba(8,18,38,.90);
+    :root[data-theme="dark"] .shot .cap{
+      background: rgba(255,255,255,.04);
     }
 
-    /* TABS */
+    /* Tabs */
     .tabs{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
     .tab-btn{
       padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.78);
+      border: 1px solid var(--stroke);
+      background: var(--card2);
+      color: var(--text);
       font-weight: 900;
       font-size: 13.5px;
       cursor:pointer;
       transition: .15s ease;
     }
-    body[data-theme="light"] .tab-btn{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(255,255,255,.74);
-      color: rgba(8,18,38,.80);
-    }
+    .tab-btn:hover{ transform: translateY(-1px); }
     .tab-btn[aria-selected="true"]{
-      background: linear-gradient(135deg, rgba(43,140,255,.95), rgba(47,229,255,.85), rgba(39,214,163,.85));
-      border-color: rgba(255,255,255,.16);
+      background: linear-gradient(90deg, var(--a3), var(--a1), var(--a2));
+      border-color: rgba(18,179,255,.22);
       color: white;
     }
     .tab-panel{ margin-top: 14px; display:none; }
@@ -708,7 +765,7 @@
       margin-top: 16px;
     }
 
-    /* ROI */
+    /* ROI + forms */
     .roi-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -718,75 +775,79 @@
     }
     .roi-box{
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
+      border: 1px solid var(--stroke);
+      background: var(--card);
       padding: 18px;
       box-shadow: var(--shadow);
     }
-    body[data-theme="light"] .roi-box{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(255,255,255,.78);
-      box-shadow: var(--l-shadow);
-    }
-
     label{
       display:block;
       font-size: 13px;
-      opacity:.8;
+      color: var(--muted);
       margin: 12px 0 6px;
-      font-weight: 800;
+      font-weight: 850;
     }
     input, textarea, select{
       width:100%;
       padding: 12px 12px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.22);
-      color: rgba(255,255,255,.88);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.70);
+      color: var(--text);
       outline:none;
       font-size: 14.5px;
+      box-shadow: var(--shadow2);
     }
-    body[data-theme="light"] input,
-    body[data-theme="light"] textarea,
-    body[data-theme="light"] select{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(255,255,255,.92);
-      color: rgba(8,18,38,.92);
+    :root[data-theme="dark"] input,
+    :root[data-theme="dark"] textarea,
+    :root[data-theme="dark"] select{
+      background: rgba(0,0,0,.18);
+      box-shadow: none;
     }
 
     textarea{ min-height: 110px; resize: vertical; }
-    input::placeholder, textarea::placeholder{ color: rgba(255,255,255,.35); }
-    body[data-theme="light"] input::placeholder,
-    body[data-theme="light"] textarea::placeholder{ color: rgba(8,18,38,.35); }
+    input::placeholder, textarea::placeholder{ color: var(--muted2); }
 
     .form-row{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
-
     .roi-output{
       margin-top: 14px;
       padding: 14px;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.62);
+      box-shadow: var(--shadow2);
     }
-    body[data-theme="light"] .roi-output{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(10,40,80,.04);
+    :root[data-theme="dark"] .roi-output{
+      background: rgba(255,255,255,.05);
     }
-
     .roi-output .big{
       font-size: 38px;
       font-weight: 950;
       letter-spacing: -1px;
       margin: 2px 0 6px;
+      background: linear-gradient(90deg, var(--a3), var(--a1), var(--a2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
-    .roi-output .sub{ opacity:.8; font-size: 14.5px; line-height: 1.5; }
-    .roi-note{ margin-top: 10px; opacity:.7; font-size: 12.5px; line-height: 1.45; }
+    .roi-output .sub{
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+    .roi-note{
+      margin-top: 10px;
+      color: var(--muted2);
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
 
-    /* PRICING */
+    /* Pricing etc (kept simple/premium) */
     .pricing-grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -794,89 +855,85 @@
       margin-top: 16px;
     }
     .price-card{
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.10);
+      background: var(--card);
+      border: 1px solid var(--stroke);
       border-radius: var(--radius);
       padding: 18px;
       box-shadow: var(--shadow);
       position:relative;
       overflow:hidden;
     }
-    body[data-theme="light"] .price-card{
-      background: rgba(255,255,255,.78);
-      border: 1px solid rgba(10,40,80,.12);
-      box-shadow: var(--l-shadow);
-    }
-
     .badge{
       display:inline-flex;
       align-items:center;
       padding: 7px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.55);
       font-size: 13px;
-      opacity:.9;
-      font-weight:900;
+      color: var(--text);
+      font-weight:950;
     }
-    body[data-theme="light"] .badge{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(10,40,80,.06);
-      color: rgba(8,18,38,.86);
+    :root[data-theme="dark"] .badge{
+      background: rgba(255,255,255,.06);
     }
-
-    .price-title{ margin: 14px 0 8px; font-size: 20px; font-weight: 950; }
-    .price{ font-size: 46px; font-weight: 950; margin: 6px 0 8px; letter-spacing: -1px; }
-    .per{ font-size: 14px; opacity:.7; font-weight: 800; }
-    .price-desc{ opacity:.82; font-size: 14.5px; line-height: 1.55; margin-bottom: 14px; }
-
-    ul{ margin: 0; padding-left: 18px; opacity:.82; font-size: 14.5px; line-height: 1.65; }
-    .price-actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
-
+    .price-title{
+      margin: 14px 0 8px;
+      font-size: 20px;
+      font-weight: 950;
+      color: var(--text);
+    }
+    .price{
+      font-size: 46px;
+      font-weight: 950;
+      margin: 6px 0 8px;
+      letter-spacing: -1px;
+    }
+    .per{ font-size: 14px; color: var(--muted2); font-weight: 850; }
+    .price-desc{
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+    .price-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
     .popular{
-      box-shadow: 0 0 0 1px rgba(255,255,255,.12), 0 18px 70px rgba(47,229,255,.16);
-    }
-    body[data-theme="light"] .popular{
-      box-shadow: 0 0 0 1px rgba(10,40,80,.12), 0 18px 70px rgba(43,140,255,.14);
-    }
-
-    /* PILOT / FAQ / CONTACT */
-    .pilot-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 14px;
-      margin-top: 16px;
-      align-items: stretch;
-    }
-    .callout{
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      padding: 18px;
-      position: relative;
-      overflow:hidden;
-      box-shadow: var(--shadow);
-    }
-    body[data-theme="light"] .callout{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(255,255,255,.78);
-      box-shadow: var(--l-shadow);
+      border-color: rgba(18,179,255,.22);
+      box-shadow: 0 0 0 1px rgba(18,179,255,.16), var(--shadow);
     }
 
     details{
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
+      border: 1px solid var(--stroke);
+      background: var(--card);
       border-radius: 18px;
       padding: 12px 14px;
+      box-shadow: var(--shadow2);
     }
-    body[data-theme="light"] details{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(255,255,255,.78);
-    }
-
     details + details{ margin-top: 10px; }
-    summary{ cursor:pointer; font-weight: 950; font-size: 15px; }
-    details p{ margin: 10px 0 0; opacity:.82; line-height: 1.6; font-size: 14.5px; }
+    summary{
+      cursor:pointer;
+      font-weight: 950;
+      color: var(--text);
+      font-size: 15px;
+    }
+    details p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14.5px;
+    }
 
     .contact-grid{
       display:grid;
@@ -887,15 +944,10 @@
     }
     .form{
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
+      border: 1px solid var(--stroke);
+      background: var(--card);
       padding: 18px;
       box-shadow: var(--shadow);
-    }
-    body[data-theme="light"] .form{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(255,255,255,.78);
-      box-shadow: var(--l-shadow);
     }
 
     .consent{
@@ -905,15 +957,19 @@
       margin-top: 12px;
       padding: 12px;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.12);
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.55);
     }
-    body[data-theme="light"] .consent{
-      border: 1px solid rgba(10,40,80,.12);
-      background: rgba(10,40,80,.04);
+    :root[data-theme="dark"] .consent{
+      background: rgba(255,255,255,.05);
     }
     .consent input{ width:auto; margin-top: 3px; }
-    .consent span{ opacity:.82; font-size: 13.5px; line-height: 1.45; }
+    .consent span{
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.45;
+      font-weight: 650;
+    }
 
     .sticky-cta{
       position: fixed;
@@ -928,33 +984,22 @@
 
     footer{
       padding: 28px 0 44px;
-      opacity:.85;
+      color: var(--muted2);
       font-size: 13px;
-      border-top: 1px solid rgba(255,255,255,.06);
+      border-top: 1px solid var(--stroke2);
+      background: rgba(255,255,255,.30);
     }
-    body[data-theme="light"] footer{
-      border-top: 1px solid rgba(10,40,80,.10);
+    :root[data-theme="dark"] footer{
+      background: rgba(255,255,255,.02);
     }
-    footer a{ text-decoration: underline; text-underline-offset: 3px; }
+    footer a{
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 850;
+    }
 
-    /* Theme toggle button */
-    .theme-btn{
-      border-radius: 14px;
-      padding: 10px 12px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.88);
-      font-weight: 900;
-      cursor:pointer;
-      transition: .15s ease;
-    }
-    body[data-theme="light"] .theme-btn{
-      border: 1px solid rgba(10,40,80,.14);
-      background: rgba(255,255,255,.70);
-      color: rgba(8,18,38,.88);
-    }
-    .theme-btn:hover{ transform: translateY(-1px); }
-
+    /* Responsive */
     @media (max-width: 980px){
       .grid{ grid-template-columns: 1fr; }
       .how{ grid-template-columns: 1fr; }
@@ -962,15 +1007,17 @@
       .cards3{ grid-template-columns: 1fr; }
       .roi-grid{ grid-template-columns: 1fr; }
       .pricing-grid{ grid-template-columns: 1fr; }
-      .pilot-grid{ grid-template-columns: 1fr; }
       .contact-grid{ grid-template-columns: 1fr; }
       .usecase-grid{ grid-template-columns: 1fr; }
-      .img-grid{ grid-template-columns: 1fr; }
+      .see-grid{ grid-template-columns: 1fr; }
+
       .links{ display:none; }
       .menu-btn{ display:inline-flex; }
-      .hero-visual{ min-height: 440px; }
+      .hero-visual{ min-height: 420px; }
       .sticky-cta{ display:flex; }
       :root{ --navH: 66px; }
+      .nav-cta{ min-width: auto; }
+      .brand{ min-width: auto; }
     }
   </style>
 </head>
@@ -979,64 +1026,40 @@
   <!-- NAV -->
   <div class="nav">
     <div class="wrap nav-inner">
-      <a class="logo-wrap" href="#hero" aria-label="Go to top">
-        <!-- Inline SVG logo (no logo.png needed) -->
-        <svg class="logo-ai" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Simona AI logo">
-          <defs>
-            <linearGradient id="aiGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#2b8cff"/>
-              <stop offset="55%" stop-color="#2fe5ff"/>
-              <stop offset="100%" stop-color="#27d6a3"/>
-            </linearGradient>
-            <radialGradient id="bgGrad" cx="30%" cy="20%" r="80%">
-              <stop offset="0%" stop-color="#0f1f3d"/>
-              <stop offset="100%" stop-color="#070f24"/>
-            </radialGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="6" result="blur"/>
-              <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
-
-          <rect x="24" y="24" width="208" height="208" rx="64" fill="url(#bgGrad)"/>
-
-          <circle class="ai-halo" cx="128" cy="116" r="66"
-                  fill="none" stroke="url(#aiGrad)" stroke-width="10"
-                  opacity="0.75" filter="url(#glow)"/>
-          <circle cx="128" cy="116" r="48"
-                  fill="none" stroke="#ffffff" stroke-width="2"
-                  opacity="0.16"/>
-
-          <circle cx="88" cy="78" r="4" fill="#2fe5ff"/>
-          <circle cx="170" cy="70" r="3.5" fill="#27d6a3"/>
-          <circle cx="188" cy="118" r="3" fill="#2b8cff"/>
-
-          <path d="M92 128c0-28 18-48 36-48s36 20 36 48"
-                fill="none" stroke="#ffffff" stroke-width="6"
-                opacity="0.24" stroke-linecap="round"/>
-
-          <text x="128" y="140"
-                text-anchor="middle"
-                font-size="88"
-                font-weight="900"
-                font-family="system-ui, -apple-system, Segoe UI, Arial"
-                fill="#ffffff">ב</text>
-
-          <path d="M104 164c8 10 16 14 24 14s16-4 24-14"
-                fill="none" stroke="url(#aiGrad)" stroke-width="6"
-                stroke-linecap="round"/>
-        </svg>
-
-        <span class="logo-text">Simona <b>AI</b></span>
+      <a class="brand" href="#hero" aria-label="Go to top">
+        <div class="logo-badge" aria-hidden="true">
+          <!-- AI-tech logo with ב -->
+          <svg class="logo-svg" viewBox="0 0 64 64" role="img" aria-label="Simona AI logo">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#0B7CFF"/>
+                <stop offset="0.55" stop-color="#19E6C0"/>
+                <stop offset="1" stop-color="#38F28D"/>
+              </linearGradient>
+              <filter id="f1" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="2.2" result="b"/>
+                <feMerge>
+                  <feMergeNode in="b"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <circle cx="32" cy="32" r="22" fill="none" stroke="url(#g1)" stroke-width="5" opacity="0.95"/>
+            <circle cx="32" cy="32" r="18" fill="none" stroke="url(#g1)" stroke-width="2" opacity="0.35"/>
+            <!-- Hebrew letter ב -->
+            <text x="32" y="41" text-anchor="middle"
+                  font-size="28" font-weight="900"
+                  font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial"
+                  fill="white" filter="url(#f1)">ב</text>
+          </svg>
+        </div>
+        <span>Simona <em>AI</em></span>
       </a>
 
       <div class="links" aria-label="Primary">
         <a href="#proof">Proof</a>
         <a href="#how-it-works">How it works</a>
-        <a href="#gallery">Visuals</a>
+        <a href="#see">See it</a>
         <a href="#use-cases">Use cases</a>
         <a href="#features">Features</a>
         <a href="#roi">ROI</a>
@@ -1047,9 +1070,17 @@
       </div>
 
       <div class="nav-cta">
-        <button class="theme-btn" id="themeToggle" type="button" aria-label="Toggle theme">🌙</button>
+        <button class="toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+          <span class="dot" aria-hidden="true"></span>
+          <span id="themeLabel">Light</span>
+        </button>
+
         <a class="btn" href="./privacy.html">Privacy</a>
-        <button class="btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+
+        <button class="btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu">
+          Menu
+        </button>
+
         <a class="btn btn-primary track book-demo" href="#contact">Book a 2-minute demo</a>
       </div>
     </div>
@@ -1057,7 +1088,7 @@
     <div class="wrap mobile-menu" id="mobileMenu" aria-label="Mobile menu">
       <a href="#proof">Proof</a>
       <a href="#how-it-works">How it works</a>
-      <a href="#gallery">Visuals</a>
+      <a href="#see">See it</a>
       <a href="#use-cases">Use cases</a>
       <a href="#features">Features</a>
       <a href="#roi">ROI</a>
@@ -1080,10 +1111,10 @@
         <div class="panel">
           <div class="panel-inner">
             <div class="chips">
-              <span class="chip"><span class="dot"></span> Voice receptionist</span>
-              <span class="chip"><span class="dot"></span> Opt-in SMS follow-up</span>
-              <span class="chip"><span class="dot"></span> Built for appointments</span>
-              <span class="chip"><span class="dot"></span> San Antonio</span>
+              <span class="chip"><i></i> Voice receptionist</span>
+              <span class="chip"><i></i> Opt-in SMS follow-up</span>
+              <span class="chip"><i></i> Built for appointments</span>
+              <span class="chip"><i></i> San Antonio</span>
             </div>
 
             <h1>Sound professional.<br/>Even when you’re busy.</h1>
@@ -1114,11 +1145,13 @@
         </div>
 
         <div class="hero-visual" aria-label="Reception experience visual">
-          <!-- WebP + fallback JPEG (you currently have hero.jpeg; add hero.webp later and it auto-uses it) -->
-          <picture>
-            <source srcset="./assets/hero.webp" type="image/webp">
-            <img class="hero-media" src="./assets/hero.jpeg" alt="Simona AI receptionist visual" loading="eager" decoding="async">
-          </picture>
+          <div class="hero-media" aria-hidden="true">
+            <!-- ✅ Works NOW (hero.jpeg). If you later upload hero.webp it will auto-prefer it. -->
+            <picture>
+              <source srcset="./assets/hero.webp" type="image/webp">
+              <img src="./assets/hero.jpeg" alt="Clinic receptionist answering a call" loading="eager" decoding="async" />
+            </picture>
+          </div>
 
           <div class="img-toplabel">🌿 Reception + customer support</div>
 
@@ -1220,25 +1253,30 @@
     </div>
   </section>
 
-  <!-- VISUALS (YOUR NEW IMAGES) -->
-  <section id="gallery">
+  <!-- SEE IT (your uploaded images) -->
+  <section id="see">
     <div class="wrap">
       <div class="section-title">
         <div>
-          <h2>Visuals</h2>
-          <p>What the customer sees, and what your team gets—clear, fast, and consistent.</p>
+          <h2>See it in action</h2>
+          <p>Two real visuals: lead capture → booking confirmation. These use your current files in /assets.</p>
         </div>
       </div>
 
-      <div class="img-grid">
-        <div class="img-card">
-          <img src="./assets/lead-capture.jpeg" alt="AI captures lead details into a CRM" loading="lazy" decoding="async">
-          <div class="img-cap">Lead captured → structured details for staff (name, reason, preferred time)</div>
+      <div class="see-grid">
+        <div class="shot">
+          <img src="./assets/lead-capture.jpeg" alt="AI capturing lead info in a CRM" loading="lazy" decoding="async" />
+          <div class="cap"><b>Lead captured</b> — name, reason, preferred time, and staff-ready summary.</div>
         </div>
-        <div class="img-card">
-          <img src="./assets/booked.jpg" alt="Booked or text sent and lead logged" loading="lazy" decoding="async">
-          <div class="img-cap">Booked / Text sent + lead logged → conversion without chasing voicemails</div>
+
+        <div class="shot">
+          <img src="./assets/booked.jpg" alt="Booked confirmation and text sent lead logged" loading="lazy" decoding="async" />
+          <div class="cap"><b>Booked / text sent</b> — opt-in follow-up so leads don’t disappear after hours.</div>
         </div>
+      </div>
+
+      <div class="fineprint" style="margin-top:12px;">
+        If an image doesn’t show, the filename is not matching exactly (case-sensitive) or it’s not inside <b>/assets</b>.
       </div>
     </div>
   </section>
@@ -1385,13 +1423,17 @@
           <div class="roi-output" aria-live="polite">
             <div class="sub">Estimated recovered revenue / month</div>
             <div class="big" id="roiValue">$0</div>
-            <div class="sub">Formula: missed_calls_per_day × conversion_rate × avg_ticket × business_days</div>
+            <div class="sub">
+              Formula: missed_calls_per_day × conversion_rate × avg_ticket × business_days
+            </div>
           </div>
 
-          <div class="roi-note">Estimates vary by business and are not a guarantee of results.</div>
+          <div class="roi-note">
+            Estimates vary by business and are not a guarantee of results.
+          </div>
         </div>
 
-        <div class="callout">
+        <div class="card">
           <h3>What this includes</h3>
           <p>
             Faster response + consistent capture tends to increase conversion. Opt-in SMS helps keep people on track.
@@ -1450,7 +1492,7 @@
           </ul>
           <div class="price-actions">
             <a class="btn btn-primary track book-demo" href="#contact">Book a 2-minute demo</a>
-            <a class="btn track pilot" href="#pilot">Start a pilot</a>
+            <a class="btn" href="#pilot">Start a pilot</a>
           </div>
         </div>
 
@@ -1490,30 +1532,19 @@
         </div>
       </div>
 
-      <div class="pilot-grid">
-        <div class="callout">
-          <h3>What happens in the pilot</h3>
-          <p>
-            We tailor scripts to your front desk process, add your FAQs (hours/location/policies), and confirm routing rules.
-            You’ll see cleaner summaries and faster response immediately.
-          </p>
-          <div style="height:12px;"></div>
-          <div class="hero-actions">
-            <a class="btn btn-primary track pilot" href="#contact">Start a 14-day pilot</a>
-            <a class="btn track book-demo" href="#contact">Book a 2-minute demo</a>
-          </div>
-          <div class="fineprint">Pilot availability may be limited by setup capacity.</div>
+      <div class="card">
+        <h3>What happens in the pilot</h3>
+        <p>
+          We tailor scripts to your front desk process, add your FAQs (hours/location/policies), and confirm routing rules.
+          You’ll see cleaner summaries and faster response immediately.
+        </p>
+        <div style="height:12px;"></div>
+        <div class="hero-actions">
+          <a class="btn btn-primary track pilot" href="#contact">Start a 14-day pilot</a>
+          <a class="btn track book-demo" href="#contact">Book a 2-minute demo</a>
         </div>
-
-        <div class="card">
-          <h3>Good fit if you:</h3>
-          <p>
-            • miss calls during busy hours<br/>
-            • get after-hours appointment requests<br/>
-            • want faster conversion without hiring<br/>
-            • want fewer no-shows with opt-in reminders
-          </p>
-          <div class="fineprint" style="margin-top:10px;">No HIPAA claims. No medical advice provided.</div>
+        <div class="fineprint">
+          Pilot availability may be limited by setup capacity. No HIPAA claims. No medical advice provided.
         </div>
       </div>
     </div>
@@ -1568,17 +1599,18 @@
 
       <div class="contact-grid">
         <div class="form">
-          <!-- Status message -->
+
+          <!-- Bright status message -->
           <div
             id="leadStatus"
             style="display:none; margin-bottom:12px; padding:14px 14px; border-radius:20px;
-                   border:1px solid rgba(47,229,255,.55);
-                   background: radial-gradient(900px 220px at 10% 0%, rgba(47,229,255,.20), transparent 60%),
-                               radial-gradient(700px 220px at 90% 0%, rgba(43,140,255,.14), transparent 60%),
-                               rgba(255,255,255,.06);
-                   box-shadow: 0 0 0 1px rgba(47,229,255,.18), 0 18px 70px rgba(47,229,255,.10);
-                   color: inherit;
-                   font-size: 15px; line-height: 1.45;"
+                   border:1px solid rgba(18,179,255,.30);
+                   background: radial-gradient(900px 220px at 10% 0%, rgba(18,179,255,.14), transparent 60%),
+                               radial-gradient(700px 220px at 90% 0%, rgba(56,242,141,.10), transparent 60%),
+                               rgba(255,255,255,.70);
+                   box-shadow: var(--shadow2);
+                   color: var(--text);
+                   font-size: 15px; line-height: 1.45; font-weight: 700;"
           >
             ✅ Thanks — we got your request. If you don’t hear back within 1 business day, email <b>hello.simonaai@gmail.com</b>.
           </div>
@@ -1644,7 +1676,7 @@
               <input id="sms_consent" type="checkbox" name="sms_consent" value="yes" required />
               <span>
                 <b>
-                  <label for="sms_consent" style="display:inline; margin:0;">
+                  <label for="sms_consent" style="display:inline; margin:0; color:inherit;">
                     I agree to receive text messages about my inquiry.
                   </label>
                 </b>
@@ -1660,13 +1692,13 @@
               <input id="company_website" name="company_website" tabindex="-1" autocomplete="off" />
             </div>
 
-            <!-- Redirect fields -->
+            <!-- Hidden fields for redirect -->
             <input type="hidden" id="redirect_url_success" name="redirect_url_success"
-              value="https://marketingensocialmedia-gif.github.io/simona-ai/thanks.html">
+                   value="https://marketingensocialmedia-gif.github.io/simona-ai/thanks.html">
             <input type="hidden" id="redirect_url_error" name="redirect_url_error"
-              value="https://marketingensocialmedia-gif.github.io/simona-ai/index.html?submitted=0#contact">
+                   value="https://marketingensocialmedia-gif.github.io/simona-ai/index.html?submitted=0#contact">
             <input type="hidden" id="source_page" name="source_page"
-              value="https://marketingensocialmedia-gif.github.io/simona-ai/index.html">
+                   value="https://marketingensocialmedia-gif.github.io/simona-ai/index.html">
             <input type="hidden" id="timestamp" name="timestamp" value="">
 
             <div style="height:12px;"></div>
@@ -1677,21 +1709,21 @@
             </p>
           </form>
 
-          <!-- Calendly -->
           <div style="height:14px;"></div>
           <div class="card">
             <h3>Prefer to book instantly?</h3>
-            <p>Use the embedded scheduler below.</p>
+            <p>Calendly embed (already working):</p>
             <div style="height:10px;"></div>
-            <div style="border:1px solid rgba(255,255,255,.10); border-radius:18px; overflow:hidden; background:rgba(0,0,0,.10);">
+            <div style="border:1px solid var(--stroke); border-radius:18px; overflow:hidden; background:rgba(255,255,255,.55);">
               <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
               <div class="calendly-inline-widget" data-url="https://calendly.com/hello-simonaai/30min" style="min-width:320px;height:660px;"></div>
               <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
             </div>
           </div>
+
         </div>
 
-        <div class="callout">
+        <div class="card">
           <h3>What you get</h3>
           <p>
             A voice receptionist that answers calls, captures lead details, and follows up via opt-in SMS —
@@ -1714,8 +1746,27 @@
     <div class="wrap">
       <div style="display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:flex-start;">
         <div>
-          <div style="font-weight:950; margin-bottom:6px;">Simona <span style="background:linear-gradient(135deg,var(--blue),var(--cyan),var(--green)); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">AI</span></div>
-          <div style="line-height:1.55;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+            <div class="logo-badge" aria-hidden="true" style="width:38px;height:38px;border-radius:14px;">
+              <svg class="logo-svg" viewBox="0 0 64 64" style="width:24px;height:24px;">
+                <defs>
+                  <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#0B7CFF"/>
+                    <stop offset="0.55" stop-color="#19E6C0"/>
+                    <stop offset="1" stop-color="#38F28D"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="32" cy="32" r="22" fill="none" stroke="url(#g2)" stroke-width="5" opacity="0.95"/>
+                <text x="32" y="41" text-anchor="middle"
+                      font-size="28" font-weight="900"
+                      font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial"
+                      fill="white">ב</text>
+              </svg>
+            </div>
+            <div style="font-weight:950; color:var(--text);">Simona <span style="background:linear-gradient(90deg,var(--a3),var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent;">AI</span></div>
+          </div>
+
+          <div style="color:var(--muted); line-height:1.55;">
             Serving <b>Texas</b> (San Antonio launch)<br/>
             Email: <a href="mailto:hello.simonaai@gmail.com">hello.simonaai@gmail.com</a>
           </div>
@@ -1736,12 +1787,25 @@
             <a class="track book-demo" href="#contact">Book a demo</a>
           </div>
 
-          <div style="opacity:.7; font-size:12.5px; line-height:1.5;">
+          <div style="color:var(--muted2); font-size:12.5px; line-height:1.5;">
             © <span id="yr"></span> Simona AI. All rights reserved.
           </div>
         </div>
       </div>
     </div>
+
+    <!-- =========================================================
+         FLAT LOGO (for invoices/legal) — copy/paste into a file:
+         assets/logo-flat.svg
+         =========================================================
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+        <rect width="256" height="256" fill="#0B7CFF"/>
+        <text x="128" y="162" text-anchor="middle"
+              font-size="140" font-weight="900"
+              font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial"
+              fill="#FFFFFF">ב</text>
+      </svg>
+    -->
   </footer>
 
   <!-- Sticky mobile CTA -->
@@ -1829,9 +1893,9 @@
 
       if (statusBox && submitted === "0") {
         statusBox.style.display = "block";
-        statusBox.style.borderColor = "rgba(255,80,80,.55)";
+        statusBox.style.borderColor = "rgba(255,80,80,.40)";
         statusBox.style.background =
-          "radial-gradient(900px 220px at 10% 0%, rgba(255,80,80,.16), transparent 60%), rgba(255,255,255,.06)";
+          "radial-gradient(900px 220px at 10% 0%, rgba(255,80,80,.14), transparent 60%), rgba(255,255,255,.70)";
         statusBox.textContent = "⚠️ Something went wrong. Please try again or email hello.simonaai@gmail.com.";
       }
 
@@ -1850,28 +1914,7 @@
       });
     }
 
-    // Theme toggle (system preference + localStorage)
-    (function(){
-      const btn = document.getElementById("themeToggle");
-      const stored = localStorage.getItem("simona_theme");
-      const systemPrefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-
-      function apply(theme){
-        document.body.setAttribute("data-theme", theme);
-        if (btn) btn.textContent = theme === "light" ? "☀️" : "🌙";
-      }
-
-      let theme = stored || (systemPrefersLight ? "light" : "dark");
-      apply(theme);
-
-      btn?.addEventListener("click", () => {
-        theme = (document.body.getAttribute("data-theme") === "light") ? "dark" : "light";
-        localStorage.setItem("simona_theme", theme);
-        apply(theme);
-      });
-    })();
-
-    // Basic tracking hooks (no-op if GA4/pixel not installed)
+    // Basic tracking hooks
     function trackEvent(name, params){
       try { window.gtag && window.gtag('event', name, params || {}); } catch(e){}
       try { window.fbq && window.fbq('trackCustom', name, params || {}); } catch(e){}
@@ -1885,6 +1928,47 @@
     document.getElementById("leadForm")?.addEventListener("submit", () => {
       trackEvent("form_submit", { form: "leadForm" });
     });
+
+    /* =========================================================
+       THEME TOGGLE (default: LIGHT, stored in localStorage)
+       ========================================================= */
+    const root = document.documentElement;
+    const themeToggle = document.getElementById("themeToggle");
+    const themeLabel = document.getElementById("themeLabel");
+
+    function applyTheme(t){
+      root.setAttribute("data-theme", t);
+      if (themeLabel) themeLabel.textContent = (t === "dark") ? "Dark" : "Light";
+      try { localStorage.setItem("simona_theme", t); } catch(e){}
+    }
+
+    // Start theme:
+    // 1) stored preference
+    // 2) system preference
+    // 3) default light
+    (function initTheme(){
+      let stored = null;
+      try { stored = localStorage.getItem("simona_theme"); } catch(e){}
+      if (stored === "dark" || stored === "light") return applyTheme(stored);
+
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      applyTheme(prefersDark ? "dark" : "light");
+    })();
+
+    themeToggle?.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme") || "light";
+      applyTheme(current === "dark" ? "light" : "dark");
+    });
   </script>
+
+  <!-- =========================================================
+       FAVICON / SOCIAL PACK (WHAT TO UPLOAD)
+       =========================================================
+       1) assets/og.png            (1200×630)  — REQUIRED for WhatsApp/iMessage preview
+       2) assets/apple-touch-icon.png (180×180)
+       3) assets/favicon-32.png       (32×32)
+       4) assets/favicon.svg          (use the flat logo SVG or export a simplified version)
+       Tip: export from the flat SVG block above using any SVG→PNG tool.
+  -->
 </body>
 </html>
