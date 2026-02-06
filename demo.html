@@ -3,230 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Simona AI Demo — 3-Minute Video</title>
-  <meta name="description" content="Watch a quick demo of Simona AI answering missed calls and booking appointments for dentists & med spas." />
-
-  <meta property="og:title" content="Simona AI Demo" />
-  <meta property="og:description" content="Watch a quick demo of Simona answering missed calls and booking appointments." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="./assets/og.jpg" />
-
+  <title>Simona AI — Live Demo</title>
   <style>
-    :root{
-      --bg0:#070712;
-      --bg1:#0a0a16;
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.62);
-      --shadow: 0 16px 50px rgba(0,0,0,.55);
-      --glow: 0 0 0 1px rgba(255,255,255,.12), 0 20px 80px rgba(145, 95, 255, .20);
-      --pink: #ff4fd8;
-      --purple: #8f6bff;
-      --cyan: #3fe7ff;
-      --radius: 28px;
-      --navH: 74px;
-    }
-
-    *{ box-sizing:border-box; }
-    html,body{
-      margin:0; padding:0;
-      background:
-        radial-gradient(1200px 900px at 20% 10%, rgba(143,107,255,.18), transparent 55%),
-        radial-gradient(900px 650px at 80% 20%, rgba(255,79,216,.12), transparent 55%),
-        radial-gradient(700px 600px at 55% 90%, rgba(63,231,255,.10), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      color: var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      scroll-behavior:smooth;
-    }
-
-    a{ color:inherit; text-decoration:none; }
-    .wrap{ width:min(1100px, calc(100% - 32px)); margin:0 auto; }
-
-    .nav{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(16px);
-      background: rgba(5,5,12,.60);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding: 12px 0;
-      gap: 12px;
-      min-height: var(--navH);
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      font-weight: 800;
-      letter-spacing: .2px;
-      white-space:nowrap;
-    }
-    .brand img{
-      width: 42px; height: 42px;
-      border-radius: 14px;
-      box-shadow: 0 0 0 1px rgba(255,255,255,.10);
-      object-fit: cover;
-    }
-    .brand span{ font-size: 16px; color: rgba(255,255,255,.90); }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.88);
-      font-weight: 650;
-      font-size: 14px;
-      cursor:pointer;
-      transition: .15s ease;
-    }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.07); }
-    .btn-primary{
-      border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(135deg, rgba(143,107,255,.95), rgba(255,79,216,.85));
-      box-shadow: 0 14px 40px rgba(143,107,255,.25);
-      color:white;
-    }
-
-    main{ padding: 42px 0 50px; }
-    h1{
-      font-family: ui-serif, Georgia, "Times New Roman", serif;
-      font-weight: 800;
-      letter-spacing: -.5px;
-      margin: 0 0 10px;
-      font-size: clamp(34px, 4.2vw, 54px);
-      line-height: 1.05;
-    }
-    .lead{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 16.5px;
-      line-height: 1.6;
-      max-width: 70ch;
-    }
-
-    .card{
-      margin-top: 18px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .video-shell{
-      border-radius: 18px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: var(--glow);
-      background: rgba(0,0,0,.20);
-      aspect-ratio: 16 / 9; /* keep it 16:9 */
-    }
-    .video-shell iframe{
-      width: 100%;
-      height: 100%;
-      display:block;
-      border: 0;
-      background: rgba(0,0,0,.35);
-    }
-
-    .cta-row{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top: 14px;
-    }
-
-    .fineprint{
-      margin-top: 12px;
-      color: rgba(255,255,255,.45);
-      font-size: 12.5px;
-      line-height: 1.45;
-    }
-
-    footer{
-      padding: 28px 0 44px;
-      color: rgba(255,255,255,.50);
-      font-size: 13px;
-      border-top: 1px solid rgba(255,255,255,.06);
-    }
-    footer a{
-      color: rgba(255,255,255,.78);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    @media (max-width: 980px){
-      :root{ --navH: 66px; }
-    }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin: 0; background: #0b1020; color: #eaf0ff; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 18px; }
+    .grid { display: grid; gap: 16px; grid-template-columns: 1.1fr 0.9fr; }
+    .card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.10); border-radius: 16px; padding: 16px; }
+    h1 { font-size: 22px; margin: 0 0 6px; }
+    p { margin: 0 0 12px; opacity: .9; }
+    .label { font-size: 12px; opacity: .75; margin-top: 10px; }
+    .value { font-size: 14px; margin-top: 2px; }
+    .pill { display:inline-block; font-size:12px; padding:6px 10px; border-radius:999px; background: rgba(122,252,255,.14); border:1px solid rgba(122,252,255,.25); }
+    .muted { opacity:.75; font-size: 12px; }
   </style>
 </head>
-
 <body>
-  <header class="nav">
-    <div class="wrap">
-      <div class="nav-inner">
-        <a class="brand" href="./index.html" aria-label="Back to Simona AI home">
-          <img src="./assets/logo.png" alt="Simona AI logo" />
-          <span>Simona AI</span>
-        </a>
+  <div class="wrap">
+    <h1>Simona AI — Live Receptionist Demo</h1>
+    <p class="muted">Talk to the agent (left). When a lead is captured, it shows up (right).</p>
 
-        <a class="btn" href="./index.html">Back to site</a>
+    <div class="grid">
+      <div class="card">
+        <div class="pill">Voice demo</div>
+        <p class="muted" style="margin-top:10px;">
+          Try: “Hi, I want to book Hydrafacial Deluxe with Dr. Sofía tomorrow at 11:30.”
+        </p>
+
+        <!-- ElevenLabs widget -->
+        <elevenlabs-convai agent-id="YOUR_AGENT_ID"></elevenlabs-convai>
+        <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async></script>
       </div>
-    </div>
-  </header>
-
-  <main>
-    <div class="wrap">
-      <h1>Watch the 3-minute demo</h1>
-      <p class="lead">
-        See how Simona answers missed calls, captures the lead, and moves them toward booking —
-        built for dentists & med spas in Texas.
-      </p>
 
       <div class="card">
-        <div class="video-shell">
-          <!-- YouTube Embed -->
-          <iframe
-            src="https://www.youtube.com/embed/0GzzhGqHwjM?rel=0&modestbranding=1"
-            title="Simona AI Demo"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
+        <div class="pill">Captured lead (live)</div>
+        <div id="status" class="muted" style="margin-top:10px;">Waiting for data…</div>
 
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://calendly.com/hello-simonaai/30min?utm_source=vsl&utm_medium=demo-page" target="_blank" rel="noopener">
-            Book a 30-min setup call
-          </a>
-          <a class="btn" href="./index.html#contact">Back to contact form</a>
-          <a class="btn" href="https://youtu.be/0GzzhGqHwjM" target="_blank" rel="noopener">
-            Open on YouTube
-          </a>
-        </div>
-
-        <div class="fineprint">
-          Tip: If you’re a fit, we’ll map ROI + give you a clear setup plan on the call.
-        </div>
+        <div class="label">Client</div><div class="value" id="client">—</div>
+        <div class="label">Phone</div><div class="value" id="phone">—</div>
+        <div class="label">Service</div><div class="value" id="service">—</div>
+        <div class="label">Staff</div><div class="value" id="staff">—</div>
+        <div class="label">Date / Time</div><div class="value" id="dt">—</div>
+        <div class="label">Status</div><div class="value" id="leadStatus">—</div>
+        <div class="label">Created</div><div class="value" id="created">—</div>
       </div>
     </div>
-  </main>
+  </div>
 
-  <footer>
-    <div class="wrap">
-      <p>© 2026 Simona AI. Serving Texas. Questions? <a href="mailto:hello.simonaai@gmail.com">hello.simonaai@gmail.com</a></p>
-    </div>
-  </footer>
+  <script>
+    // Replace in Step 2
+    const LAST_LEAD_URL = "https://aisimona.app.n8n.cloud/webhook/medspa-lastlead";
+
+    async function refresh() {
+      try {
+        const res = await fetch(LAST_LEAD_URL, { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const d = await res.json();
+
+        document.getElementById("status").textContent = "Live";
+        document.getElementById("client").textContent = d.clientName || "—";
+        document.getElementById("phone").textContent = d.clientPhone || "—";
+        document.getElementById("service").textContent = d.serviceName || "—";
+        document.getElementById("staff").textContent = d.staffName || "—";
+        document.getElementById("dt").textContent = `${d.date || "—"} ${d.preferredTime || ""}`.trim();
+        document.getElementById("leadStatus").textContent = d.status || "—";
+        document.getElementById("created").textContent = d.createdAt || "—";
+      } catch (e) {
+        document.getElementById("status").textContent = "Not connected yet (" + e.message + ")";
+      }
+    }
+
+    refresh();
+    setInterval(refresh, 2500);
+  </script>
 </body>
 </html>
